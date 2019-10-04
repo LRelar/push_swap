@@ -24,7 +24,8 @@ void pa(t_dlst **head_a, t_dlst **head_b);
 void pb(t_dlst **head_a, t_dlst **head_b);
 
 /**************************Все до этого не мое*********************/
-#include "./includes/service.h"
+#include "service.h"
+#include <stdlib.h>
 
 typedef struct	s_push_swap_frame
 {
@@ -34,17 +35,21 @@ typedef struct	s_push_swap_frame
     int MEDIAN; //медиана
 
     t_dlst *a; //стэк а
-    t_dlst *b; //стэк а
+    t_dlst *b; //стэк b
 
     //переменные для  sort_2-5
 	int temp;
 	int top;
 	int mid;
 	int bot;
+
+	int	*stages //Рубежи
 }				t_frame;
 /*********************Сервисные функции push_swap*********************/
 
 void	s_init_tmb(t_frame *fr);
+t_frame	s_create_frame(t_dlst *a, t_dlst *b, int len, int min, int max);
+int		s_hm_skip(t_dlst *head, int val);
 
 /*********************************************************************/
 

@@ -43,7 +43,7 @@ void	sort_4(t_frame *fr)
 	}
 	if ((fr->temp > fr->top) && (fr->temp > fr->mid) && (fr->temp < fr->bot))
 	{
-		s_rep_ra(&(fr->a), 2);
+		rra(&(fr->a));
 		pa(&(fr->a), &(fr->b));
 		s_rep_ra(&(fr->a), 2);
 	}
@@ -51,10 +51,25 @@ void	sort_4(t_frame *fr)
 
 void	sort_5(t_frame *fr)
 {
+	int depth;
+
 	s_rep_pb(&(fr->a), &(fr->b), 2);
 	sort_3(fr);
 	if (fr->b->data < fr->b->next->data)
 		rb(&(fr->b));
-
+	depth = s_hm_skip(fr->a, fr->b->data);
+	if (fr->LEN / 2 > depth)
+	{
+		s_rep_ra(&(fr->a), depth);
+		pa(&(fr->a), &(fr->b));
+		pa(&(fr->a), &(fr->b));
+		s_rep_rra(&(fr->a), depth + 2);
+	}
+	else
+	{
+		s_rep_rra(&(fr->a), fr->LEN - depth);
+		pa(&(fr->a), &(fr->b));
+		pa(&(fr->a), &(fr->b));
+		s_rep_ra(&(fr->a), fr->LEN - depth + 2);
+	}
 }
-
