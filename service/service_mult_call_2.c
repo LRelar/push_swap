@@ -1,3 +1,4 @@
+#include "../includes/push_swap.h"
 #include "../includes/service.h"
 
 void	s_rep_ra(t_dlst **head_a, int n)

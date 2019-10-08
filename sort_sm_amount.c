@@ -1,4 +1,5 @@
-#include "./includes/push_swap.h"
+#include "../includes/push_swap.h"
+#include "../includes/service.h"
 
 void	sort_2(t_frame *fr)
 {
@@ -58,7 +59,7 @@ void	sort_5(t_frame *fr)
 	if (fr->b->data < fr->b->next->data)
 		rb(&(fr->b));
 	depth = s_hm_skip(fr->a, fr->b->data);
-	if (fr->LEN / 2 > depth)
+	if (fr->MEDIAN_A > depth)
 	{
 		s_rep_ra(&(fr->a), depth);
 		pa(&(fr->a), &(fr->b));
