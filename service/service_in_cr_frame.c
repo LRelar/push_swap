@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   service_in_cr_frame.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/08 18:43:01 by ekedge-w          #+#    #+#             */
+/*   Updated: 2019/10/08 18:44:25 by ekedge-w         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "../includes/push_swap.h"
 #include "../includes/service.h"
 
@@ -24,7 +35,7 @@ t_frame	*s_create_frame(t_dlst *a, t_dlst *b, int len, int min, int max)
         fr->stages = NULL;
     fr->MIN = min;
     fr->MAX = max;
-    fr->LEN = len;
+    fr->LEN_A = len;
     fr->MEDIAN_A = len / 2;
     fr->MEDIAN_B = 0;
     fr->a = a;

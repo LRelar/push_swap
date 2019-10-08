@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   service.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/08 18:42:35 by ekedge-w          #+#    #+#             */
+/*   Updated: 2019/10/08 18:42:38 by ekedge-w         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #ifndef PUSH_SWAP_SERVICE_H
 #define PUSH_SWAP_SERVICE_H
 
@@ -37,4 +48,5 @@ int		s_hm_skip(t_dlst *head, int val);
 void	s_split_chunks(t_frame *fr);
 void	s_search_fs(t_frame *fr, int min, int max);
 void	s_calc_com_table(t_frame *fr);
+
 #endif //PUSH_SWAP_SERVICE_H

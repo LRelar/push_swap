@@ -1,5 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   service_push_swap.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/08 18:42:05 by ekedge-w          #+#    #+#             */
+/*   Updated: 2019/10/08 20:51:49 by ekedge-w         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
-#include "../includes/service.h"
+//TODO проверить изменяемость
+static void reverse(int com[3][2])
+{
+	int j;
+
+	j = (com[0][0] > 0) ? 0 : 1;
+	if (com[0][j] < com[1][j])
+	{
+		com[1][j] -= com[0][j];
+		com[2][j] = com[0][j];
+		com[0][j] = 0;
+	}
+	else
+	{
+		com[0][j] += com[1][j];
+		com[2][j] = com[1][j];
+		com[1][j] = 0;
+	}
+}
 
 int		s_hm_skip(t_dlst *head, int val)
 {
@@ -27,9 +57,9 @@ void	s_split_chunks(t_frame *fr)
 	int i;
 
 	i = 0;
-	n = (fr->LEN > 100) ? 11 : 5;
-	div = fr->LEN / n;
-	mod = fr->LEN % n;
+	n = (fr->LEN_A > 100) ? 11 : 5;
+	div = fr->LEN_A / n;
+	mod = fr->LEN_A % n;
 	temp = fr->MIN;
 	while (--n >= 0)
 	{
@@ -43,7 +73,9 @@ void	s_split_chunks(t_frame *fr)
 	}
 }
 
-//TODO 1st, 2d,  и глубины  должны быть обнулены перед передачей и после каждой переброски пересчет LEN MED_A MED_B  и обнуление массива команд
+//TODO 1st, 2d,  и глубины  должны быть обнулены перед передачей
+// после каждой переброски пересчет LEN_A_B MED_A_B  и обнуление массива команд
+// scroll выставляется перед расчетами в 0
 void	s_search_fs(t_frame *fr, int min, int max)
 {
 	t_dlst *head;
@@ -59,15 +91,61 @@ void	s_search_fs(t_frame *fr, int min, int max)
 			fr->sec = tail;
 		if ((fr->fst != NULL) && (fr->sec != NULL))
 			break;
-		if ((fr->fst == NULL) && (fr->depth[0])++)
+		if ((fr->fst == NULL) && (fr->depth1)++)
 			head = head->next;
-		if ((fr->sec == NULL) && (fr->depth[1])++)
+		if ((fr->sec == NULL) && (fr->depth2)++)
 			tail = tail->prev;
 	}
 }
 
 void	s_calc_com_table(t_frame *fr)
 {
-        if (fr->depth[i] <= fr->MEDIAN_A)
-            fr->com1[0][0] = 1;
+	(fr->depth1 <= fr->MEDIAN_A) ? (fr->com1[0][0] = fr->depth1) :
+		(fr->com1[0][1] = fr->LEN_A - fr->depth1);
+	(fr->depth2 < fr->MEDIAN_A) ? (fr->com2[0][1] = fr->depth2 + 1) :
+		(fr->com2[0][1] = fr->LEN_A - fr->depth2 - 1);
+	fr->depth1 = s_hm_skip(fr->b, fr->fst->data);
+	fr->depth2 = s_hm_skip(fr->b, fr->sec->data);
+	if (fr->depth1 <= fr->MEDIAN_B)
+		fr->com1[1][0] = fr->depth1;
+	else
+	{
+		fr->com1[1][1] = fr->LEN_B - fr->depth1;
+		fr->scroll1 = 1;
+	}
+	if (fr->depth2 <= fr->MEDIAN_B)
+		fr->com2[1][0] = fr->depth2;
+	else
+	{
+		fr->com2[1][1] = fr->LEN_B - fr->depth2;
+		fr->scroll2 = 1;
+	}
+	reverse(fr->com1);
+	reverse(fr->com2);
 }
+/*
+ * if (fr->depth1 <= fr->MEDIAN_A)
+		fr->com1[0][0] = fr->depth1;
+	else
+		fr->com1[0][1] = fr->LEN_A - fr->depth1;
+	if (fr->depth2 < fr->MEDIAN_A)
+		fr->com2[0][1] = fr->depth2 + 1;
+	else
+		fr->com2[0][1] = fr->LEN_A - fr->depth2 - 1;
+	fr->depth1 = s_hm_skip(fr->b, fr->fst->data);
+	fr->depth2 = s_hm_skip(fr->b, fr->sec->data);
+	if (fr->depth1 <= fr->MEDIAN_B)
+		fr->com1[1][0] = fr->depth1;
+	else
+	{
+		fr->com1[1][1] = fr->LEN_B - fr->depth1;
+		fr->scroll = 1;
+	}
+	if (fr->depth2 <= fr->MEDIAN_B)
+		fr->com2[1][0] = fr->depth2;
+	else
+	{
+		fr->com2[1][1] = fr->LEN_B - fr->depth2;
+		fr->scroll = 1;
+	}
+ * */

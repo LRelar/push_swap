@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/08 18:42:24 by ekedge-w          #+#    #+#             */
+/*   Updated: 2019/10/08 20:40:00 by ekedge-w         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #ifndef PUSH_SWAP_PUSH_SWAP_H
 #define PUSH_SWAP_PUSH_SWAP_H
 
@@ -32,18 +43,23 @@ typedef struct	s_push_swap_frame
 {
     int MIN; //мин. значение
     int MAX; //макс. значение
-    int LEN; //кол-во символов
+    int LEN_A; //кол-во символов
+    int LEN_B;
     int MEDIAN_A; //медианы
 	int MEDIAN_B;
 
     t_dlst *a; //стэк а
     t_dlst *b; //стэк b
 
+    //переменные для сортировок больших порядков
     t_dlst *fst;
     t_dlst *sec;
-    int depth[2];
+	int depth1;
+    int depth2;
     int com1[3][2];
 	int com2[3][2];
+	int scroll1;
+	int scroll2;
     //переменные для  sort_2-5
 	int temp;
 	int top;

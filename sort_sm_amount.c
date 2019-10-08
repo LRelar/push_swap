@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_sm_amount.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/08 18:43:30 by ekedge-w          #+#    #+#             */
+/*   Updated: 2019/10/08 18:44:25 by ekedge-w         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "../includes/push_swap.h"
 #include "../includes/service.h"
 
@@ -68,9 +79,9 @@ void	sort_5(t_frame *fr)
 	}
 	else
 	{
-		s_rep_rra(&(fr->a), fr->LEN - depth);
+		s_rep_rra(&(fr->a), fr->LEN_A - depth);
 		pa(&(fr->a), &(fr->b));
 		pa(&(fr->a), &(fr->b));
-		s_rep_ra(&(fr->a), fr->LEN - depth + 2);
+		s_rep_ra(&(fr->a), fr->LEN_A - depth + 2);
 	}
 }
