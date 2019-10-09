@@ -1,40 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   service_mult_call_3.c                              :+:      :+:    :+:   */
+/*   sort_large.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 18:43:18 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/09 17:13:29 by ekedge-w         ###   ########.fr       */
+/*   Created: 2019/10/09 18:23:22 by ekedge-w          #+#    #+#             */
+/*   Updated: 2019/10/09 21:01:16 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../includes/push_swap.h"
+#include "../includes/service.h"
 
-void	s_rep_rra(t_dlst **head_a, int n)
+static void	do_com1(t_frame *fr)
 {
-	int i;
+	if (fr->scroll1 == 0)
+	{
+		s_rep_ra(&(fr->a),fr->com1[0][0]);
+		s_rep_rb(&(fr->b),fr->com1[0][0]);
 
-	i = -1;
-	while (++i < n)
-		rra(head_a);
+	}
+
 }
 
-void	s_rep_rrb(t_dlst **head_b, int n)
+static void	do_com2(t_frame *fr)
 {
-	int i;
 
-	i = -1;
-	while (++i < n)
-		rrb(head_b);
 }
 
-void	s_rep_rrr(t_dlst **head_a, t_dlst **head_b, int n)
+void		sort_100_ch1(t_frame *fr, int st_min, int st_max)
 {
-	int i;
-
-	i = -1;
-	while (++i < n)
-		rrr(head_a, head_b);
+	s_update_fr(fr);
+	search_fs(fr, st_min, st_max);
+	calc_com_table(fr);
+	(choice_opt(fr) == 1) ? do_com1(fr) : do_com2(fr);
+}
+void		sort_100(t_frame *fr)
+{
+	s_split_chunks(fr);
+	sort_100_ch1(fr);
 }
 
