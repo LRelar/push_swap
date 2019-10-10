@@ -6,7 +6,7 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 18:42:24 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/10 17:21:23 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/10 19:00:12 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@
 #include <unistd.h>
 #include <limits.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include "../libft/libft.h"
 #include "../includes/dc_lists.h"
-
-/**************************Все до этого не мое*********************/
 
 typedef struct	s_push_swap_frame
 {
@@ -52,16 +51,16 @@ typedef struct	s_push_swap_frame
 	int	*stages; //Рубежи
 }				t_frame;
 
-void sa(t_dlst **head_a);
-void sb(t_dlst **head_b);
+void sa(t_dlst **head_a, int flag);
+void sb(t_dlst **head_b, int flag);
 void ss(t_dlst **head_a, t_dlst **head_b);
 
-void ra(t_dlst **head_a);
-void rb(t_dlst **head_b);
+void ra(t_dlst **head_a, int flag);
+void rb(t_dlst **head_b, int flag);
 void rr(t_dlst **head_a, t_dlst **head_b);
 
-void rra(t_dlst **head_a);
-void rrb(t_dlst **head_b);
+void rra(t_dlst **head_a, int flag);
+void rrb(t_dlst **head_b, int flag);
 void rrr(t_dlst **head_a, t_dlst **head_b);
 
 void pa(t_dlst **head_a, t_dlst **head_b);

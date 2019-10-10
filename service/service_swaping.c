@@ -6,177 +6,182 @@
 /*   By: sstark <sstark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/06 17:47:30 by sstark            #+#    #+#             */
-/*   Updated: 2019/10/10 17:59:06 by sstark           ###   ########.fr       */
+/*   Updated: 2019/10/10 19:00:12 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include <stdio.h>
 
 /* swap first and second elements */
 
-void	sa(t_dlst **first)
+void sa(t_dlst **head_a, int flag)
 {
 	t_dlst *tail;
 	t_dlst *second;
     t_dlst *third;
 
-	tail = (*first)->prev;
-	second = (*first)->next;
-	third = (*first)->next->next;
-	if (tail == second || tail == *first)
+	tail = (*head_a)->prev;
+	second = (*head_a)->next;
+	third = (*head_a)->next->next;
+	if (tail == second || tail == *head_a)
 		return ;
 	else
 	{
-		(*first)->next = third;
-		(*first)->prev = second;
+		(*head_a)->next = third;
+		(*head_a)->prev = second;
 		second->prev = tail;
-		second->next = (*first);
+		second->next = (*head_a);
 		if (tail == third)
-			tail->prev = (*first);
+			tail->prev = (*head_a);
 		tail->next = second;
-		*first = second;
+		*head_a = second;
 	}
-	write(1, "sa\n", 4);
+	if (flag)
+		write(1, "sa\n", 4);
 }
 
-void	sb(t_dlst **first)
+void sb(t_dlst **head_b, int flag)
 {
 	t_dlst *tail;
 	t_dlst *second;
     t_dlst *third;
 
-	tail = (*first)->prev;
-	second = (*first)->next;
-	third = (*first)->next->next;
-	if (tail == second || tail == *first)
+	tail = (*head_b)->prev;
+	second = (*head_b)->next;
+	third = (*head_b)->next->next;
+	if (tail == second || tail == *head_b)
 		return ;
 	else
 	{
-		(*first)->next = third;
-		(*first)->prev = second;
+		(*head_b)->next = third;
+		(*head_b)->prev = second;
 		second->prev = tail;
-		second->next = (*first);
+		second->next = (*head_b);
 		if (tail == third)
-			tail->prev = (*first);
+			tail->prev = (*head_b);
 		tail->next = second;
-		*first = second;
+		*head_b = second;
 	}
-	write(1, "sb\n", 4);
+	if (flag)
+		write(1, "sb\n", 4);
 }
 
-void	ss(t_dlst **a, t_dlst **b)
+void	ss(t_dlst **head_a, t_dlst **head_b)
 {
-	sa_b(a);
-	sa_b(b);
+	sa(head_a, 0);
+	sb(head_b, 0);
 	write(1, "ss\n", 4);
 }
 
 /* first element moving to the third place */
 
-void	ra(t_dlst **first)
+void ra(t_dlst **head_a, int flag)
 {
     t_dlst *tail;
 	t_dlst *second;
     t_dlst *third;
 
-	tail = (*first)->prev;
-	second = (*first)->next;
-	third = (*first)->next->next;
-	(*first)->next = third->next;
-	(*first)->prev = third;
-	third->next = *first;
+	tail = (*head_a)->prev;
+	second = (*head_a)->next;
+	third = (*head_a)->next->next;
+	(*head_a)->next = third->next;
+	(*head_a)->prev = third;
+	third->next = *head_a;
 	if (tail == third)
-		second->prev = *first;
+		second->prev = *head_a;
 	if (tail != third)
 	{
 		second->prev = tail;
 		tail->next = second;
 	}
-	*first = second;
-	write(1, "ra\n", 4);
+	*head_a = second;
+	if (flag)
+		write(1, "ra\n", 4);
 }
 
-void	rb(t_dlst **first)
+void rb(t_dlst **head_b, int flag)
 {
     t_dlst *tail;
 	t_dlst *second;
     t_dlst *third;
 
-	tail = (*first)->prev;
-	second = (*first)->next;
-	third = (*first)->next->next;
-	(*first)->next = third->next;
-	(*first)->prev = third;
-	third->next = *first;
+	tail = (*head_b)->prev;
+	second = (*head_b)->next;
+	third = (*head_b)->next->next;
+	(*head_b)->next = third->next;
+	(*head_b)->prev = third;
+	third->next = *head_b;
 	if (tail == third)
-		second->prev = *first;
+		second->prev = *head_b;
 	if (tail != third)
 	{
 		second->prev = tail;
 		tail->next = second;
 	}
-	*first = second;
-	write(1, "rb\n", 4);
+	*head_b = second;
+	if (flag)
+		write(1, "rb\n", 4);
 }
 
 void	rr(t_dlst **a, t_dlst **b)
 {
-	ra_b(a);
-	ra_b(b);
+	ra(a, 0);
+	rb(b, 0);
 	write(1, "rr\n", 4);
 }
 
 /* third element moving to the first place */
 
-void	rra(t_dlst **first)
+void rra(t_dlst **head_a, int flag)
 {
 	t_dlst *tail;
 	t_dlst *second;
     t_dlst *third;
 
-	tail = (*first)->prev;
-	second = (*first)->next;
-	third = (*first)->next->next;
+	tail = (*head_a)->prev;
+	second = (*head_a)->next;
+	third = (*head_a)->next->next;
 	if (tail != third)
 	{
-		(*first)->prev = third;
+		(*head_a)->prev = third;
 		second->next = third->next;
 		third->next->prev = second;
-		third->next = *first;
+		third->next = *head_a;
 		third->prev = tail;
 		tail->next = third;
 	}
-	*first = third;
-	write(1, "rra\n", 4);
+	*head_a = third;
+	if (flag)
+		write(1, "rra\n", 4);
 }
 
-void	rrb(t_dlst **first)
+void rrb(t_dlst **head_b, int flag)
 {
 	t_dlst *tail;
 	t_dlst *second;
     t_dlst *third;
 
-	tail = (*first)->prev;
-	second = (*first)->next;
-	third = (*first)->next->next;
+	tail = (*head_b)->prev;
+	second = (*head_b)->next;
+	third = (*head_b)->next->next;
 	if (tail != third)
 	{
-		(*first)->prev = third;
+		(*head_b)->prev = third;
 		second->next = third->next;
 		third->next->prev = second;
-		third->next = *first;
+		third->next = *head_b;
 		third->prev = tail;
 		tail->next = third;
 	}
-	*first = third;
-	write(1, "rrb\n", 4);
+	*head_b = third;
+	if (flag)
+		write(1, "rrb\n", 4);
 }
 
 void	rrr(t_dlst **a, t_dlst **b)
 {
-	rra_b(a);
-	rra_b(b);
+	rra(a, 0);
+	rrb(b, 0);
 	write(1, "rrr\n", 4);
 }
 
