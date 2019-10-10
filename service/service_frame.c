@@ -40,6 +40,18 @@ static void		null_all_int(t_frame *fr)
 	fr->depth2 = 0;
 }
 
+void			s_len_b(t_frame *fr)
+{
+	t_dlst *temp;
+
+	temp = fr->b;
+	while (temp != fr->b)
+	{
+		fr->LEN_B++;
+		temp = temp->next;
+	}
+}
+
 void			s_update_fr(t_frame *fr)
 {
 	t_dlst *temp;
@@ -51,12 +63,7 @@ void			s_update_fr(t_frame *fr)
 		fr->LEN_A++;
 		temp = temp->next;
 	}
-	temp = fr->b;
-	while (temp != fr->b)
-	{
-		fr->LEN_B++;
-		temp = temp->next;
-	}
+	s_len_b(fr);
 	fr->MEDIAN_A = fr->LEN_A / 2;
 	fr->MEDIAN_B = fr->LEN_B / 2;
 }

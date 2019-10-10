@@ -75,8 +75,8 @@ void 	sort_2(t_frame *fr);
 void	sort_3(t_frame *fr);
 void	sort_4(t_frame *fr);
 void	sort_5(t_frame *fr);
-void	sort_100(t_frame *fr);
-void	sort_100_ch1(t_frame *fr);
+void	sort_large(t_frame *fr);
+void	sort_chunk(t_frame *fr, int st_min, int st_max);
 
 void	search_fs(t_frame *fr, int min, int max);
 void	calc_com_table(t_frame *fr);

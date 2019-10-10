@@ -43,7 +43,7 @@ void	s_init_tmb(t_frame *fr);
 t_frame	*s_create_frame(t_dlst *a, t_dlst *b, int len, int min);
 t_frame	*s_delete_frame(t_frame *frame);
 void	s_update_fr(t_frame *fr);
-
+void	s_len_b(t_frame *fr);
 /********************push swap***********************/
 
 int		s_hm_skip(t_dlst *head, int val);
