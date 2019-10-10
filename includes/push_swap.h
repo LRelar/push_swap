@@ -6,7 +6,7 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 18:42:24 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/09 19:24:12 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/10 16:51:55 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,9 @@
 #define PUSH_SWAP_PUSH_SWAP_H
 
 #include <stdlib.h>
+#include "../includes/dc_lists.h"
 
-typedef struct	s_double_link_lst
-{
-    int							data;
-    struct s_double_link_lst	*next;
-    struct s_double_link_lst	*prev;
-}				t_dlst;
 
-void sa(t_dlst **head_a);
-void sb(t_dlst **head_b);
-void ss(t_dlst **head_a, t_dlst **head_b);
-
-void ra(t_dlst **head_a);
-void rb(t_dlst **head_b);
-void rr(t_dlst **head_a, t_dlst **head_b);
-
-void rra(t_dlst **head_a);
-void rrb(t_dlst **head_b);
-void rrr(t_dlst **head_a, t_dlst **head_b);
-
-void pa(t_dlst **head_a, t_dlst **head_b);
-void pb(t_dlst **head_a, t_dlst **head_b);
-
-void del_lst(t_dlst *lst);
 /**************************Все до этого не мое*********************/
 
 typedef struct	s_push_swap_frame
@@ -70,6 +49,23 @@ typedef struct	s_push_swap_frame
 	//кейсы для sort  5
 	int	*stages; //Рубежи
 }				t_frame;
+
+void sa(t_dlst **head_a);
+void sb(t_dlst **head_b);
+void ss(t_dlst **head_a, t_dlst **head_b);
+
+void ra(t_dlst **head_a);
+void rb(t_dlst **head_b);
+void rr(t_dlst **head_a, t_dlst **head_b);
+
+void rra(t_dlst **head_a);
+void rrb(t_dlst **head_b);
+void rrr(t_dlst **head_a, t_dlst **head_b);
+
+void pa(t_dlst **head_a, t_dlst **head_b);
+void pb(t_dlst **head_a, t_dlst **head_b);
+
+
 
 void 	sort_2(t_frame *fr);
 void	sort_3(t_frame *fr);
