@@ -31,3 +31,19 @@ void	del_lst(t_dlst *lst)
 {
 
 }
+
+void show_list(t_dlst *lst)
+{
+	t_dlst * temp;
+
+	if (lst != NULL)
+	{
+		printf("%d\n", lst->data);
+		temp = lst->next;
+		while (temp != lst)
+		{
+			printf("%d\n", temp->data);
+			temp = temp->next;
+		}
+	}
+}

@@ -6,7 +6,7 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 18:43:18 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/10 19:05:23 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/10 19:06:17 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/push_swap.h"
@@ -17,7 +17,7 @@ void	s_rep_rra(t_dlst **head_a, int n)
 
 	i = -1;
 	while (++i < n)
-		rra(head_a, 1);
+		rra(head_a);
 }
 
 void	s_rep_rrb(t_dlst **head_b, int n)
@@ -26,7 +26,7 @@ void	s_rep_rrb(t_dlst **head_b, int n)
 
 	i = -1;
 	while (++i < n)
-		rrb(head_b, 1);
+		rrb(head_b);
 }
 
 void	s_rep_rrr(t_dlst **head_a, t_dlst **head_b, int n)
