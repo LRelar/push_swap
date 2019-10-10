@@ -6,16 +6,18 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 18:42:24 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/10 16:51:55 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/10 17:21:23 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_PUSH_SWAP_H
 #define PUSH_SWAP_PUSH_SWAP_H
 
+#include <unistd.h>
+#include <limits.h>
 #include <stdlib.h>
+#include "../libft/libft.h"
 #include "../includes/dc_lists.h"
-
 
 /**************************Все до этого не мое*********************/
 
@@ -64,8 +66,6 @@ void rrr(t_dlst **head_a, t_dlst **head_b);
 
 void pa(t_dlst **head_a, t_dlst **head_b);
 void pb(t_dlst **head_a, t_dlst **head_b);
-
-
 
 void 	sort_2(t_frame *fr);
 void	sort_3(t_frame *fr);

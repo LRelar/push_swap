@@ -6,7 +6,7 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 18:42:35 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/09 18:05:23 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/10 17:21:23 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,10 @@ void	s_len_b(t_frame *fr);
 
 int		s_hm_skip(t_dlst *head, int val);
 void	s_split_chunks(t_frame *fr);
+
+/********************input***********************/
+void	free_and_exit(void *arr, void *vol);
+int		find_double(int *arr, t_frame *vol);
+int		digit_cheker(char **av);
 
 #endif //PUSH_SWAP_SERVICE_H

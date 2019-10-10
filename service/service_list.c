@@ -1,4 +1,4 @@
-#include "../includes/dc_lists.h"
+#include "../includes/push_swap.h"
 
 t_dlst	*cr_lists(int *arr, int n)
 {
@@ -25,4 +25,9 @@ t_dlst	*cr_lists(int *arr, int n)
 	first->prev = tmp;
 	tmp->next = first;
 	return(first);
+}
+
+void	del_lst(t_dlst *lst)
+{
+
 }
