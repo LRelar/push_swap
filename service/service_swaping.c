@@ -16,45 +16,65 @@
 
 void sa(t_dlst **head_a)
 {
-	int temp;
+	t_dlst *temp;
 
 	if (((*head_a) != NULL) && (*head_a)->next != (*head_a))
 	{
-		temp = (*head_a)->data;
-		(*head_a)->data = (*head_a)->next->data;
-		(*head_a)->next->data = temp;
+		temp = *head_a;
+		(*head_a)->next->prev = (*head_a)->prev;
+		(*head_a)->prev->next = (*head_a)->next;
+		(*head_a) = (*head_a)->next;
+		temp->next = (*head_a)->next;
+		temp->prev = *head_a;
+		(*head_a)->next->prev = temp;
+		(*head_a)->next = temp;
 	}
 	write(1, "sa\n", 3);
 }
 
 void sb(t_dlst **head_b)
 {
-	int temp;
+	t_dlst *temp;
 
 	if (((*head_b) != NULL) && (*head_b)->next != (*head_b))
 	{
-		temp = (*head_b)->data;
-		(*head_b)->data = (*head_b)->next->data;
-		(*head_b)->next->data = temp;
+		temp = *head_b;
+		(*head_b)->next->prev = (*head_b)->prev->next;
+		(*head_b)->prev->next = (*head_b)->next;
+		(*head_b) = (*head_b)->next;
+		temp->next = (*head_b)->next;
+		temp->prev = *head_b;
+		(*head_b)->next->prev = temp;
+		(*head_b)->next = temp;
 	}
 	write(1, "sb\n", 3);
 }
 
 void	ss(t_dlst **head_a, t_dlst **head_b)
 {
-	int temp;
+	t_dlst *temp;
 
 	if (((*head_a) != NULL) && (*head_a)->next != (*head_a))
 	{
-		temp = (*head_a)->data;
-		(*head_a)->data = (*head_a)->next->data;
-		(*head_a)->next->data = temp;
+		temp = *head_a;
+		(*head_a)->next->prev = (*head_a)->prev->next;
+		(*head_a)->prev->next = (*head_a)->next;
+		(*head_a) = (*head_a)->next;
+		temp->next = (*head_a)->next;
+		temp->prev = *head_a;
+		(*head_a)->next->prev = temp;
+		(*head_a)->next = temp;
 	}
 	if (((*head_b) != NULL) && (*head_b)->next != (*head_b))
 	{
-		temp = (*head_b)->data;
-		(*head_b)->data = (*head_b)->next->data;
-		(*head_b)->next->data = temp;
+		temp = *head_b;
+		(*head_b)->next->prev = (*head_b)->prev->next;
+		(*head_b)->prev->next = (*head_b)->next;
+		(*head_b) = (*head_b)->next;
+		temp->next = (*head_b)->next;
+		temp->prev = *head_b;
+		(*head_b)->next->prev = temp;
+		(*head_b)->next = temp;
 	}
 	write(1, "ss\n", 3);
 }
@@ -105,17 +125,20 @@ void	rrr(t_dlst **a, t_dlst **b)
 
 void	pa(t_dlst **a, t_dlst **b)
 {
-	t_dlst	*cp_b;
-	
-	cp_b = (*b)->next;
-	(*b)->prev->next = (*b)->next;
-	(*b)->next->prev = (*b)->prev;
-	(*a)->prev->next = *b;
-	(*b)->prev = (*a)->prev;
-	(*a)->prev = (*b);
-	(*b)->next = (*a);
-	*b = cp_b;
-	*a = (*a)->prev;
+	t_dlst	*temp;
+
+	if ((b != NULL) && (*b != NULL))
+    {
+	    temp = *b;
+        (*b)->next->prev = (*b)->prev;
+        (*b)->prev->next = (*b)->next;
+        (*b) = (*b)->next;
+        temp->next = (*a);
+        temp->prev = (*a)->prev;
+        (*a)->prev->next = temp;
+        (*a)->prev = temp;
+        *a = temp;
+    }
 	write(1, "pa\n", 3);
 }
 
@@ -123,16 +146,19 @@ void	pa(t_dlst **a, t_dlst **b)
 
 void	pb(t_dlst **a, t_dlst **b)
 {
-	t_dlst	*cp_a;
-	
-	cp_a = (*a)->next;
-	(*a)->prev->next = (*a)->next;
-	(*a)->next->prev = (*a)->prev;
-	(*b)->prev->next = *a;
-	(*a)->prev = (*b)->prev;
-	(*b)->prev = (*a);
-	(*a)->next = (*b);
-	*a = cp_a;
-	*b = (*b)->prev;
+    t_dlst	*temp;
+
+    if ((a != NULL) && (*a != NULL))
+    {
+        temp = *a;
+        (*a)->next->prev = (*a)->prev;
+        (*a)->prev->next = (*a)->next;
+        (*a) = (*a)->next;
+        temp->next = (*b);
+        temp->prev = (*b)->prev;
+        (*b)->prev->next = temp;
+        (*b)->prev = temp;
+        *b = temp;
+    }
 	write(1, "pb\n", 3);
 } 

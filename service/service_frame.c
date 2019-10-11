@@ -74,7 +74,7 @@ void			s_init_tmb(t_frame *fr)
 	fr->mid = fr->a->next->data;
 	fr->bot = fr->a->prev->data;
 }
-
+ //TODO если возвращает 0 - аборт программы ? надо ли это?
 t_frame			*s_create_frame(t_dlst *a, t_dlst *b, int len, int min)
 {
 	t_frame *fr;
@@ -89,6 +89,8 @@ t_frame			*s_create_frame(t_dlst *a, t_dlst *b, int len, int min)
 	else
 		fr->stages = NULL;
 	null_all_int(fr);
+	fr->a = a;
+	fr->b = b;
 	fr->MIN = min;
 	fr->LEN_A = len;
 	fr->MEDIAN_A = len / 2;
@@ -101,7 +103,8 @@ t_frame			*s_delete_frame(t_frame *frame)
 	{
 		del_lst(frame->a);
 		del_lst(frame->a);
-		free(frame->stages);
+		if (frame->stages != NULL)
+			free(frame->stages);
 	}
 	return (NULL);
 }
