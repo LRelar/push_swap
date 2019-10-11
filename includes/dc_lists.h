@@ -11,7 +11,8 @@ typedef struct					s_double_link_lst
 }								t_dlst;
 
 
-t_dlst	*cr_lists(int *arr, int n);
-void	del_lst(t_dlst *lst);
-void	show_list(t_dlst *lst);
+t_dlst							*s_create_lists(int *arr, int n);
+void							s_del_lst(t_dlst *lst);
+void							s_show_list(t_dlst *lst);
+
 #endif //PUSH_SWAP_DC_LISTS_H

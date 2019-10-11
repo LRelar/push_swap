@@ -8,7 +8,7 @@ void	parser(int ac, char **av)
 	int			*arr;
 
 	i = 0;
-	fr = s_create_frame(NULL, NULL, ac - 1, INT_MAX);
+	fr = s_create_frame(NULL, ac - 1, INT_MAX);
 	arr = (int *)malloc(sizeof(int) * ac);
 	while (++i < ac)
 	{
@@ -23,12 +23,12 @@ void	parser(int ac, char **av)
 	}
 	if (!find_double(arr, fr))
 		free_and_exit(arr, fr);
-	cr_lists(arr, fr->LEN_A); // надо бы добавить проверку на повторение чисел, но не хватает строчек
+	s_create_lists(arr, fr->LEN_A); // надо бы добавить проверку на повторение чисел, но не хватает строчек
 }
 
 void	free_and_exit(void *arr, void *fr)
 {
-	s_delete_frame(fr);
+	s_del_frame(fr);
 	free(arr);
 	write(1, "ERROR\n", 7);
 	exit(0);

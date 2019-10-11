@@ -1,10 +1,48 @@
 #include <stdio.h>
 #include "includes/push_swap.h"
 #include "includes/service.h"
-#include "includes/dc_lists.h"
 
 #include <time.h>
 
+int		*array_generator(int *len);
+int 	min(int *arr, int len1);
+
+int main()
+{
+	int len1, len2;
+
+
+	int *ar = array_generator(&len1);
+	t_frame *fr = s_create_frame(ar, len1, min(ar, len1));
+	free(ar);
+	printf("\n----Show a\n");
+	s_show_list(fr->a);
+	printf("----\n");
+	printf("\n----Show b\n");
+
+	s_rep_pb(&(fr->a),&(fr->b), 3);
+	printf("\n--Test update--\n");
+	s_update_fr(fr);
+	printf("\n----Show a\n");
+	s_show_list(fr->a);
+	printf("----\n");
+	printf("\n----Show b\n");
+	s_show_list(fr->b);
+	printf("----\n");
+
+	s_del_frame(fr);
+    return 0;
+}
+
+int 	min(int *arr, int len1)
+{
+	int i = 0;
+	int min = arr[0];
+	while(++i < len1)
+		if (arr[i] < min)
+			min = arr[i];
+	return (min);
+}
 int		*array_generator(int *len)
 {
 	int		arr_len;
@@ -37,51 +75,4 @@ int		*array_generator(int *len)
 	else
 		printf("Чет ты шляпу написал, попробуй еще раз :C\n");
 	exit(0);
-}
-
-int main()
-{
-	int len1, len2;
-
-	int *arr = array_generator(&len1);
-    t_dlst *test1 = cr_lists(arr,len1);
-    free(arr);
-
-    int *arr2 = array_generator(&len2) ;
-	t_dlst *test2 = cr_lists(arr2, len2);
-    free(arr2);
-
-	printf("\n***\n");
-	show_list(test1);
-	printf("***\n");
-	show_list(test2);
-
-	printf("---pa\n");
-	s_rep_pa(&test1, &test2, 3);
-    show_list(test1);
-    printf("***\n");
-    show_list(test2);
-    
-
- /*
-	printf("---rrr\n");
-	s_rep_rrr(&test1, &test2, 2);
-	show_list(test1);
-	printf("***\n");
-	show_list(test2);
-
-	printf("---pa\n");
-	s_rep_pa(&test1, &test2, 1);
-	show_list(test1);
-	printf("***\n");
-	show_list(test2);
-
-	printf("---pb\n");
-	s_rep_pb(&test1, &test2, 1);
-	show_list(test1);
-	printf("***\n");
-	show_list(test2);
-  */
-	printf("\n");
-    return 0;
 }

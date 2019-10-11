@@ -1,57 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   service_mult_call_1.c                              :+:      :+:    :+:   */
+/*   service_mult_call_3.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 18:43:09 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/10 19:06:17 by ekedge-w         ###   ########.fr       */
+/*   Created: 2019/10/08 18:43:18 by ekedge-w          #+#    #+#             */
+/*   Updated: 2019/10/11 17:37:18 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../includes/push_swap.h"
 
-void	s_rep_sa(t_dlst **head_a, int n)
+#include "../includes/service.h"
+
+void	rra(t_dlst **head_a)
 {
-	int i;
-
-	i = -1;
-	while (++i < n)
-		sa(head_a);
+	*head_a = (*head_a)->prev;
+	write(1, "rra\n", 4);
 }
 
-void	s_rep_sb(t_dlst **head_b, int n)
+void	rrb(t_dlst **head_b)
 {
-	int i;
-
-	i = -1;
-	while (++i < n)
-		sb(head_b);
+	*head_b = (*head_b)->prev;
+	write(1, "rrb\n", 4);
 }
 
-void	s_rep_ss(t_dlst **head_a, t_dlst **head_b, int n)
+void	s_rep_rra(t_dlst **head_a, int n)
 {
 	int i;
 
 	i = -1;
 	while (++i < n)
-		ss(head_a, head_b);
+		rra(head_a);
 }
 
-void	s_rep_pa(t_dlst **head_a, t_dlst **head_b, int n)
+void	s_rep_rrb(t_dlst **head_b, int n)
 {
 	int i;
 
 	i = -1;
 	while (++i < n)
-		pa(head_a,head_b);
-}
-
-void	s_rep_pb(t_dlst **head_a, t_dlst **head_b, int n)
-{
-	int i;
-
-	i = -1;
-	while (++i < n)
-		pb(head_a, head_b);
+		rrb(head_b);
 }

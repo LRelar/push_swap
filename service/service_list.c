@@ -1,40 +1,78 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   service_list.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/11 17:06:03 by ekedge-w          #+#    #+#             */
+/*   Updated: 2019/10/11 17:52:55 by ekedge-w         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
-t_dlst	*cr_lists(int *arr, int n)
+static t_dlst	*malloc_init_link(t_dlst *head, t_dlst *temp1, int data)
 {
-	t_dlst		*first;
-	t_dlst		*tmp;
-	t_dlst		*new;
-	int			i;
+	t_dlst	*temp2;
 
-	i = 0;
-	first = (t_dlst*)malloc(sizeof(t_dlst));
-	first->data = arr[i];
-	tmp = first;
-	new = (t_dlst*)malloc(sizeof(t_dlst) * n);
-	while(++i < n)
+	temp2 = (t_dlst *)malloc(sizeof(t_dlst));
+	temp2->next = head;
+	temp2->prev = temp1;
+	temp2->data = data;
+	return (temp2);
+}
+
+t_dlst			*s_create_lists(int *arr, int n)
+{
+	t_dlst	*head;
+	t_dlst	*temp1;
+	t_dlst	*temp2;
+	int		i;
+
+	i = -1;
+	head = NULL;
+	temp1 = NULL;
+	while (++i < n)
 	{
-		(&new[i - 1])->data = arr[i];
-		(&new[i - 1])->prev = tmp;
-		(&new[i - 1])->next = (&new[i]);
-		tmp->prev = (&new[i - 1]);
-		if (i == 1)
-			tmp->next = (&new[i - 1]);
-		tmp = (&new[i - 1]);
+		if (head == NULL)
+		{
+			head = (t_dlst *)malloc(sizeof(t_dlst));
+			head->next = head;
+			head->prev = head;
+			head->data = arr[i];
+			temp1 = head;
+			continue;
+		}
+		temp2 = malloc_init_link(head, temp1, arr[i]);
+		temp1->next = temp2;
+		head->prev = temp2;
+		temp1 = temp2;
 	}
-	first->prev = tmp;
-	tmp->next = first;
-	return(first);
+	return (head);
 }
 
-void	del_lst(t_dlst *lst)
+void			s_del_lst(t_dlst *lst)
 {
+	t_dlst *tail;
+	t_dlst *temp;
 
+	if (lst != NULL)
+	{
+		tail = lst->prev;
+		temp = lst;
+		while (temp != tail)
+		{
+			temp = temp->next;
+			free(temp->prev);
+		}
+		free(temp);
+	}
 }
 
-void show_list(t_dlst *lst)
+void			s_show_list(t_dlst *lst)
 {
-	t_dlst * temp;
+	t_dlst *temp;
 
 	if (lst != NULL)
 	{
