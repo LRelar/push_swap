@@ -6,7 +6,7 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 18:42:24 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/11 18:14:37 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/11 18:16:35 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@
 
 typedef struct	s_push_swap_frame
 {
-    int			MIN; //мин. значение
+    int			MIN;
+	int			MAX;
     int			LEN_A; //кол-во символов
     int			LEN_B;
     int			MEDIAN_A; //медианы

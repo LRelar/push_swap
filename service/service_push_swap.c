@@ -6,7 +6,7 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 18:42:05 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/11 17:47:18 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/11 21:17:38 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,17 +55,43 @@ void	s_split_chunks(t_frame *fr)
 
 	i = 0;
 	n = (fr->LEN_A > 100) ? 11 : 5;
-	div = fr->LEN_A / n;
-	mod = fr->LEN_A % n;
+	div = (fr->MAX - fr->MIN) / n;
+	mod = (fr->MAX - fr->MIN) % n;
 	temp = fr->MIN;
 	while (--n >= 0)
 	{
 		fr->stages[i++] = temp;
 		temp = temp + div;
 		if (n == 0)
-			fr->stages[i++] = temp + mod;
+			fr->stages[i++] = fr->MAX;
 		else
 			fr->stages[i++] = temp;
 		temp++;
 	}
+}
+
+int		s_min(int *arr, int len)
+{
+	int i;
+	int min;
+
+	i = 0;
+	min = arr[0];
+	while (++i < len)
+		if (arr[i] < min)
+			min = arr[i];
+	return (min);
+}
+
+int		s_max(int *arr, int len)
+{
+	int i;
+	int max;
+
+	i = 0;
+	max = arr[0];
+	while (++i < len)
+		if (arr[i] > max)
+			max = arr[i];
+	return (max);
 }

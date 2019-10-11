@@ -6,7 +6,7 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 18:43:01 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/11 19:43:22 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/11 20:57:58 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ static void		null_mass(t_frame *fr)
 
 static void		null_all_int(t_frame *fr)
 {
-	fr->MIN = 0;
 	fr->LEN_A = 0;
 	fr->LEN_B = 0;
 	fr->MEDIAN_A = 0;
@@ -66,7 +65,7 @@ void			s_update_fr(t_frame *fr)
 	fr->MEDIAN_B = fr->LEN_B / 2;
 }
 
-t_frame			*s_create_frame(int *arr, int len, int min)
+t_frame			*s_create_frame(int *arr, int len, int min, int max)
 {
 	t_frame *fr;
 
@@ -83,6 +82,7 @@ t_frame			*s_create_frame(int *arr, int len, int min)
 	fr->a = s_create_lists(arr, len);
 	fr->b = NULL;
 	fr->MIN = min;
+	fr->MAX = max;
 	fr->LEN_A = len;
 	fr->MEDIAN_A = len / 2;
 	fr->fst = NULL;
