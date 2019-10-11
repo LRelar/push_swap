@@ -8,27 +8,22 @@ int		*array_generator(int *len);
 
 int main()
 {
-	int len1;
+	int len1 = 5;
 
-	int *ar = array_generator(&len1);
-
+	//int *ar = array_generator(&len1);
+	int ar[5]= {-1,15,10,5,0};
 	t_frame *fr = s_create_frame(ar, len1, s_min(ar, len1),s_max(ar,len1));
-	free(ar);
+	//free(ar);
 	printf("\n----Show a\n");
 	s_show_list(fr->a);
 	printf("----\n");
-	printf("\n----Show b\n");
-	s_show_list(fr->b);
+	//printf("\n----Show b\n");
+	//s_show_list(fr->b);
+	//printf("----\n");
+	sort_4(fr);
+	printf("\n----Show a\n");
+	s_show_list(fr->a);
 	printf("----\n");
-
-	s_split_chunks(fr);
-	printf("\n MIN %d\tMAX%d\n", fr->MIN, fr->MAX);
-	for (int i = 0; i< 22; i++)
-	{
-		printf("%d\t", fr->stages[i]);
-	}
-
-
 	s_del_frame(fr);
     return 0;
 }

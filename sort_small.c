@@ -6,9 +6,10 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 18:43:30 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/10 19:00:12 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/11 22:09:39 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 #include "../includes/service.h"
 
@@ -19,13 +20,13 @@ static void	s_init_tmb(t_frame *fr)
 	fr->bot = fr->a->prev->data;
 }
 
-void	sort_2(t_frame *fr)
+void		sort_2(t_frame *fr)
 {
 	if (fr->a->data > fr->a->next->data)
 		sa(&(fr->a));
 }
 
-void	sort_3(t_frame *fr)
+void		sort_3(t_frame *fr)
 {
 	s_init_tmb(fr);
 	if ((fr->top < fr->mid) && (fr->mid > fr->bot) && (fr->bot < fr->top))
@@ -44,31 +45,36 @@ void	sort_3(t_frame *fr)
 		sa(&(fr->a));
 		rra(&(fr->a));
 	}
+	s_init_tmb(fr);
 }
 
-void	sort_4(t_frame *fr)
+void		sort_4(t_frame *fr)
 {
 	pb(&(fr->a), &(fr->b));
 	sort_3(fr);
 	fr->temp = (fr->b)->data;
-	s_init_tmb(fr);
-	if ((fr->temp < fr->top) && (fr->temp < fr->mid) && (fr->temp < fr->bot))
+	if (fr->temp < fr->top)
 		pa(&(fr->a), &(fr->b));
-	if ((fr->temp > fr->top) && (fr->temp < fr->mid) && (fr->temp < fr->bot))
+	if ((fr->temp > fr->top) && (fr->temp < fr->mid))
 	{
 		ra(&(fr->a));
 		pa(&(fr->a), &(fr->b));
 		rra(&(fr->a));
 	}
-	if ((fr->temp > fr->top) && (fr->temp > fr->mid) && (fr->temp < fr->bot))
+	if ((fr->temp > fr->mid) && (fr->temp < fr->bot))
 	{
 		rra(&(fr->a));
 		pa(&(fr->a), &(fr->b));
 		s_rep_ra(&(fr->a), 2);
 	}
+	if (fr->temp > fr->bot)
+	{
+		pa(&(fr->a), &(fr->b));
+		ra(&(fr->a));
+	}
 }
 
-void	sort_5(t_frame *fr)
+void		sort_5(t_frame *fr)
 {
 	int depth;
 
