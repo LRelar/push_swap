@@ -5,9 +5,10 @@
 #include <time.h>
 
 int		*array_generator(int *len);
-void rotate(int a[20][5]);
-int check(t_dlst *a);
-void a_show(int a[20][5]);
+void	rotate(int a[20][5]);
+int		check(t_dlst *a);
+void a_show(int a[20][5], int i);
+void show_list(t_dlst *lst);
 
 int main()
 {
@@ -37,14 +38,47 @@ int main()
             {20,21,15,10,5},
 	};
     t_frame *fr = s_create_frame(a[0],len1, s_min(a[0], len1),s_max(a[0],len1));
-    for(int i = 0; i < 20; i++)
+    for(int i = 1; i < 20; i++)
     {
-
+		printf("\n\n%d. ", i);
+		sort_5(fr);
+		printf("[");
+		a_show(a, i);
+		printf("]\t");
+		printf("[");
+		show_list(fr->a);
+		printf("]\t[");
+		if (check(fr->a) == 1)
+			printf("OK]\n");
+		else
+			printf("KO]");
+		s_del_lst(fr->a);
+		fr->a = s_create_lists(a[i], 5);
+		s_update_fr(fr);
     }
+    rotate(a);
+	for(int i = 0; i < 20; i++)
+	{
+		printf("\n\n%d. ", i+21);
+		sort_5(fr);
+		printf("[");
+		a_show(a, i);
+		printf("]\t");
+		printf("[");
+		show_list(fr->a);
+		printf("]\t[");
+		if (check(fr->a) == 1)
+			printf("OK]\n");
+		else
+			printf("KO]");
+		s_del_lst(fr->a);
+		fr->a = s_create_lists(a[i], 5);
+		s_update_fr(fr);
+	}
    	//free(ar);
-	printf("\n----Show a\n");
-	s_show_list(fr->a);
-	printf("----\n");
+	//printf("\n----Show a\n");
+	//s_show_list(fr->a);
+	//printf("----\n");
 
 	//printf("\n----Show b\n");
 	//s_show_list(fr->b);
@@ -56,9 +90,27 @@ int main()
 	s_del_frame(fr);
     return 0;
 }
-void a_show(int *a)
+void			show_list(t_dlst *lst)
 {
-    for(int i =0; i < 5;)
+	t_dlst *temp;
+
+	if (lst != NULL)
+	{
+		printf("%d", lst->data);
+		temp = lst->next;
+		while (temp != lst)
+		{
+			printf("% d", temp->data);
+			temp = temp->next;
+		}
+	}
+}
+
+void a_show(int a[20][5], int i)
+{
+	printf("%d", a[i][0]);
+    for(int j =1; j < 5; j++)
+		printf("% d", a[i][j]);
 }
 int check(t_dlst *a)
 {

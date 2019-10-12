@@ -34,6 +34,8 @@ static void		null_mass(t_frame *fr)
 
 static void		null_all_int(t_frame *fr)
 {
+	fr->MIN = 0;
+	fr->MAX = 0;
 	fr->LEN_A = 0;
 	fr->LEN_B = 0;
 	fr->MEDIAN_A = 0;
