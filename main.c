@@ -5,30 +5,83 @@
 #include <time.h>
 
 int		*array_generator(int *len);
+void rotate(int a[20][5]);
+int check(t_dlst *a);
+void a_show(int a[20][5]);
 
 int main()
 {
 	int len1 = 5;
 
 	//int *ar = array_generator(&len1);
-	int ar[5]= {-1,15,10,5,0};
-	t_frame *fr = s_create_frame(ar, len1, s_min(ar, len1),s_max(ar,len1));
-	//free(ar);
+	int a[20][5] = {
+	        {0,-1,15,10,5},
+            {0,1,15,10,5},
+            {0,7,15,10,5},
+            {0,12,15,10,5},
+            {0,20,15,10,5},
+            {7,-1,15,10,5},
+            {7,6,15,10,5},
+            {7,8,15,10,5},
+            {7,11,15,10,5},
+            {7,17,15,10,5},
+            {12,-1,15,10,5},
+            {12,6,15,10,5},
+            {12,9,15,10,5},
+            {12,13,15,10,5},
+            {12,20,15,10,5},
+            {20,-1,15,10,5},
+            {20,7,15,10,5},
+            {20,11,15,10,5},
+            {20,17,15,10,5},
+            {20,21,15,10,5},
+	};
+    t_frame *fr = s_create_frame(a[0],len1, s_min(a[0], len1),s_max(a[0],len1));
+    for(int i = 0; i < 20; i++)
+    {
+
+    }
+   	//free(ar);
 	printf("\n----Show a\n");
 	s_show_list(fr->a);
 	printf("----\n");
+
 	//printf("\n----Show b\n");
 	//s_show_list(fr->b);
 	//printf("----\n");
-	sort_4(fr);
-	printf("\n----Show a\n");
-	s_show_list(fr->a);
-	printf("----\n");
+	//sort_5(fr);
+	//printf("\n----Show a\n");
+	//s_show_list(fr->a);
+	//printf("----\n");
 	s_del_frame(fr);
     return 0;
 }
+void a_show(int *a)
+{
+    for(int i =0; i < 5;)
+}
+int check(t_dlst *a)
+{
+    t_dlst *t = a;
+    while (t->next != a)
+    {
+        if (t->next->data < t->data)
+            return (0);
+        t = t->next;
+    }
+    return  (1);
+}
+void rotate(int a[20][5])
+{
+    int t;
 
-
+    for(int i = 0; i< 20; i++)
+    {
+        t = a[i][0];
+        a[i][0] = a[i][1];
+        a[i][1] = t;
+    }
+}
 int		*array_generator(int *len)
 {
 	int		arr_len;
@@ -37,7 +90,7 @@ int		*array_generator(int *len)
 	int	top;
 	int	tail;
 
-	i = -1;
+	i = 0;
 	tail = -500;
 	top = 500;
 	printf("Количество элементов в массиве:\n");
