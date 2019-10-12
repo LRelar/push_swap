@@ -28,7 +28,7 @@ void	s_len_b(t_frame *fr)
 	}
 }
 
-int		s_hm_skip(t_dlst *head, int val)
+int		s_hm_skip_b(t_dlst *head, int val)
 {
 	int		i;
 	t_dlst	*temp;

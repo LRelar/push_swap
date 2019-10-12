@@ -13,7 +13,7 @@ void show_list(t_dlst *lst);
 int main()
 {
 	int len1 = 5;
-
+	int score = 0;
 	//int *ar = array_generator(&len1);
 	int a[20][5] = {
 	        {0,-1,15,10,5},
@@ -49,7 +49,10 @@ int main()
 		show_list(fr->a);
 		printf("]\t[");
 		if (check(fr->a) == 1)
+		{
 			printf("OK]\n");
+			score++;
+		}
 		else
 			printf("KO]");
 		s_del_lst(fr->a);
@@ -87,6 +90,7 @@ int main()
 	//printf("\n----Show a\n");
 	//s_show_list(fr->a);
 	//printf("----\n");
+	printf("\n\n%d/40. ", score);
 	s_del_frame(fr);
     return 0;
 }

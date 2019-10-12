@@ -57,7 +57,8 @@ void	s_update_fr(t_frame *fr);
 
 /********************push swap***********************/
 
-int		s_hm_skip(t_dlst *head, int val);
+int		s_hm_skip_b(t_dlst *head, int val);
+int		s_hm_skip_a(t_dlst *head, int val);
 void	s_split_chunks(t_frame *fr);
 void	s_len_b(t_frame *fr);
 int 	s_min(int *arr, int len);

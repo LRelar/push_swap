@@ -6,7 +6,7 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 18:43:30 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/11 22:09:39 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/12 16:40:05 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,19 +82,19 @@ void		sort_5(t_frame *fr)
 	sort_3(fr);
 	if (fr->b->data < fr->b->next->data)
 		rb(&(fr->b));
-	depth = s_hm_skip(fr->a, fr->b->data);
+	depth = s_hm_skip_a(fr->a, fr->b->data);
 	if (fr->MEDIAN_A > depth)
 	{
 		s_rep_ra(&(fr->a), depth);
 		pa(&(fr->a), &(fr->b));
 		pa(&(fr->a), &(fr->b));
-		s_rep_rra(&(fr->a), depth + 2);
+		s_rep_rra(&(fr->a), depth);
 	}
 	else
 	{
 		s_rep_rra(&(fr->a), fr->LEN_A - depth);
 		pa(&(fr->a), &(fr->b));
 		pa(&(fr->a), &(fr->b));
-		s_rep_ra(&(fr->a), fr->LEN_A - depth + 2);
+		s_rep_ra(&(fr->a), fr->LEN_A - depth);
 	}
 }

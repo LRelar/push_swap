@@ -64,8 +64,8 @@ void	calc_com_table(t_frame *fr)
 	(fr->com1[0][1] = fr->LEN_A - fr->depth1);
 	(fr->depth2 < fr->MEDIAN_A) ? (fr->com2[0][1] = fr->depth2 + 1) :
 	(fr->com2[0][1] = fr->LEN_A - fr->depth2 - 1);
-	fr->depth1 = s_hm_skip(fr->b, fr->fst->data);
-	fr->depth2 = s_hm_skip(fr->b, fr->sec->data);
+	fr->depth1 = s_hm_skip_b(fr->b, fr->fst->data);
+	fr->depth2 = s_hm_skip_b(fr->b, fr->sec->data);
 	if (fr->depth1 <= fr->MEDIAN_B)
 		fr->com1[1][0] = fr->depth1;
 	else
