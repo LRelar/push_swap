@@ -6,7 +6,7 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:23:22 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/14 14:16:32 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/14 16:02:44 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void		sort_large(t_frame *fr)
 	i = 0;
 	n = (fr->LEN_A <= 100) ? 10 : 22;
 	s_split_chunks(fr);
+
 	while (i + 1 < n)
 	{
 		sort_chunk(fr, i, i + 1);

@@ -6,7 +6,7 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 17:06:03 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/11 17:52:55 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/14 15:10:53 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,11 +92,11 @@ void			s_show_list_g(t_dlst *lst)
 
 	if (lst != NULL)
 	{
-		printf("%d", lst->data);
+		printf("%d ", lst->data);
 		temp = lst->next;
 		while (temp != lst)
 		{
-			printf("% d", temp->data);
+			printf("%d ", temp->data);
 			temp = temp->next;
 		}
 	}
