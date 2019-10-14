@@ -52,6 +52,8 @@ void			s_update_fr(t_frame *fr)
 	t_dlst *temp;
 
 	null_all_int(fr);
+	fr->fst = NULL;
+	fr->sec = NULL;
 	s_len_a(fr);
 	s_len_b(fr);
 	fr->MEDIAN_A = fr->LEN_A / 2;

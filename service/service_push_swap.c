@@ -35,7 +35,7 @@ void	s_split_chunks(t_frame *fr)
 	while (--n >= 0)
 	{
 		fr->stages[i++] = temp;
-		temp = temp + div;
+		temp = temp + div - 1;
 		if (n == 0)
 			fr->stages[i++] = fr->MAX;
 		else
