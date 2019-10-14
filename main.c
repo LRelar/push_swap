@@ -7,7 +7,7 @@
 int		*array_generator(int *len);
 void	rotate(int a[20][5]);
 int		check(t_dlst *a);
-void a_show(int a[20][5], int i);
+void a_show(t_dlst *lst);
 void show_list(t_dlst *lst);
 
 int main()
@@ -41,10 +41,10 @@ int main()
     for(int i = 1; i < 20; i++)
     {
 		printf("\n\n%d. ", i);
+        printf("[");
+        a_show(fr->a);
+        printf("]\n");
 		sort_5(fr);
-		printf("[");
-		a_show(a, i);
-		printf("]\t");
 		printf("[");
 		show_list(fr->a);
 		printf("]\t[");
@@ -56,6 +56,7 @@ int main()
 		else
 			printf("KO]");
 		s_del_lst(fr->a);
+		fr->b = NULL;
 		fr->a = s_create_lists(a[i], 5);
 		s_update_fr(fr);
     }
@@ -63,10 +64,10 @@ int main()
 	for(int i = 0; i < 20; i++)
 	{
 		printf("\n\n%d. ", i+21);
+        printf("[");
+        a_show(fr->a);
+        printf("]\n");
 		sort_5(fr);
-		printf("[");
-		a_show(a, i);
-		printf("]\t");
 		printf("[");
 		show_list(fr->a);
 		printf("]\t[");
@@ -110,11 +111,20 @@ void			show_list(t_dlst *lst)
 	}
 }
 
-void a_show(int a[20][5], int i)
+void a_show(t_dlst *lst)
 {
-	printf("%d", a[i][0]);
-    for(int j =1; j < 5; j++)
-		printf("% d", a[i][j]);
+    t_dlst *temp;
+
+    if (lst != NULL)
+    {
+        printf(" %d ", lst->data);
+        temp = lst->next;
+        while (temp != lst)
+        {
+            printf("%d ", temp->data);
+            temp = temp->next;
+        }
+    }
 }
 int check(t_dlst *a)
 {

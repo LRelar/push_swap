@@ -73,7 +73,7 @@ void		sort_4(t_frame *fr)
 		ra(&(fr->a));
 	}
 }
-
+//TODO на 3-ем кейсе  появились лен б = 5 и медиана (чекнуть апдейт)
 void		sort_5(t_frame *fr)
 {
 	int depth;

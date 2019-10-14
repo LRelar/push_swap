@@ -18,6 +18,7 @@ int		s_hm_skip_a(t_dlst *head, int val)
 	t_dlst	*temp;
 
 	i = 0;
+	temp = head;
 	if (!temp)
 		return (i);
 	if (val > temp->data)
