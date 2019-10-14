@@ -13,7 +13,6 @@
 #include "../includes/push_swap.h"
 #include "../includes/service.h"
 
-//TODO проверить изменяемость
 static void reverse(int com[3][2])
 {
 	int j;

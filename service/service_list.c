@@ -70,7 +70,7 @@ void			s_del_lst(t_dlst *lst)
 	}
 }
 
-void			s_show_list(t_dlst *lst)
+void			s_show_list_v(t_dlst *lst)
 {
 	t_dlst *temp;
 
@@ -81,6 +81,22 @@ void			s_show_list(t_dlst *lst)
 		while (temp != lst)
 		{
 			printf("%d\n", temp->data);
+			temp = temp->next;
+		}
+	}
+}
+
+void			s_show_list_g(t_dlst *lst)
+{
+	t_dlst *temp;
+
+	if (lst != NULL)
+	{
+		printf("%d", lst->data);
+		temp = lst->next;
+		while (temp != lst)
+		{
+			printf("% d", temp->data);
 			temp = temp->next;
 		}
 	}

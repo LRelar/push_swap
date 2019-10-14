@@ -7,128 +7,23 @@
 int		*array_generator(int *len);
 void	rotate(int a[20][5]);
 int		check(t_dlst *a);
-void a_show(t_dlst *lst);
-void show_list(t_dlst *lst);
 
 int main()
 {
-	int len1 = 5;
-	int score = 0;
-	//int *ar = array_generator(&len1);
-	int a[20][5] = {
-	        {0,-1,15,10,5},
-            {0,1,15,10,5},
-            {0,7,15,10,5},
-            {0,12,15,10,5},
-            {0,20,15,10,5},
-            {7,-1,15,10,5},
-            {7,6,15,10,5},
-            {7,8,15,10,5},
-            {7,11,15,10,5},
-            {7,17,15,10,5},
-            {12,-1,15,10,5},
-            {12,6,15,10,5},
-            {12,9,15,10,5},
-            {12,13,15,10,5},
-            {12,20,15,10,5},
-            {20,-1,15,10,5},
-            {20,7,15,10,5},
-            {20,11,15,10,5},
-            {20,17,15,10,5},
-            {20,21,15,10,5},
-	};
-    t_frame *fr = s_create_frame(a[0],len1, s_min(a[0], len1),s_max(a[0],len1));
-    for(int i = 0; i < 20; i++)
-    {
-		printf("\n\n%d. ", i);
-        printf("[");
-        a_show(fr->a);
-        printf("]\n");
-		sort_5(fr);
-		printf("[");
-		show_list(fr->a);
-		printf("]\t[");
-		if (check(fr->a) == 1)
-		{
-			printf("OK]\n");
-			score++;
-		}
-		else
-			printf("KO]");
-		s_del_lst(fr->a);
-		fr->b = NULL;
-		fr->a = s_create_lists(a[i], 5);
-		s_update_fr(fr);
-    }
-    rotate(a);
-	for(int i = 0; i < 20; i++)
-	{
-		printf("\n\n%d. ", i+21);
-        printf("[");
-        a_show(fr->a);
-        printf("]\n");
-		sort_5(fr);
-		printf("[");
-		show_list(fr->a);
-		printf("]\t[");
-		if (check(fr->a) == 1)
-		{
-			printf("OK]\n");
-			score++;
-		}
-		else
-			printf("KO]");
-		s_del_lst(fr->a);
-		fr->a = s_create_lists(a[i], 5);
-		s_update_fr(fr);
-	}
-   	//free(ar);
-	//printf("\n----Show a\n");
-	//s_show_list(fr->a);
-	//printf("----\n");
-
-	//printf("\n----Show b\n");
-	//s_show_list(fr->b);
-	//printf("----\n");
-	//sort_5(fr);
-	//printf("\n----Show a\n");
-	//s_show_list(fr->a);
-	//printf("----\n");
-	printf("\n\n%d/40. ", score);
+	int len;
+	int *a = array_generator(&len);
+	t_frame *fr = s_create_frame(a,len, s_min(a, len), s_max(a,len));
+	printf("Stack A:\n");
+	s_show_list_g(fr->a);
+	printf("\n");
+	sort_large(fr);
+	printf("Stack A:\n");
+	s_show_list_g(fr->a);
+	printf("\n");
 	s_del_frame(fr);
     return 0;
 }
-void			show_list(t_dlst *lst)
-{
-	t_dlst *temp;
 
-	if (lst != NULL)
-	{
-		printf("%d", lst->data);
-		temp = lst->next;
-		while (temp != lst)
-		{
-			printf("% d", temp->data);
-			temp = temp->next;
-		}
-	}
-}
-
-void a_show(t_dlst *lst)
-{
-    t_dlst *temp;
-
-    if (lst != NULL)
-    {
-        printf(" %d ", lst->data);
-        temp = lst->next;
-        while (temp != lst)
-        {
-            printf("%d ", temp->data);
-            temp = temp->next;
-        }
-    }
-}
 int check(t_dlst *a)
 {
     t_dlst *t = a;
