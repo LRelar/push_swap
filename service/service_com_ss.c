@@ -6,13 +6,13 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 17:33:05 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/11 19:21:39 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/14 14:29:40 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/service.h"
 
-void	ss(t_dlst **head_a, t_dlst **head_b)
+void ss(t_dlst **head_a, t_dlst **head_b, int flag)
 {
 	t_dlst *temp;
 
@@ -38,14 +38,14 @@ void	ss(t_dlst **head_a, t_dlst **head_b)
 		(*head_b)->next->prev = temp;
 		(*head_b)->next = temp;
 	}
-	write(1, "ss\n", 3);
+	(flag == 1) ? write(1, "ss\n", 3) : (flag = 0);
 }
 
-void	s_rep_ss(t_dlst **head_a, t_dlst **head_b, int n)
+void s_rep_ss(t_dlst **head_a, t_dlst **head_b, int n, int flag)
 {
 	int i;
 
 	i = -1;
 	while (++i < n)
-		ss(head_a, head_b);
+		ss(head_a, head_b, 1);
 }

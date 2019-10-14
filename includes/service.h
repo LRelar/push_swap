@@ -6,7 +6,7 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 18:42:35 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/14 13:39:40 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/14 14:08:06 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,37 +17,37 @@
 
 /*********************commands**********************/
 
-void	sa(t_dlst **head_a);
-void	sb(t_dlst **head_b);
-void	ss(t_dlst **head_a, t_dlst **head_b);
+void	sa(t_dlst **head_a, int flag);
+void	sb(t_dlst **head_b, int flag);
+void	ss(t_dlst **head_a, t_dlst **head_b, int flag);
 
-void	ra(t_dlst **head_a);
-void	rb(t_dlst **head_b);
-void	rr(t_dlst **head_a, t_dlst **head_b);
+void	ra(t_dlst **head_a, int flag);
+void	rb(t_dlst **head_b, int flag);
+void	rr(t_dlst **head_a, t_dlst **head_b, int flag);
 
-void	rra(t_dlst **head_a);
-void	rrb(t_dlst **head_b);
-void	rrr(t_dlst **head_a, t_dlst **head_b);
+void	rra(t_dlst **head_a, int flag);
+void	rrb(t_dlst **head_b, int flag);
+void	rrr(t_dlst **head_a, t_dlst **head_b, int flag);
 
-void	pa(t_dlst **head_a, t_dlst **head_b);
-void	pb(t_dlst **head_a, t_dlst **head_b);
+void	pa(t_dlst **head_a, t_dlst **head_b, int flag);
+void	pb(t_dlst **head_a, t_dlst **head_b, int flag);
 
 /*********************mult call*********************/
 
-void	s_rep_sa(t_dlst **head_a, int n);
-void	s_rep_sb(t_dlst **head_b, int n);
-void	s_rep_ss(t_dlst **head_a, t_dlst **head_b, int n);
+void s_rep_sa(t_dlst **head_a, int n, int flag);
+void s_rep_sb(t_dlst **head_b, int n, int flag);
+void s_rep_ss(t_dlst **head_a, t_dlst **head_b, int n, int flag);
 
-void	s_rep_ra(t_dlst **head_a, int n);
-void	s_rep_rb(t_dlst **head_b, int n);
-void	s_rep_rr(t_dlst **head_a, t_dlst **head_b, int n);
+void s_rep_ra(t_dlst **head_a, int n, int flag);
+void s_rep_rb(t_dlst **head_b, int n, int flag);
+void s_rep_rr(t_dlst **head_a, t_dlst **head_b, int n, int flag);
 
-void	s_rep_rra(t_dlst **head_a, int n);
-void	s_rep_rrb(t_dlst **head_b, int n);
-void	s_rep_rrr(t_dlst **head_a, t_dlst **head_b, int n);
+void s_rep_rra(t_dlst **head_a, int n, int flag);
+void s_rep_rrb(t_dlst **head_b, int n, int flag);
+void s_rep_rrr(t_dlst **head_a, t_dlst **head_b, int n, int flag);
 
-void 	s_rep_pa(t_dlst **head_a, t_dlst **head_b, int n);
-void	s_rep_pb(t_dlst **head_a, t_dlst **head_b, int n);
+void s_rep_pa(t_dlst **head_a, t_dlst **head_b, int n, int flag);
+void s_rep_pb(t_dlst **head_a, t_dlst **head_b, int n, int flag);
 
 /********************frame***************************/
 

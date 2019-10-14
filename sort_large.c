@@ -6,7 +6,7 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:23:22 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/09 21:01:16 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/14 14:16:32 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,23 @@ static void	do_com(t_dlst **a, t_dlst **b, int scroll, int com[3][2])
 {
 	if (scroll == 0)
 	{
-		s_rep_ra(a, com[0][0]);
-		s_rep_rb(b, com[1][0]);
-		s_rep_rr(a, b, com[2][0]);
-		pb(a,b);
-		s_rep_rra(a, com[0][1]);
-		s_rep_rrb(b, com[1][1]);
-		s_rep_rrr(a, b, com[2][1]);
+		s_rep_ra(a, com[0][0], 1);
+		s_rep_rb(b, com[1][0], 1);
+		s_rep_rr(a, b, com[2][0], 1);
+		pb(a, b, 1);
+		s_rep_rra(a, com[0][1], 1);
+		s_rep_rrb(b, com[1][1], 1);
+		s_rep_rrr(a, b, com[2][1], 1);
 	}
 	else
 	{
-		s_rep_rra(a, com[0][1]);
-		s_rep_rrb(b, com[1][1]);
-		s_rep_rrr(a, b, com[2][1]);
-		pb(a,b);
-		s_rep_ra(a, com[0][0]);
-		s_rep_rb(b, com[1][0]);
-		s_rep_rr(a, b, com[2][0]);
+		s_rep_rra(a, com[0][1], 1);
+		s_rep_rrb(b, com[1][1], 1);
+		s_rep_rrr(a, b, com[2][1], 1);
+		pb(a, b, 1);
+		s_rep_ra(a, com[0][0], 1);
+		s_rep_rb(b, com[1][0], 1);
+		s_rep_rr(a, b, com[2][0], 1);
 	}
 }
 
@@ -64,6 +64,6 @@ void		sort_large(t_frame *fr)
 		i++;
 	}
 	s_len_b(fr);
-	s_rep_pa(&(fr->a), &(fr->b), fr->LEN_B);
+	s_rep_pa(&(fr->a), &(fr->b), fr->LEN_B, 1);
 }
 

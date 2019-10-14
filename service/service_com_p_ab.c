@@ -6,80 +6,80 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 17:22:08 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/11 19:13:14 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/14 14:16:32 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/service.h"
 
-void	pa(t_dlst **a, t_dlst **b)
+void pa(t_dlst **head_a, t_dlst **head_b, int flag)
 {
 	t_dlst *temp;
 
-	if ((b != NULL) && (*b != NULL))
+	if ((head_b != NULL) && (*head_b != NULL))
 	{
-		temp = *b;
-		(*b)->next->prev = (*b)->prev;
-		(*b)->prev->next = (*b)->next;
-		(*b) = (*b)->next;
-		if (*b == NULL)
+		temp = *head_b;
+		(*head_b)->next->prev = (*head_b)->prev;
+		(*head_b)->prev->next = (*head_b)->next;
+		(*head_b) = (*head_b)->next;
+		if (*head_b == NULL)
 		{
 			temp->next = temp;
 			temp->prev = temp;
 		}
 		else
 		{
-			temp->next = (*a);
-			temp->prev = (*a)->prev;
-			(*a)->prev->next = temp;
-			(*a)->prev = temp;
+			temp->next = (*head_a);
+			temp->prev = (*head_a)->prev;
+			(*head_a)->prev->next = temp;
+			(*head_a)->prev = temp;
 		}
-		*a = temp;
+		*head_a = temp;
 	}
-	write(1, "pa\n", 3);
+	(flag == 1) ? write(1, "pa\n", 3) : (flag = 0);
 }
 
-void	pb(t_dlst **a, t_dlst **b)
+void pb(t_dlst **head_a, t_dlst **head_b, int flag)
 {
 	t_dlst *temp;
 
-	if ((a != NULL) && (*a != NULL))
+	if ((head_a != NULL) && (*head_a != NULL))
 	{
-		temp = *a;
-		(*a)->next->prev = (*a)->prev;
-		(*a)->prev->next = (*a)->next;
-		(*a) = (*a)->next;
-		if (*b == NULL)
+		temp = *head_a;
+		(*head_a)->next->prev = (*head_a)->prev;
+		(*head_a)->prev->next = (*head_a)->next;
+		(*head_a) = (*head_a)->next;
+		if (*head_b == NULL)
 		{
 			temp->next = temp;
 			temp->prev = temp;
 		}
 		else
 		{
-			temp->next = (*b);
-			temp->prev = (*b)->prev;
-			(*b)->prev->next = temp;
-			(*b)->prev = temp;
+			temp->next = (*head_b);
+			temp->prev = (*head_b)->prev;
+			(*head_b)->prev->next = temp;
+			(*head_b)->prev = temp;
 		}
-		*b = temp;
+		*head_b = temp;
 	}
-	write(1, "pb\n", 3);
+	(flag == 1) ? write(1, "pb\n", 3) : (flag = 0);
 }
 
-void	s_rep_pa(t_dlst **head_a, t_dlst **head_b, int n)
+void s_rep_pa(t_dlst **head_a, t_dlst **head_b, int n, int flag)
 {
 	int i;
 
 	i = -1;
 	while (++i < n)
-		pa(head_a, head_b);
+		pa(head_a, head_b, 1);
 }
 
-void	s_rep_pb(t_dlst **head_a, t_dlst **head_b, int n)
+void s_rep_pb(t_dlst **head_a, t_dlst **head_b, int n, int flag)
 {
 	int i;
 
 	i = -1;
 	while (++i < n)
-		pb(head_a, head_b);
+		pb(head_a, head_b, 1);
 }

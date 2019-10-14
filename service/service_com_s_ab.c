@@ -6,13 +6,13 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 18:43:09 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/11 19:13:55 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/14 14:16:32 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/service.h"
 
-void	sa(t_dlst **head_a)
+void sa(t_dlst **head_a, int flag)
 {
 	t_dlst *temp;
 
@@ -27,10 +27,10 @@ void	sa(t_dlst **head_a)
 		(*head_a)->next->prev = temp;
 		(*head_a)->next = temp;
 	}
-	write(1, "sa\n", 3);
+	(flag == 1) ? write(1, "sa\n", 3) : (flag = 0);
 }
 
-void	sb(t_dlst **head_b)
+void sb(t_dlst **head_b, int flag)
 {
 	t_dlst *temp;
 
@@ -45,23 +45,23 @@ void	sb(t_dlst **head_b)
 		(*head_b)->next->prev = temp;
 		(*head_b)->next = temp;
 	}
-	write(1, "sb\n", 3);
+	(flag == 1) ? write(1, "sb\n", 3) : (flag = 0);
 }
 
-void	s_rep_sa(t_dlst **head_a, int n)
+void s_rep_sa(t_dlst **head_a, int n, int flag)
 {
 	int i;
 
 	i = -1;
 	while (++i < n)
-		sa(head_a);
+		sa(head_a, 1);
 }
 
-void	s_rep_sb(t_dlst **head_b, int n)
+void s_rep_sb(t_dlst **head_b, int n, int flag)
 {
 	int i;
 
 	i = -1;
 	while (++i < n)
-		sb(head_b);
+		sb(head_b, 1);
 }
