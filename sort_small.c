@@ -6,18 +6,28 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 18:43:30 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/12 16:40:05 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/14 13:47:56 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../includes/service.h"
 
-static void	s_init_tmb(t_frame *fr)
+static void	sort_5_last2(t_frame *fr)
 {
-	fr->top = fr->a->data;
-	fr->mid = fr->a->next->data;
-	fr->bot = fr->a->prev->data;
+	fr->depth1 = s_hm_skip_a(fr->a, fr->b->data);
+	if (fr->MEDIAN_A >= fr->depth1)
+	{
+		s_rep_ra(&(fr->a), fr->depth1);
+		pa(&(fr->a), &(fr->b));
+		s_rep_rra(&(fr->a), fr->depth1);
+	}
+	else
+	{
+		s_rep_rra(&(fr->a), fr->LEN_A - fr->depth1);
+		pa(&(fr->a), &(fr->b));
+		s_rep_ra(&(fr->a), fr->LEN_A - fr->depth1 + 1);
+	}
 }
 
 void		sort_2(t_frame *fr)
@@ -72,29 +82,16 @@ void		sort_4(t_frame *fr)
 		pa(&(fr->a), &(fr->b));
 		ra(&(fr->a));
 	}
+	fr->b = NULL;
 }
-//TODO на 3-ем кейсе  появились лен б = 5 и медиана (чекнуть апдейт)
+
 void		sort_5(t_frame *fr)
 {
-	int depth;
-
 	s_rep_pb(&(fr->a), &(fr->b), 2);
 	sort_3(fr);
-	if (fr->b->data < fr->b->next->data)
-		rb(&(fr->b));
-	depth = s_hm_skip_a(fr->a, fr->b->data);
-	if (fr->MEDIAN_A > depth)
-	{
-		s_rep_ra(&(fr->a), depth);
-		pa(&(fr->a), &(fr->b));
-		pa(&(fr->a), &(fr->b));
-		s_rep_rra(&(fr->a), depth);
-	}
-	else
-	{
-		s_rep_rra(&(fr->a), fr->LEN_A - depth);
-		pa(&(fr->a), &(fr->b));
-		pa(&(fr->a), &(fr->b));
-		s_rep_ra(&(fr->a), fr->LEN_A - depth);
-	}
+	s_update_fr(fr);
+	sort_5_last2(fr);
+	s_update_fr(fr);
+	sort_5_last2(fr);
+	fr->b = NULL;
 }

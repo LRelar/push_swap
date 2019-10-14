@@ -6,7 +6,7 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 18:43:01 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/11 20:57:58 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/14 13:40:58 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +52,7 @@ void			s_update_fr(t_frame *fr)
 	t_dlst *temp;
 
 	null_all_int(fr);
-	if (fr->a != NULL)
-	{
-		fr->LEN_A++;
-		temp = fr->a->next;
-		while (temp != fr->a)
-		{
-			fr->LEN_A++;
-			temp = temp->next;
-		}
-	}
+	s_len_a(fr);
 	s_len_b(fr);
 	fr->MEDIAN_A = fr->LEN_A / 2;
 	fr->MEDIAN_B = fr->LEN_B / 2;

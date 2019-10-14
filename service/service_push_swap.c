@@ -12,37 +12,11 @@
 
 #include "../includes/push_swap.h"
 
-void	s_len_b(t_frame *fr)
+void	s_init_tmb(t_frame *fr)
 {
-	t_dlst *temp;
-
-	if (fr->b != NULL)
-	{
-		fr->LEN_B++;
-		temp = fr->b->next;
-		while (temp != fr->b)
-		{
-			fr->LEN_B++;
-			temp = temp->next;
-		}
-	}
-}
-
-int		s_hm_skip_b(t_dlst *head, int val)
-{
-	int		i;
-	t_dlst	*temp;
-
-	i = 0;
-	temp = head;
-	if (!temp)
-		return (i);
-	while ((temp->next != head) && (val < temp->data))
-	{
-		i++;
-		temp = temp->next;
-	}
-	return (i);
+	fr->top = fr->a->data;
+	fr->mid = fr->a->next->data;
+	fr->bot = fr->a->prev->data;
 }
 
 void	s_split_chunks(t_frame *fr)

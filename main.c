@@ -38,7 +38,7 @@ int main()
             {20,21,15,10,5},
 	};
     t_frame *fr = s_create_frame(a[0],len1, s_min(a[0], len1),s_max(a[0],len1));
-    for(int i = 1; i < 20; i++)
+    for(int i = 0; i < 20; i++)
     {
 		printf("\n\n%d. ", i);
         printf("[");
@@ -72,7 +72,10 @@ int main()
 		show_list(fr->a);
 		printf("]\t[");
 		if (check(fr->a) == 1)
+		{
 			printf("OK]\n");
+			score++;
+		}
 		else
 			printf("KO]");
 		s_del_lst(fr->a);
