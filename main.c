@@ -7,50 +7,122 @@
 int		*array_generator(int *len);
 void	rotate(int a[20][5]);
 int		check(t_dlst *a);
-
+int check2(t_dlst *a, t_dlst *val);
 int main()
 {
-	int len ;
-	int *a = array_generator(&len);
-	t_dlst *test =s_create_lists(a, len);
-	//int a[]={0,6,-433,/*-236,-72,283,53,169,14,144*/};
-	//int b[]={-175, -204, -315, -364, -383};
-	//t_frame *fr = s_create_frame(a,len, s_min(a, len), s_max(a,len));
-	//printf("\nGENERATE:\n");
-	//s_show_list_g(fr->a);
-	//printf("\n");
-	//fr->b = s_create_lists(b,5);
-	//s_update_fr(fr);
-	//fr->fst=fr->a->next->next;
-	//fr->depth1 = 2;
-	//printf("Stack B :\n");
-	//s_show_list_g(fr->b);
-	//printf("\n");
-	//calc_com1(fr);
-	/*sort_large(fr);
-	printf("Stack A:\n");
-	s_show_list_g(fr->a);
-	printf("\n");
-
-	 */
-	sort_large(fr);
-	printf("\nFINAl Stack A:\n");
-	s_show_list_g(fr->a);
-	printf("\n");
-	printf("\nFINAl Stack B:\n");
-	s_show_list_g(fr->b);
-	printf("\n");
-	s_del_lst(test);
-	s_del_frame(fr);
+    int len1 = 10;
+    int score = 0;
+    //int *ar = array_generator(&len1);
+    int b[]={-100, -200, -300, -400, -500, -600};
+    int a[21][10] = {
+            {1,2,3,4,5,6,7,8,9,10},
+            {1,2,-150,4,5,6,7,8,9,10},
+            {1,2,-250,4,5,6,7,8,9,10},
+            {1,2,-350,4,5,6,7,8,9,10},
+            {1,2,-450,4,5,6,7,8,9,10},
+            {1,2,-550,4,5,6,7,8,9,10},
+            {1,2,-650,4,5,6,7,8,9,10},
+            {1,2,3,4,5,6,7,8,9,10},
+            {1,2,3,4,5,-150,7,8,9,10},
+            {1,2,3,4,5,-250,7,8,9,10},
+            {1,2,3,4,5,-350,7,8,9,10},
+            {1,2,3,4,5,-450,7,8,9,10},
+            {1,2,3,4,5,-550,7,8,9,10},
+            {1,2,3,4,5,-650,7,8,9,10},
+            {1,2,3,4,5,6,7,8,9,10},
+            {1,2,3,4,5,6,-150,8,9,10},
+            {1,2,3,4,5,6,-250,8,9,10},
+            {1,2,3,4,5,6,-350,8,9,10},
+            {1,2,3,4,5,6,-450,8,9,10},
+            {1,2,3,4,5,6,-550,8,9,10},
+            {1,2,3,4,5,6,-650,8,9,10},
+    };
+    t_frame *fr;
+    for(int i = 0; i < 21; i++)
+    {
+        fr = s_create_frame(a[i],len1, s_min(a[i], len1),s_max(a[i],len1));
+        fr->b = s_create_lists(b, 6);
+		printf("\nCтэки:");
+		printf("\nA: ");
+		s_show_list_g(fr->a);
+		printf("\nB: ");
+		s_show_list_g(fr->b);
+        s_update_fr(fr);
+        if (i <7)
+        {
+            fr->fst = fr->a->next->next;
+            fr->depth1 = 2;
+        }
+        else
+        {
+            if (i<14)
+            {
+                fr->fst = fr->a->next->next->next->next->next;
+                fr->depth1 = 5;
+            }
+            else
+            {
+				fr->fst = fr->a->next->next->next->next->next->next;
+				fr->depth1 = 6;
+            }
+        }
+        calc_com1(fr);
+		printf("\nКарта:\n");
+		for(int i =0; i<3; i++)
+		{
+			for(int j=0; j<2;j++)
+				printf("%d ", fr->com1[i][j]);
+			printf("\n");
+		}
+		printf("Скрол: %d\n", fr->scroll1);
+		printf("\nВыполнение команд:");
+		printf("\nA: ");
+		s_show_list_g(fr->a);
+		printf("\nB: ");
+		s_show_list_g(fr->b);
+		printf("\n----------\n");
+		do_com(&(fr->a), &(fr->b),fr->scroll1, fr->com1);
+		printf("\nCтэки:");
+		printf("\nA: ");
+		s_show_list_g(fr->a);
+		printf("\nB: ");
+		s_show_list_g(fr->b);
+		if (check(fr->b) == 0)
+			printf("\n**********************************************************************[KO] B i = %d", i);
+		else
+		{
+			if (check2(fr->a,fr->fst) == 0)
+				printf("\n A");
+			else
+				{
+					printf("\n**************************************[OK]");
+					score++;
+				}
+		}
+	}
+	printf("\nИтого: %d/21\n", score);
     return 0;
 }
-
+int check2(t_dlst *a, t_dlst *val)
+{
+	t_dlst *t = a;
+	if (t == val)
+		return (0);
+	t=t->next;
+	while (t!= a)
+	{
+		if (t == val)
+			return (0);
+		t = t->next;
+	}
+	return (1);
+}
 int check(t_dlst *a)
 {
     t_dlst *t = a;
     while (t->next != a)
     {
-        if (t->next->data < t->data)
+        if (t->next->data > t->data)
             return (0);
         t = t->next;
     }
@@ -69,7 +141,7 @@ void rotate(int a[20][5])
 }
 int		*array_generator(int *len)
 {
-	int		arr_len = 5;
+	int		arr_len = 100;
 	int		*array;
 	int	i;
 	int	top;
@@ -100,77 +172,3 @@ int		*array_generator(int *len)
 		printf("Чет ты шляпу написал, попробуй еще раз :C\n");
 	exit(0);
 }
-
-/*int len1 = 5;
-	int score = 0;
-	//int *ar = array_generator(&len1);
-	int a[20][5] = {
-			{0,-1,15,10,5},
-			{0,1,15,10,5},
-			{0,7,15,10,5},
-			{0,12,15,10,5},
-			{0,20,15,10,5},
-			{7,-1,15,10,5},
-			{7,6,15,10,5},
-			{7,8,15,10,5},
-			{7,11,15,10,5},
-			{7,17,15,10,5},
-			{12,-1,15,10,5},
-			{12,6,15,10,5},
-			{12,9,15,10,5},
-			{12,13,15,10,5},
-			{12,20,15,10,5},
-			{20,-1,15,10,5},
-			{20,7,15,10,5},
-			{20,11,15,10,5},
-			{20,17,15,10,5},
-			{20,21,15,10,5},
-	};
-	t_frame *fr = s_create_frame(a[0],len1, s_min(a[0], len1),s_max(a[0],len1));
-	for(int i = 0; i < 20; i++)
-	{
-		printf("\n\n%d. ", i);
-		printf("[");
-		s_show_list_g(fr->a);
-		printf("]\n");
-		sort_5(fr);
-		printf("[");
-		s_show_list_g(fr->a);
-		printf("]\t[");
-		if (check(fr->a) == 1)
-		{
-			printf("OK]\n");
-			score++;
-		}
-		else
-			printf("KO]");
-		s_del_lst(fr->a);
-		fr->b = NULL;
-		fr->a = s_create_lists(a[i], 5);
-		s_update_fr(fr);
-	}
-	rotate(a);
-	for(int i = 0; i < 20; i++)
-	{
-		printf("\n\n%d. ", i+21);
-		printf("[");
-		s_show_list_g(fr->a);
-		printf("]\n");
-		sort_5(fr);
-		printf("[");
-		s_show_list_g(fr->a);
-		printf("]\t[");
-		if (check(fr->a) == 1)
-		{
-			printf("OK]\n");
-			score++;
-		}
-		else
-			printf("KO]");
-		s_del_lst(fr->a);
-		fr->a = s_create_lists(a[i], 5);
-		s_update_fr(fr);
-	}
-	printf("\n\n%d/40. ", score);
-	s_del_frame(fr);
-	return 0;*/

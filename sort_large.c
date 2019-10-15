@@ -6,30 +6,15 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:23:22 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/15 16:34:40 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/15 20:25:20 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../includes/service.h"
 
-static void	do_com(t_dlst **a, t_dlst **b, int scroll, int com[3][2])
+/*static*/ void	do_com(t_dlst **a, t_dlst **b, int scroll, int com[3][2])
 {
-
-	printf("\nStack A BEFORE:\n");
-	s_show_list_g(*a);
-	printf("\n");
-	printf("\nStack B BEFORE:\n");
-	s_show_list_g(*b);
-	printf("\n");
-	printf("\nCOM1\n");
-	for(int i =0; i< 3; i++)
-	{
-		for (int j =0; j<2; j++)
-			printf("%d ",com[i][j]);
-		printf("\n");
-	}
-	printf("\nScroll:% d\n", scroll);
 	if (scroll == 0)
 	{
 		s_rep_ra(a, com[0][0], 1);
@@ -50,13 +35,6 @@ static void	do_com(t_dlst **a, t_dlst **b, int scroll, int com[3][2])
 		s_rep_rb(b, com[1][0], 1);
 		s_rep_rr(a, b, com[2][0], 1);
 	}
-
-	printf("\nStack A AFTER:\n");
-	s_show_list_g(*a);
-	printf("\n");
-	printf("\nStack B AFTER:\n");
-	s_show_list_g(*b);
-	printf("\n");
 }
 
 void		search_fs(t_frame *fr, int min, int max)

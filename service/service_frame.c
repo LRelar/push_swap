@@ -28,6 +28,7 @@ static void		null_mass(t_frame *fr)
 			fr->com2[i][j] = 0;
 			j++;
 		}
+		j = 0;
 		i++;
 	}
 }
