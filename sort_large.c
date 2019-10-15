@@ -6,7 +6,7 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:23:22 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/14 20:47:37 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/15 16:34:40 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,20 @@
 static void	do_com(t_dlst **a, t_dlst **b, int scroll, int com[3][2])
 {
 
-	printf("Stack A BEFORE:\n");
+	printf("\nStack A BEFORE:\n");
 	s_show_list_g(*a);
 	printf("\n");
-	printf("Stack B BEFORE:\n");
+	printf("\nStack B BEFORE:\n");
 	s_show_list_g(*b);
 	printf("\n");
+	printf("\nCOM1\n");
+	for(int i =0; i< 3; i++)
+	{
+		for (int j =0; j<2; j++)
+			printf("%d ",com[i][j]);
+		printf("\n");
+	}
+	printf("\nScroll:% d\n", scroll);
 	if (scroll == 0)
 	{
 		s_rep_ra(a, com[0][0], 1);
@@ -43,12 +51,38 @@ static void	do_com(t_dlst **a, t_dlst **b, int scroll, int com[3][2])
 		s_rep_rr(a, b, com[2][0], 1);
 	}
 
-	printf("Stack A AFTER:\n");
+	printf("\nStack A AFTER:\n");
 	s_show_list_g(*a);
 	printf("\n");
-	printf("Stack B AFTER:\n");
+	printf("\nStack B AFTER:\n");
 	s_show_list_g(*b);
 	printf("\n");
+}
+
+void		search_fs(t_frame *fr, int min, int max)
+{
+	t_dlst *head;
+	t_dlst *tail;
+
+	head = fr->a;
+	tail = head->prev;
+	while (head != tail)
+	{
+		if ((head->data >= fr->stages[min]) &&
+			(head->data <= fr->stages[max]) && (fr->fst == NULL))
+			fr->fst = head;
+		if ((tail->data >= fr->stages[min]) &&
+			(tail->data <= fr->stages[max]) && (fr->sec == NULL))
+			fr->sec = tail;
+		if ((fr->fst != NULL) && (fr->sec != NULL))
+			break;
+		if ((fr->fst == NULL) && (++fr->depth1))
+			head = head->next;
+		if (head == tail)
+			break;
+		if ((fr->sec == NULL) && (++fr->depth2))
+			tail = tail->prev;
+	}
 }
 
 void		sort_chunk(t_frame *fr, int st_min, int st_max)
@@ -73,7 +107,8 @@ void		sort_chunk(t_frame *fr, int st_min, int st_max)
 		{
 			calc_com1(fr);
 			calc_com2(fr);
-			(choice_opt(fr) == 1) ? do_com(&(fr->a), &(fr->b), fr->scroll1, fr->com1) :
+			(choice_opt(fr) == 1) ?
+			do_com(&(fr->a), &(fr->b), fr->scroll1, fr->com1) :
 			do_com(&(fr->a), &(fr->b), fr->scroll2, fr->com2);
 		}
 	}

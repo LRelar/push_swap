@@ -6,7 +6,7 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 16:46:35 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/14 13:39:40 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/15 17:26:33 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,10 @@ int		s_hm_skip_b(t_dlst *head, int val)
 	temp = head;
 	if (!temp)
 		return (i);
-	while ((temp->next != head) && (val < temp->data))
+	if (val < temp->data)
+		i++;
+	temp = head->next;
+	while ((temp != head) && (val < temp->data))
 	{
 		i++;
 		temp = temp->next;

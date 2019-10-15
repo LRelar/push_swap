@@ -24,15 +24,14 @@ typedef struct	s_push_swap_frame
 {
     int			MIN;
 	int			MAX;
-    int			LEN_A; //кол-во символов
+    int			LEN_A;
     int			LEN_B;
-    int			MEDIAN_A; //медианы
+    int			MEDIAN_A;
 	int			MEDIAN_B;
 
-    t_dlst		*a; //стэк а
-    t_dlst		*b; //стэк b
+    t_dlst		*a;
+    t_dlst		*b;
 
-    //переменные для сортировок больших порядков
     t_dlst		*fst;
     t_dlst		*sec;
 	int			depth1;
@@ -42,14 +41,12 @@ typedef struct	s_push_swap_frame
 	int			scroll1;
 	int			scroll2;
 
-    //переменные для  sort_2-5
 	int			temp;
 	int			top;
 	int			mid;
 	int			bot;
 
-	//кейсы для sort  5
-	int			*stages; //Рубежи
+	int			*stages;
 }				t_frame;
 
 void 			sort_2(t_frame *fr);
@@ -58,8 +55,10 @@ void			sort_4(t_frame *fr);
 void			sort_5(t_frame *fr);
 void			sort_large(t_frame *fr);
 void			sort_chunk(t_frame *fr, int st_min, int st_max);
-
 void			search_fs(t_frame *fr, int min, int max);
+
+/********************optimal choice***********************/
+
 void			calc_com1(t_frame *fr);
 void			calc_com2(t_frame *fr);
 int				choice_opt(t_frame *fr);

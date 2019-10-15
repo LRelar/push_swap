@@ -10,20 +10,37 @@ int		check(t_dlst *a);
 
 int main()
 {
-	int len = 17;
+	int len ;
 	int *a = array_generator(&len);
-	//int a[]={0, 5, 4,7,3,11};
-	t_frame *fr = s_create_frame(a,len, s_min(a, len), s_max(a,len));
+	t_dlst *test =s_create_lists(a, len);
+	//int a[]={0,6,-433,/*-236,-72,283,53,169,14,144*/};
+	//int b[]={-175, -204, -315, -364, -383};
+	//t_frame *fr = s_create_frame(a,len, s_min(a, len), s_max(a,len));
+	//printf("\nGENERATE:\n");
+	//s_show_list_g(fr->a);
+	//printf("\n");
+	//fr->b = s_create_lists(b,5);
+	//s_update_fr(fr);
+	//fr->fst=fr->a->next->next;
+	//fr->depth1 = 2;
+	//printf("Stack B :\n");
+	//s_show_list_g(fr->b);
+	//printf("\n");
+	//calc_com1(fr);
+	/*sort_large(fr);
 	printf("Stack A:\n");
 	s_show_list_g(fr->a);
 	printf("\n");
+
+	 */
 	sort_large(fr);
-	printf("Stack A:\n");
+	printf("\nFINAl Stack A:\n");
 	s_show_list_g(fr->a);
 	printf("\n");
-	printf("Stack B :\n");
+	printf("\nFINAl Stack B:\n");
 	s_show_list_g(fr->b);
 	printf("\n");
+	s_del_lst(test);
 	s_del_frame(fr);
     return 0;
 }
@@ -52,7 +69,7 @@ void rotate(int a[20][5])
 }
 int		*array_generator(int *len)
 {
-	int		arr_len;
+	int		arr_len = 5;
 	int		*array;
 	int	i;
 	int	top;
@@ -61,8 +78,8 @@ int		*array_generator(int *len)
 	i = 0;
 	tail = -500;
 	top = 500;
-	printf("Количество элементов в массиве:\n");
-	scanf("%d", &arr_len);
+	//printf("Количество элементов в массиве:\n");
+	//scanf("%d", &arr_len);
 	*len = arr_len;
 	if ((arr_len > 0 && arr_len < INT_MAX) && \
 				(tail > INT_MIN && tail < INT_MAX) && \
