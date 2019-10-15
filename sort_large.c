@@ -15,26 +15,29 @@
 
 /*static*/ void	do_com(t_dlst **a, t_dlst **b, int scroll, int com[3][2])
 {
-	if (scroll == 0)
-	{
-		s_rep_ra(a, com[0][0], 1);
-		s_rep_rb(b, com[1][0], 1);
-		s_rep_rr(a, b, com[2][0], 1);
-		pb(a, b, 1);
-		s_rep_rra(a, com[0][1], 1);
-		s_rep_rrb(b, com[1][1], 1);
-		s_rep_rrr(a, b, com[2][1], 1);
-	}
-	else
-	{
-		s_rep_rra(a, com[0][1], 1);
-		s_rep_rrb(b, com[1][1], 1);
-		s_rep_rrr(a, b, com[2][1], 1);
-		pb(a, b, 1);
-		s_rep_ra(a, com[0][0], 1);
-		s_rep_rb(b, com[1][0], 1);
-		s_rep_rr(a, b, com[2][0], 1);
-	}
+    s_rep_ra(a,com[0][0],1);
+    s_rep_rra(a,com[0][1],1);
+    if (scroll == 0)
+    {
+        s_rep_rb(b,com[1][0],1);
+        s_rep_rr(a,b,com[2][0],1);
+        pb(a,b,1);
+        s_rep_rrb(b,com[1][1],1);
+    }
+    else
+    {
+        s_rep_rrb(b,com[1][1],1);
+        s_rep_rrr(a,b,com[2][1],1);
+        pb(a,b,1);
+        s_rep_rb(b,com[1][0],1);
+    }
+	/*printf("\n[");
+	s_show_list_g(*a);
+	printf("]");
+	printf("\n[");
+	s_show_list_g(*b);
+	printf("]%d",scroll);*/
+
 }
 
 void		search_fs(t_frame *fr, int min, int max)

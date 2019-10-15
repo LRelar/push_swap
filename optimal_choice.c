@@ -13,8 +13,24 @@
 #include "../includes/push_swap.h"
 #include "../includes/service.h"
 
-static void	reverse(int com[3][2])
+static void	reverse(int com[3][2], int scroll)
 {
+    if (com[0][scroll] != 0)
+    {
+        if (com[0][scroll] < com[1][scroll])
+        {
+            com[1][scroll] -= com[0][scroll];
+            com[2][scroll] = com[0][scroll];
+            com[0][scroll] = 0;
+        }
+        else
+		{
+			com[0][scroll] -= com[1][scroll];
+			com[2][scroll] = com[1][scroll];
+			com[1][scroll] = 0;
+		}
+    }
+    /*
 	int j;
 
 	j = (com[0][0] > 0) ? 0 : 1;
@@ -29,7 +45,7 @@ static void	reverse(int com[3][2])
 		com[0][j] -= com[1][j];
 		com[2][j] = com[1][j];
 		com[1][j] = 0;
-	}
+	}*/
 }
 
 static void	calc_b(int depth, int len, int *scroll, int com[3][2])
@@ -55,7 +71,7 @@ void		calc_com1(t_frame *fr)
 		fr->com1[0][1] = fr->LEN_A - fr->depth1;
 	fr->depth1 = s_hm_skip_b(fr->b, fr->fst->data);
 	calc_b(fr->depth1, fr->LEN_B, &(fr->scroll1), fr->com1);
-	reverse(fr->com1);
+	reverse(fr->com1, fr->scroll1);
 }
 
 void		calc_com2(t_frame *fr)
@@ -76,7 +92,7 @@ void		calc_com2(t_frame *fr)
 			fr->com2[0][0] = fr->LEN_A - fr->depth2 - 1;
 	}
 	calc_b(fr->depth2, fr->LEN_B, &(fr->scroll2), fr->com2);
-	reverse(fr->com2);
+	reverse(fr->com2, fr->scroll2);
 }
 
 int			choice_opt(t_frame *fr)
