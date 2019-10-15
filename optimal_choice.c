@@ -91,6 +91,7 @@ void		calc_com2(t_frame *fr)
 		else
 			fr->com2[0][0] = fr->LEN_A - fr->depth2 - 1;
 	}
+	fr->depth2 = s_hm_skip_b(fr->b, fr->sec->data);
 	calc_b(fr->depth2, fr->LEN_B, &(fr->scroll2), fr->com2);
 	reverse(fr->com2, fr->scroll2);
 }
