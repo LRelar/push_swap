@@ -58,12 +58,12 @@ int main()
             if (i<14)
             {
                 fr->sec = fr->a->next->next->next->next;
-                fr->depth1 = 5;
+                fr->depth2 = 5;
             }
             else
             {
-				fr->fst = fr->a->next->next->next;
-				fr->depth1 = 6;
+				fr->sec = fr->a->next->next->next;
+				fr->depth2 = 6;
             }
         }
         calc_com2(fr);
@@ -95,10 +95,10 @@ int main()
 				printf("\n**********************************************************************[KO] A i = %d", i);
 			else
 				{
-					printf("\n**************************************[OK]");
+					printf("\n**************************************[OK] i = %d", i);
 					score++;
 				}
-		}
+	}
 		s_del_frame(fr);
 	}
 	printf("\nИтого: %d/21\n", score);
