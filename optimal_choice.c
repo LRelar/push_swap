@@ -82,15 +82,8 @@ void		calc_com2(t_frame *fr)
 		fr->com2[0][0] = fr->depth2 - 1;
 	if (fr->depth2 == fr->MEDIAN_A && (fr->LEN_A % 2 == 1))
 		fr->com2[0][0] = fr->depth2;
-	if (fr->depth2 > fr->MEDIAN_A && (fr->LEN_A % 2 == 0))
+	if (fr->depth2 > fr->MEDIAN_A)
 		fr->com2[0][0] = fr->LEN_A - fr->depth2 - 1;
-	if (fr->depth2 > fr->MEDIAN_A && (fr->LEN_A % 2 == 1))
-	{
-		if (fr->MEDIAN_A + 1 == fr->depth2)
-			fr->com2[0][0] = fr->LEN_A - fr->depth2;
-		else
-			fr->com2[0][0] = fr->LEN_A - fr->depth2 - 1;
-	}
 	///*fr->depth2*/int h = s_hm_skip_b(fr->b, fr->sec->data);
 	calc_b(s_hm_skip_b(fr->b, fr->sec->data), fr->LEN_B, &(fr->scroll2), fr->com2);
 	reverse(fr->com2, fr->scroll2);
