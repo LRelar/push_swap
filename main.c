@@ -11,16 +11,16 @@ int check2(t_dlst *a, t_dlst *val);
 int main()
 {
 	int len =6;
-	//int *ar = array_generator(&len);
-	int ar[]={0,-242,-388,-32,-292,-397};
+	int *ar = array_generator(&len);
+	//int ar[]={0,-242,-388,-32,-292,-397};
 	t_frame *fr = s_create_frame(ar,len,s_min(ar,len), s_max(ar, len));
-	printf("\nМассив:\n");
-	s_show_list_g(fr->a);
-	printf("\n");
+	//printf("\nМассив:\n");
+	//s_show_list_g(fr->a);
+	//printf("\n");
 	sort_large(fr);
-	printf("\nМассив:\n");
-	s_show_list_g(fr->a);
-	printf("\n");
+	//printf("\nМассив:\n");
+	//s_show_list_g(fr->a);
+	//printf("\n");
 	return 0;
 }
 int check2(t_dlst *a, t_dlst *val)
@@ -61,7 +61,7 @@ void rotate(int a[20][5])
 }
 int		*array_generator(int *len)
 {
-	int		arr_len = 100;
+	int		arr_len = 10;
 	int		*array;
 	int	i;
 	int	top;

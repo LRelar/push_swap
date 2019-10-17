@@ -63,6 +63,4 @@ void			calc_com1(t_frame *fr);
 void			calc_com2(t_frame *fr);
 int				choice_opt(t_frame *fr);
 
-void	do_com(t_dlst **a, t_dlst **b, int scroll, int com[3][2]);
-
 #endif //PUSH_SWAP_PUSH_SWAP_H

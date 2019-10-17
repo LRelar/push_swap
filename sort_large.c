@@ -6,14 +6,14 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:23:22 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/15 20:25:20 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/17 15:00:18 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../includes/service.h"
 
-/*static*/ void	do_com(t_dlst **a, t_dlst **b, int scroll, int com[3][2])
+static void	do_com(t_dlst **a, t_dlst **b, int scroll, int com[3][2])
 {
     s_rep_ra(a,com[0][0],1);
     s_rep_rra(a,com[0][1],1);
@@ -40,28 +40,34 @@ void		search_fs(t_frame *fr, int min, int max)
 
 	head = fr->a;
 	tail = head->prev;
-	while (1)
+	while (head != tail)
 	{
-		if ((head->data >= fr->stages[min]) &&
-			(head->data <= fr->stages[max]) && (fr->fst == NULL))
+		if ((fr->fst == NULL) && (head->data >= fr->stages[min]) &&
+			(head->data <= fr->stages[max]))
 			fr->fst = head;
-		if ((tail->data >= fr->stages[min]) &&
-			(tail->data <= fr->stages[max]) && (fr->sec == NULL))
+		if ((fr->sec == NULL) && (tail->data >= fr->stages[min]) &&
+			(tail->data <= fr->stages[max]))
 			fr->sec = tail;
 		if ((fr->fst != NULL) && (fr->sec != NULL))
-			break;
-		if (head == tail)
 			break;
 		if ((fr->fst == NULL) && (++fr->depth1))
 			head = head->next;
 		if ((fr->sec == NULL) && (++fr->depth2))
 			tail = tail->prev;
+		if (head == tail->next)
+			break;
 	}
+	if ((fr->fst == NULL) && (head->data >= fr->stages[min]) &&
+		(head->data <= fr->stages[max]))
+		fr->fst = head;
+	if ((fr->sec == NULL) && (tail->data >= fr->stages[min]) &&
+		(tail->data <= fr->stages[max]))
+		fr->sec = tail;
 }
 
 void		sort_chunk(t_frame *fr, int st_min, int st_max)
 {
-	while (1)
+	while (fr->a != NULL)
 	{
 		s_update_fr(fr);
 		search_fs(fr, st_min, st_max);
@@ -98,7 +104,6 @@ void		sort_large(t_frame *fr)
 
 	while (i + 1 < n)
 	{
-		printf("\n[%d - %d]",i, i+1);
 		sort_chunk(fr, i, i + 1);
 		i += 2;
 	}
