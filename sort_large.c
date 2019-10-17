@@ -31,15 +31,8 @@
         pb(a,b,1);
         s_rep_rb(b,com[1][0],1);
     }
-	/*printf("\n[");
-	s_show_list_g(*a);
-	printf("]");
-	printf("\n[");
-	s_show_list_g(*b);
-	printf("]%d",scroll);*/
-
 }
-
+//TODO протестировать прохождения - есть сомнения что он не проскакивает их при четной длинне
 void		search_fs(t_frame *fr, int min, int max)
 {
 	t_dlst *head;
@@ -47,7 +40,7 @@ void		search_fs(t_frame *fr, int min, int max)
 
 	head = fr->a;
 	tail = head->prev;
-	while (head != tail)
+	while (1)
 	{
 		if ((head->data >= fr->stages[min]) &&
 			(head->data <= fr->stages[max]) && (fr->fst == NULL))
@@ -57,10 +50,10 @@ void		search_fs(t_frame *fr, int min, int max)
 			fr->sec = tail;
 		if ((fr->fst != NULL) && (fr->sec != NULL))
 			break;
-		if ((fr->fst == NULL) && (++fr->depth1))
-			head = head->next;
 		if (head == tail)
 			break;
+		if ((fr->fst == NULL) && (++fr->depth1))
+			head = head->next;
 		if ((fr->sec == NULL) && (++fr->depth2))
 			tail = tail->prev;
 	}

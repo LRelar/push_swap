@@ -10,117 +10,18 @@ int		check(t_dlst *a);
 int check2(t_dlst *a, t_dlst *val);
 int main()
 {
-    int len1 = 11;
-    int score = 0;
-    //int *ar = array_generator(&len1);
-    int b[]={-100, -200, -300, -400, -500, -600};
-    int a[28][11] = {
-			{1,2,3,4,5,6,7,8,9,10,11},
-			{1,2,3,4,5,6,7,8,-150,10,11},
-			{1,2,3,4,5,6,7,8,-250,10,11},
-			{1,2,3,4,5,6,7,8,-350,10,11},
-			{1,2,3,4,5,6,7,8,-450,10,11},
-			{1,2,3,4,5,6,7,8,-550,10,11},
-			{1,2,3,4,5,6,7,8,-650,10,11},
-			{1,2,3,4,5,6,7,8,9,10,11},
-			{1,2,3,4,5,-150,7,8,9,10,11},
-			{1,2,3,4,5,-250,7,8,9,10,11},
-			{1,2,3,4,5,-350,7,8,9,10,11},
-			{1,2,3,4,5,-450,7,8,9,10,11},
-			{1,2,3,4,5,-550,7,8,9,10,11},
-			{1,2,3,4,5,-650,7,8,9,10,11},
-			{1,2,3,4,5,6,7,8,9,10,11},
-			{1,2,3,4,-150,6,7,8,9,10,11},
-			{1,2,3,4,-250,6,7,8,9,10,11},
-			{1,2,3,4,-350,6,7,8,9,10,11},
-			{1,2,3,4,-450,6,7,8,9,10,11},
-			{1,2,3,4,-550,6,7,8,9,10,11},
-			{1,2,3,4,-650,6,7,8,9,10,11},
-			{1,2,3,4,5,6,7,8,9,10,11},
-			{1,2,3,-150,5,6,7,8,9,10,11},
-			{1,2,3,-250,5,6,7,8,9,10,11},
-			{1,2,3,-350,5,6,7,8,9,10,11},
-			{1,2,3,-450,5,6,7,8,9,10,11},
-			{1,2,3,-550,5,6,7,8,9,10,11},
-			{1,2,3,-650,5,6,7,8,9,10,11},
-
-    };
-    t_frame *fr;
-    for(int i = 0; i < 28; i++)
-    {
-        fr = s_create_frame(a[i],len1, s_min(a[i], len1),s_max(a[i],len1));
-        fr->b = s_create_lists(b, 6);
-		printf("\nCтэки:");
-		printf("\nA: ");
-		s_show_list_g(fr->a);
-		printf("\nB: ");
-		s_show_list_g(fr->b);
-        s_update_fr(fr);
-        if (i <7)
-        {
-            fr->sec = fr->a->prev->prev->prev;
-            fr->depth2 = 2;
-        }
-        else
-        {
-
-			if (i<14)
-			{
-				fr->sec = fr->a->prev->prev->prev->prev->prev->prev;
-				fr->depth2 = 5;
-			}
-			else
-			{
-				if (i<21)
-				{
-					fr->sec = fr->a->prev->prev->prev->prev->prev->prev->prev;
-					fr->depth2 = 6;
-				}
-				else
-				{
-					fr->sec = fr->a->prev->prev->prev->prev->prev->prev->prev->prev;
-					fr->depth2 = 7;
-				}
-			}
-        }
-		printf("\nУказатель на: %d\n", fr->sec->data);
-		calc_com2(fr);
-		printf("\nКарта:\n");
-		for(int i =0; i<3; i++)
-		{
-			for(int j=0; j<2;j++)
-				printf("%d ", fr->com2[i][j]);
-			printf("\n");
-		}
-		printf("Скрол: %d\n", fr->scroll2);
-		printf("\nВыполнение команд:");
-		printf("\nA: ");
-		s_show_list_g(fr->a);
-		printf("\nB: ");
-		s_show_list_g(fr->b);
-		printf("\n----------\n");
-		do_com(&(fr->a), &(fr->b),fr->scroll2, fr->com2);
-		printf("\nCтэки:");
-		printf("\nA: ");
-		s_show_list_g(fr->a);
-		printf("\nB: ");
-		s_show_list_g(fr->b);
-		if (check(fr->b) == 0)
-			printf("\n**********************************************************************[KO] B i = %d", i);
-		else
-		{
-			if (check2(fr->a,fr->sec) == 0)
-				printf("\n**********************************************************************[KO] A i = %d", i);
-			else
-				{
-					printf("\n**************************************[OK] i = %d", i);
-					score++;
-				}
-	}
-		s_del_frame(fr);
-	}
-	printf("\nИтого: %d/28\n", score);
-    return 0;
+	int len =6;
+	//int *ar = array_generator(&len);
+	int ar[]={0,-242,-388,-32,-292,-397};
+	t_frame *fr = s_create_frame(ar,len,s_min(ar,len), s_max(ar, len));
+	printf("\nМассив:\n");
+	s_show_list_g(fr->a);
+	printf("\n");
+	sort_large(fr);
+	printf("\nМассив:\n");
+	s_show_list_g(fr->a);
+	printf("\n");
+	return 0;
 }
 int check2(t_dlst *a, t_dlst *val)
 {
