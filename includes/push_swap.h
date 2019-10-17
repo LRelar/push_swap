@@ -19,7 +19,7 @@
 #include <stdio.h>
 #include "../libft/libft.h"
 #include "dc_lists.h"
-
+extern int total;
 typedef struct	s_push_swap_frame
 {
     int			MIN;

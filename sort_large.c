@@ -6,7 +6,7 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:23:22 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/17 15:00:18 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/17 19:21:52 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 
 static void	do_com(t_dlst **a, t_dlst **b, int scroll, int com[3][2])
 {
+	for (int i =0; i<3; i++)
+	{
+		for(int j=0; j<2; j++)
+			total+= com[i][j];
+	}
     s_rep_ra(a,com[0][0],1);
     s_rep_rra(a,com[0][1],1);
     if (scroll == 0)
@@ -31,6 +36,7 @@ static void	do_com(t_dlst **a, t_dlst **b, int scroll, int com[3][2])
         pb(a,b,1);
         s_rep_rb(b,com[1][0],1);
     }
+    total++;
 }
 //TODO протестировать прохождения - есть сомнения что он не проскакивает их при четной длинне
 void		search_fs(t_frame *fr, int min, int max)
@@ -109,5 +115,6 @@ void		sort_large(t_frame *fr)
 	}
 	s_len_b(fr);
 	s_rep_pa(&(fr->a), &(fr->b), fr->LEN_B, 1);
+	total+=fr->LEN_B;
 }
 

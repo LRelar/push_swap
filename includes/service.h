@@ -60,7 +60,7 @@ void	s_init_tmb(t_frame *fr);
 void	s_split_chunks(t_frame *fr);
 int 	s_min(int *arr, int len);
 int 	s_max(int *arr, int len);
-
+int		s_check(int *a, int len);
 /********************push swap 2***********************/
 
 int		s_hm_skip_b(t_dlst *head, int val);

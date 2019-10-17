@@ -6,7 +6,7 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 18:42:05 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/15 17:23:25 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/17 19:21:52 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,18 @@ int		s_max(int *arr, int len)
 		if (arr[i] > max)
 			max = arr[i];
 	return (max);
+}
+
+int s_check(int *a, int len)
+{
+	int i;
+
+	i = 0;
+	while (i < len - 1)
+	{
+		if (a[i] > a[i + 1])
+			return (0);
+		i++;
+	}
+	return  (1);
 }
