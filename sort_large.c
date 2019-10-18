@@ -13,32 +13,25 @@
 #include "../includes/push_swap.h"
 #include "../includes/service.h"
 
-static void	do_com(t_dlst **a, t_dlst **b, int scroll, int com[3][2])
+static void	do_com(t_dlst **a, t_dlst **b, int com[3][2])
 {
 	for (int i =0; i<3; i++)
 	{
 		for(int j=0; j<2; j++)
 			total+= com[i][j];
 	}
+
     s_rep_ra(a,com[0][0],1);
     s_rep_rra(a,com[0][1],1);
-    if (scroll == 0)
-    {
-        s_rep_rb(b,com[1][0],1);
-        s_rep_rr(a,b,com[2][0],1);
-        pb(a,b,1);
-        s_rep_rrb(b,com[1][1],1);
-    }
-    else
-    {
-        s_rep_rrb(b,com[1][1],1);
-        s_rep_rrr(a,b,com[2][1],1);
-        pb(a,b,1);
-        s_rep_rb(b,com[1][0],1);
-    }
-    total++;
+    s_rep_rb(b,com[1][0],1);
+	s_rep_rrb(b,com[1][1],1);
+	s_rep_rr(a,b,com[2][0],1);
+	s_rep_rrr(a,b,com[2][1],1);
+	pb(a,b,1);
+	s_show_both_list(*a, *b);
+	total++;
 }
-//TODO протестировать прохождения - есть сомнения что он не проскакивает их при четной длинне
+
 void		search_fs(t_frame *fr, int min, int max)
 {
 	t_dlst *head;
@@ -79,23 +72,13 @@ void		sort_chunk(t_frame *fr, int st_min, int st_max)
 		search_fs(fr, st_min, st_max);
 		if (fr->fst == NULL && fr->sec == NULL)
 			break;
-		if (fr->sec == NULL)
-		{
-			calc_com1(fr);
-			do_com(&(fr->a), &(fr->b), fr->scroll1, fr->com1);
-		}
-		if (fr->fst == NULL)
-		{
-			calc_com2(fr);
-			do_com(&(fr->a), &(fr->b), fr->scroll2, fr->com2);
-		}
-		if (fr->fst != NULL && fr->sec != NULL)
+		else
 		{
 			calc_com1(fr);
 			calc_com2(fr);
 			(choice_opt(fr) == 1) ?
-			do_com(&(fr->a), &(fr->b), fr->scroll1, fr->com1) :
-			do_com(&(fr->a), &(fr->b), fr->scroll2, fr->com2);
+			do_com(&(fr->a), &(fr->b), fr->com1) :
+			do_com(&(fr->a), &(fr->b), fr->com2);
 		}
 	}
 }

@@ -101,3 +101,66 @@ void			s_show_list_g(t_dlst *lst)
 		}
 	}
 }
+
+static void		show_both_hlp(t_dlst *b)
+{
+	t_dlst *temp;
+
+	if (b != NULL)
+	{
+		printf("%22d\n", b->data);
+		temp = b->next;
+		while (temp != b)
+		{
+			printf("%22d\n", temp->data);
+			temp = temp->next;
+		}
+	}
+}
+
+
+//TODO на основе этого сделать полноценный модуль визуализации
+int			s_show_both_list(t_dlst *a, t_dlst *b)
+{
+    t_dlst *temp1;
+    t_dlst *temp2;
+
+    if (a == NULL && b == NULL)
+		return  (0);
+   // sleep(1);
+	//printf("%c[2J%c[H", 27, 27);
+    printf("________________________\nStack A:\tStack B:\n________________________\n");
+    if (b == NULL)
+		s_show_list_v(a);
+	if (a == NULL)
+		show_both_hlp(b);
+	if (a != NULL && b != NULL)
+	{
+		printf("%-11d%11d\n", a->data, b->data);
+		temp1 = a->next;
+		temp2 = b->next;
+		while (temp1 != a || temp2 != b )
+		{
+			if (temp1 != a && temp2 != b)
+			{
+				printf("%-11d%11d\n", temp1->data, temp2->data);
+				temp1 = temp1->next;
+				temp2 = temp2->next;
+				continue;
+			}
+			if (temp1 == a && temp2 != b)
+			{
+				printf("%22d\n",temp2->data);
+				temp2 = temp2->next;;
+				continue;
+			}
+			if (temp1 != a && temp2 == b)
+			{
+				printf("%-11d\n", temp1->data);
+				temp1 = temp1->next;
+				continue;
+			}
+		}
+	}
+	return (printf("________________________\n"));
+}

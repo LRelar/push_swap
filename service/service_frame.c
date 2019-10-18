@@ -41,8 +41,6 @@ static void		null_all_int(t_frame *fr)
 	fr->LEN_B = 0;
 	fr->MEDIAN_A = 0;
 	fr->MEDIAN_B = 0;
-	fr->scroll1 = 0;
-	fr->scroll2 = 0;
 	fr->depth1 = 0;
 	fr->depth2 = 0;
 	null_mass(fr);

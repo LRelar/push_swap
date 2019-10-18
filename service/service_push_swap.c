@@ -36,10 +36,7 @@ void	s_split_chunks(t_frame *fr)
 	{
 		fr->stages[i++] = temp;
 		temp = temp + div - 1;
-		if (n == 0)
-			fr->stages[i++] = fr->MAX;
-		else
-			fr->stages[i++] = temp;
+		fr->stages[i++] = (n == 0) ?  fr->MAX : temp;
 		temp++;
 	}
 }
@@ -70,7 +67,7 @@ int		s_max(int *arr, int len)
 	return (max);
 }
 
-int s_check(int *a, int len)
+int		s_check(int *a, int len)
 {
 	int i;
 
@@ -82,4 +79,28 @@ int s_check(int *a, int len)
 		i++;
 	}
 	return  (1);
+}
+
+void	s_set_minmax_b(t_frame *fr)
+{
+	t_dlst *t;
+
+	if (fr->b == NULL)
+	{
+		fr->MAX = 0;
+		fr->MIN = 0;
+	}
+	else
+	{
+		t = fr->b;
+		fr->MIN = (t->data < fr->MIN) ? t->data : fr->MIN;
+		fr->MAX = (t->data > fr->MAX) ? t->data : fr->MAX;
+		t = t->next;
+		while (t != fr->b)
+		{
+			fr->MIN = (t->data < fr->MIN) ? t->data : fr->MIN;
+			fr->MAX = (t->data > fr->MAX) ? t->data : fr->MAX;
+			t = t->next;
+		}
+	}
 }

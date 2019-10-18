@@ -13,8 +13,8 @@ int        *array_generator(int len)
 	int        arr_len = len;
 	int        *array;
 	int    i;
-	int    top;
-	int    tail;
+//	int    top;
+	//int    tail;
 
 	i = 0;
 	//printf("\nКоличество элементов в массиве:\n");
@@ -24,21 +24,21 @@ int        *array_generator(int len)
 	// scanf("%zd", &tail);
 	// printf("Верхняя граница:\n");
 	// scanf("%zd", &top);
-	tail = INT_MIN +1;
-	top = INT_MAX - 100;
-	if ((arr_len > 0 && arr_len < INT_MAX) && \
+	//tail = INT_MIN +1;
+	//top = INT_MAX - 100;
+	/*if ((arr_len > 0 && arr_len < INT_MAX) && \
         (tail > INT_MIN && tail < INT_MAX) && \
         (top > INT_MIN && top < INT_MAX) && (top > tail))
-	{
+	{*/
 		array = (int *)malloc(sizeof(int) * arr_len);
 		srand(time(0));
 		while (arr_len--)
-			array[i++] = rand() % (top - tail + 1) + tail;
+			array[i++] = rand() % 32767 - (32767 /2);
 		//while (i--)
 		//	printf("%d ", array[i]);
 		return (array);
-	}
-	else
+	//}
+	//else
 		printf("Чет ты шляпу написал, попробуй еще раз :C\n");
 	exit(0);
 }
@@ -46,19 +46,20 @@ int total = 0;
 
 int main(int argc, char *argv[])
 {
-	int len = ft_atoi(argv[1]);
-	int *arr;
-
+	//int len = ft_atoi(argv[1]);
+	//int *arr;
+	int len = 15;
+    int arr[]={-5007,10157,878,-2295,9349,-13482,10528,-14400,4635,4845,-15096,12927,6249,-3718,-15404};
 	if (argc == 1)
 		return (0);
 	//arr = checker_collector(argc, argv, &len);
-	arr = array_generator(ft_atoi(argv[1]));
+	//arr = array_generator(ft_atoi(argv[1]));
 	if (len == 1 || s_check(arr, len))
 		return (0);
 	t_frame *fr = s_create_frame(arr,len,s_min(arr,len), s_max(arr, len));
-	s_show_list_g(fr->a);
+	s_show_both_list(fr->a, fr->b);
 	printf("\n");
-	free(arr);
+	//free(arr);
 	if (len == 2)
 		sort_2(fr);
 	if (len == 3)
@@ -69,7 +70,7 @@ int main(int argc, char *argv[])
 		sort_5(fr);
 	if (len > 5)
 		sort_large(fr);
-	s_show_list_g(fr->a);
+	s_show_both_list(fr->a, fr->b);
 	printf("\n%d\tTOTAL:%d", check2(fr->a), total);
 	s_del_frame(fr);
 	return 0;

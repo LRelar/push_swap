@@ -38,8 +38,6 @@ typedef struct	s_push_swap_frame
     int			depth2;
     int			com1[3][2];
 	int			com2[3][2];
-	int			scroll1;
-	int			scroll2;
 
 	int			temp;
 	int			top;

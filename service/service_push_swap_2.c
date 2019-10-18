@@ -16,6 +16,7 @@ void	s_len_a(t_frame *fr)
 {
 	t_dlst *temp;
 
+    fr->LEN_A = 0;
 	if (fr->a != NULL)
 	{
 		fr->LEN_A++;
@@ -32,6 +33,7 @@ void	s_len_b(t_frame *fr)
 {
 	t_dlst *temp;
 
+	fr->LEN_B = 0;
 	if (fr->b != NULL)
 	{
 		fr->LEN_B++;

@@ -13,54 +13,37 @@
 #include "../includes/push_swap.h"
 #include "../includes/service.h"
 
-static void	reverse(int com[3][2], int scroll)
+static void	reverse(int com[3][2])
 {
-    if (com[0][scroll] != 0)
+    int i;
+
+    i = (com[0][0] == 0) ? 1 : 0;
+    if (com[0][i] != 0)
     {
-        if (com[0][scroll] < com[1][scroll])
+        if (com[0][i] < com[1][i])
         {
-            com[1][scroll] -= com[0][scroll];
-            com[2][scroll] = com[0][scroll];
-            com[0][scroll] = 0;
+            com[1][i] -= com[0][i];
+            com[2][i] = com[0][i];
+            com[0][i] = 0;
         }
         else
 		{
-			com[0][scroll] -= com[1][scroll];
-			com[2][scroll] = com[1][scroll];
-			com[1][scroll] = 0;
+			com[0][i] -= com[1][i];
+			com[2][i] = com[1][i];
+			com[1][i] = 0;
 		}
     }
-    /*
-	int j;
-
-	j = (com[0][0] > 0) ? 0 : 1;
-	if (com[0][j] < com[1][j])
-	{
-		com[1][j] -= com[0][j];
-		com[2][j] = com[0][j];
-		com[0][j] = 0;
-	}
-	else
-	{
-		com[0][j] -= com[1][j];
-		com[2][j] = com[1][j];
-		com[1][j] = 0;
-	}*/
 }
-
-static void	calc_b(int depth, int len, int *scroll, int com[3][2])
+/*TODO Чекнуть оригинальный пуш и еще раз посмотреть все
+ * 0. Удалить  s_set_minmax_b(t_frame *fr)
+ * 1. Указатель на макс  в В всегда должен быть
+ * 2. Реализовать оригинальную логику
+ * */
+static void calc_b(int min, int max, int len, int com[3][2])
 {
-	if (depth <= len / 2)
-	{
-		com[1][0] = depth;
-		com[1][1] = depth;
-	}
-	else
-	{
-		com[1][0] = len - depth + 1;
-		com[1][1] = len - depth;
-		*scroll = 1;
-	}
+
+	//fr->depth1 = s_hm_skip_b(fr->b, fr->fst->data);
+	//(depth <= len / 2) ? (com[1][0] = depth) : (com[1][1] = len - depth);
 }
 
 void		calc_com1(t_frame *fr)
@@ -69,9 +52,8 @@ void		calc_com1(t_frame *fr)
 		fr->com1[0][0] = fr->depth1;
 	if (fr->depth1 > fr->MEDIAN_A)
 		fr->com1[0][1] = fr->LEN_A - fr->depth1;
-	fr->depth1 = s_hm_skip_b(fr->b, fr->fst->data);
-	calc_b(fr->depth1, fr->LEN_B, &(fr->scroll1), fr->com1);
-	reverse(fr->com1, fr->scroll1);
+	calc_b(fr->MIN, fr->MAX, fr->LEN_B, fr->com1);
+	reverse(fr->com1);
 }
 
 void		calc_com2(t_frame *fr)
@@ -84,9 +66,8 @@ void		calc_com2(t_frame *fr)
 		fr->com2[0][0] = fr->depth2;
 	if (fr->depth2 > fr->MEDIAN_A)
 		fr->com2[0][0] = fr->LEN_A - fr->depth2 - 1;
-	///*fr->depth2*/int h = s_hm_skip_b(fr->b, fr->sec->data);
-	calc_b(s_hm_skip_b(fr->b, fr->sec->data), fr->LEN_B, &(fr->scroll2), fr->com2);
-	reverse(fr->com2, fr->scroll2);
+	calc_b(fr->MIN, fr->MAX, fr->LEN_B, fr->com2);
+	reverse(fr->com2);
 }
 
 int			choice_opt(t_frame *fr)
