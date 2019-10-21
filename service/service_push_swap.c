@@ -80,27 +80,3 @@ int		s_check(int *a, int len)
 	}
 	return  (1);
 }
-
-void	s_set_minmax_b(t_frame *fr)
-{
-	t_dlst *t;
-
-	if (fr->b == NULL)
-	{
-		fr->MAX = 0;
-		fr->MIN = 0;
-	}
-	else
-	{
-		t = fr->b;
-		fr->MIN = (t->data < fr->MIN) ? t->data : fr->MIN;
-		fr->MAX = (t->data > fr->MAX) ? t->data : fr->MAX;
-		t = t->next;
-		while (t != fr->b)
-		{
-			fr->MIN = (t->data < fr->MIN) ? t->data : fr->MIN;
-			fr->MAX = (t->data > fr->MAX) ? t->data : fr->MAX;
-			t = t->next;
-		}
-	}
-}

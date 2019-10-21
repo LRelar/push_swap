@@ -6,7 +6,7 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 17:35:16 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/15 16:41:34 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/21 21:12:40 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,36 @@ static void	reverse(int com[3][2])
 		}
     }
 }
-/*TODO Чекнуть оригинальный пуш и еще раз посмотреть все
- * 0. Удалить  s_set_minmax_b(t_frame *fr)
- * 1. Указатель на макс  в В всегда должен быть
- * 2. Реализовать оригинальную логику
- * */
-static void calc_b(int min, int max, int len, int com[3][2])
+
+//TODO протестить
+static void max_b_to_top(t_dlst *b, t_dlst *max, int com[3][2], int len)
+{
+	int depth;
+
+	depth = s_hm_skip_b(b, max);
+
+	if (depth <= len / 2)
+		com[1][0] = depth;
+	else
+		com[1][1] = len - depth;
+}
+//TODO вставка в б  когда элемент не минимум
+static void put_in_rpos(t_dlst *b, t_dlst *cur, int com[3][2], int len)
 {
 
-	//fr->depth1 = s_hm_skip_b(fr->b, fr->fst->data);
-	//(depth <= len / 2) ? (com[1][0] = depth) : (com[1][1] = len - depth);
+}
+//TODO не забыть сделать пересчет local и min
+static int calc_b(t_frame *fr, t_dlst *cur, int com[3][2])
+{
+	if (fr->b != NULL)
+	{
+		if (cur->data < fr->loc_min->data)
+		{
+			max_b_to_top(fr->b, fr->loc_max, com, fr->LEN_B);
+			return (0);
+		}
+
+	}
 }
 
 void		calc_com1(t_frame *fr)
@@ -52,7 +72,7 @@ void		calc_com1(t_frame *fr)
 		fr->com1[0][0] = fr->depth1;
 	if (fr->depth1 > fr->MEDIAN_A)
 		fr->com1[0][1] = fr->LEN_A - fr->depth1;
-	calc_b(fr->MIN, fr->MAX, fr->LEN_B, fr->com1);
+	calc_b(fr, fr->com1);
 	reverse(fr->com1);
 }
 
@@ -66,7 +86,7 @@ void		calc_com2(t_frame *fr)
 		fr->com2[0][0] = fr->depth2;
 	if (fr->depth2 > fr->MEDIAN_A)
 		fr->com2[0][0] = fr->LEN_A - fr->depth2 - 1;
-	calc_b(fr->MIN, fr->MAX, fr->LEN_B, fr->com2);
+	calc_b(fr, fr->com2);
 	reverse(fr->com2);
 }
 

@@ -47,12 +47,12 @@ int total = 0;
 int main(int argc, char *argv[])
 {
 	//int len = ft_atoi(argv[1]);
-	//int *arr;
-	int len = 15;
-    int arr[]={-5007,10157,878,-2295,9349,-13482,10528,-14400,4635,4845,-15096,12927,6249,-3718,-15404};
+	int *arr;
+	int len;
+   // int arr[]={-5007,10157,878,-2295,9349,-13482,10528,-14400,4635,4845,-15096,12927,6249,-3718,-15404};
 	if (argc == 1)
 		return (0);
-	//arr = checker_collector(argc, argv, &len);
+	arr = checker_collector(argc, argv, &len);
 	//arr = array_generator(ft_atoi(argv[1]));
 	if (len == 1 || s_check(arr, len))
 		return (0);

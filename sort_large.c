@@ -87,14 +87,14 @@ void		sort_large(t_frame *fr)
 	int i;
 	int n;
 
-	i = 0;
 	n = (fr->LEN_A <= 100) ? 10 : 22;
+	i = n - 1;
 	s_split_chunks(fr);
 
-	while (i + 1 < n)
+	while (i >= 1)
 	{
-		sort_chunk(fr, i, i + 1);
-		i += 2;
+		sort_chunk(fr, i - 1, i);
+		i--;
 	}
 	s_len_b(fr);
 	s_rep_pa(&(fr->a), &(fr->b), fr->LEN_B, 1);

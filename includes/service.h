@@ -6,7 +6,7 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 18:42:35 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/15 17:24:05 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/21 19:50:03 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,16 @@ t_frame	*s_del_frame(t_frame *frame);
 void	s_update_fr(t_frame *fr);
 
 /********************push swap 1***********************/
+
 void	s_init_tmb(t_frame *fr);
 void	s_split_chunks(t_frame *fr);
 int 	s_min(int *arr, int len);
 int 	s_max(int *arr, int len);
 int		s_check(int *a, int len);
+
 /********************push swap 2***********************/
 
-int		s_hm_skip_b(t_dlst *head, int val);
+int		s_hm_skip_b(t_dlst *head, t_dlst *max);
 int		s_hm_skip_a(t_dlst *head, int val);
 void	s_len_a(t_frame *fr);
 void	s_len_b(t_frame *fr);

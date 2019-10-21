@@ -6,7 +6,7 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 18:42:24 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/14 18:16:47 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/21 19:48:54 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ typedef struct	s_push_swap_frame
 
     t_dlst		*fst;
     t_dlst		*sec;
+    t_dlst		*loc_min;
+    t_dlst		*loc_max;
 	int			depth1;
     int			depth2;
     int			com1[3][2];
