@@ -65,7 +65,7 @@ int		s_check(int *a, int len);
 
 /********************push swap 2***********************/
 
-int		s_hm_skip_b(t_dlst *head, t_dlst *max);
+int		s_hm_skip_b(t_dlst *head, int val);
 int		s_hm_skip_a(t_dlst *head, int val);
 void	s_len_a(t_frame *fr);
 void	s_len_b(t_frame *fr);

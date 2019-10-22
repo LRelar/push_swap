@@ -127,7 +127,7 @@ int			s_show_both_list(t_dlst *a, t_dlst *b)
 
     if (a == NULL && b == NULL)
 		return  (0);
-   // sleep(1);
+   //sleep(1);
    //printf("%c[2J%c[H", 27, 27);
     printf("________________________\nStack A:\tStack B:\n________________________\n");
     if (b == NULL)

@@ -6,7 +6,7 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 18:43:01 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/21 19:47:02 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/22 16:13:20 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void			s_update_fr(t_frame *fr)
 	null_all_int(fr);
 	fr->fst = NULL;
 	fr->sec = NULL;
-	fr->loc_min = NULL;
 	s_len_a(fr);
 	s_len_b(fr);
 	fr->MEDIAN_A = fr->LEN_A / 2;
@@ -82,6 +81,8 @@ t_frame			*s_create_frame(int *arr, int len, int min, int max)
 	fr->MEDIAN_A = len / 2;
 	fr->fst = NULL;
 	fr->sec = NULL;
+	fr->loc_min = NULL;
+	fr->loc_max = NULL;
 	return (fr);
 }
 

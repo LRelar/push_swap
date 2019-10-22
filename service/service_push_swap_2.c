@@ -6,7 +6,7 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 16:46:35 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/21 20:07:04 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/22 15:12:42 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int		s_hm_skip_a(t_dlst *head, int val)
 	return (i);
 }
 
-int		s_hm_skip_b(t_dlst *head, t_dlst *max)
+int		s_search_max(t_dlst *head, t_dlst *max)
 {
 	int		i;
 	t_dlst	*temp;
@@ -79,6 +79,26 @@ int		s_hm_skip_b(t_dlst *head, t_dlst *max)
 		i++;
 	temp = head->next;
 	while (max->data != temp->data)
+	{
+		i++;
+		temp = temp->next;
+	}
+	return (i);
+}
+
+int		s_hm_skip_b(t_dlst *head, int val)
+{
+	int		i;
+	t_dlst	*temp;
+
+	i = 0;
+	temp = head;
+	if (!temp)
+		return (i);
+	if (val < temp->data)
+		i++;
+	temp = head->next;
+	while ((temp != head) && (val < temp->data))
 	{
 		i++;
 		temp = temp->next;

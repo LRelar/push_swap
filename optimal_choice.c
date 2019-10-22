@@ -6,7 +6,7 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 17:35:16 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/21 21:12:40 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/22 17:19:01 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,35 +35,69 @@ static void	reverse(int com[3][2])
     }
 }
 
-//TODO протестить
-static void max_b_to_top(t_dlst *b, t_dlst *max, int com[3][2], int len)
+static int put_max_min(t_frame *fr, t_dlst *cur, int com[3][2])
 {
-	int depth;
+	t_dlst	*temp;
+	int 	depth;
 
-	depth = s_hm_skip_b(b, max);
-
-	if (depth <= len / 2)
+	depth = 0;
+	temp = fr->b;
+	if (temp != fr->loc_max)
+	{
+		depth++;
+		temp = temp->next;
+		while (temp != fr->loc_max)
+		{
+			depth++;
+			temp = temp->next;
+		}
+	}
+	if (depth <= fr->MEDIAN_B)
 		com[1][0] = depth;
 	else
-		com[1][1] = len - depth;
+		com[1][1] = fr->LEN_B - depth;
+	return (0);
 }
-//TODO вставка в б  когда элемент не минимум
-static void put_in_rpos(t_dlst *b, t_dlst *cur, int com[3][2], int len)
-{
 
+
+static int put_in_rpos(t_frame *fr, t_dlst *cur, int com[3][2])
+{
+	t_dlst	*t1;
+	t_dlst	*t2;
+	int		depth;
+
+	depth = 0;
+	t1 = fr->b->prev;
+	t2 = t1->next;
+	if (!(t1->data > cur->data && cur->data > t2->data))
+	{
+		depth++;
+		t1 = t1->next;
+		t2 = t2->next;
+		while ((t1 != fr->b->prev) && (!(t1->data > cur->data && cur->data > t2->data)))
+		{
+			depth++;
+			t1 = t1->next;
+			t2 = t2->next;
+		}
+	}
+	if (depth <= fr->MEDIAN_B)
+		com[1][0] = depth;
+	else
+		com[1][1] = fr->LEN_B - depth;
+	return (0);
 }
-//TODO не забыть сделать пересчет local и min
+
 static int calc_b(t_frame *fr, t_dlst *cur, int com[3][2])
 {
 	if (fr->b != NULL)
 	{
-		if (cur->data < fr->loc_min->data)
-		{
-			max_b_to_top(fr->b, fr->loc_max, com, fr->LEN_B);
-			return (0);
-		}
-
+		if ((cur->data < fr->loc_min->data) || (cur->data > fr->loc_max->data))
+			return (put_max_min(fr, cur, com));
+		if (cur->data > fr->loc_min->data && cur->data < fr->loc_max->data)
+			return (put_in_rpos(fr, cur, com));
 	}
+	return (0);
 }
 
 void		calc_com1(t_frame *fr)
@@ -72,7 +106,7 @@ void		calc_com1(t_frame *fr)
 		fr->com1[0][0] = fr->depth1;
 	if (fr->depth1 > fr->MEDIAN_A)
 		fr->com1[0][1] = fr->LEN_A - fr->depth1;
-	calc_b(fr, fr->com1);
+	calc_b(fr, fr->fst, fr->com1);
 	reverse(fr->com1);
 }
 
@@ -86,7 +120,7 @@ void		calc_com2(t_frame *fr)
 		fr->com2[0][0] = fr->depth2;
 	if (fr->depth2 > fr->MEDIAN_A)
 		fr->com2[0][0] = fr->LEN_A - fr->depth2 - 1;
-	calc_b(fr, fr->com2);
+	calc_b(fr,fr->sec, fr->com2);
 	reverse(fr->com2);
 }
 
