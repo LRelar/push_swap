@@ -1,60 +1,19 @@
 
-#include "../../Desktop/push21.09/includes/push_swap.h"
-#include "../../Desktop/push21.09/includes/service.h"
-#include "../../Desktop/push21.09/includes/input.h"
+#include "../includes/push_swap.h"
+#include "../includes/input.h"
+#include "../includes/cheker.h"
 
-void	exec_command(char *buf, t_dlst **stack_a, t_dlst **stack_b)
+int		*ch_parser(int ac, char **av, int i)
 {
-	if (ft_strequ(buf, "sa"))
-		sa(stack_a, 0);
-	else if (ft_strequ(buf, "sb"))
-		sb(stack_b, 0);
-	else if (ft_strequ(buf, "ss"))
-		ss(stack_a, stack_b, 0);
-	else if (ft_strequ(buf, "ra"))
-		ra(stack_a, 0);
-	else if (ft_strequ(buf, "rb"))
-		rb(stack_b, 0);
-	else if (ft_strequ(buf, "rr"))
-		rr(stack_a, stack_b, 0);
-	else if (ft_strequ(buf, "rra"))
-		rra(stack_a, 0);
-	else if (ft_strequ(buf, "rrb"))
-		rrb(stack_b, 0);
-	else if (ft_strequ(buf, "rrr"))
-		rrr(stack_a, stack_b, 0);
-	else if (ft_strequ(buf, "pa"))
-		pa(stack_a, stack_b, 0);
-	else if (ft_strequ(buf, "pb"))
-		pb(stack_a, stack_b, 0);
-	else
-		free_and_exit(buf, NULL, NULL, 1);
-}
-
-void	grab_stdout(t_dlst **stack_a, t_dlst **stack_b, int *i)
-{
-	char		*buf;
-	int			rez;
-
-	while ((rez = ft_get_next_line(0, &buf)) > 0)
-	{
-		i++;
-		exec_command(buf, stack_a, stack_b);
-	}
-}
-
-
-long	*ch_parser(int ac, char **av, int i)
-{
-	long		*arr;
-	int			j;
+	int		*arr;
+	int		j;
 
 	j = -1;
-	arr = (long *)malloc(sizeof(long) * ac);
+	arr = (int *)malloc(sizeof(int) * ac);
 	while (++i < ac && av[i])
 	{
 		if (av[i] && (l_atoi(av[i]) >= INT_MIN && l_atoi(av[i]) <= INT_MAX))
-			arr[++j] = l_atoi(av[i]);
+			arr[++j] = (int)l_atoi(av[i]);
 		else if (!av[i] || l_atoi(av[i]) < INT_MIN || l_atoi(av[i]) > INT_MAX)
 			free_and_exit(arr, NULL, NULL, 1);
 	}
@@ -65,14 +24,14 @@ long	*ch_parser(int ac, char **av, int i)
 
 int		finish_check(t_dlst *stack_a, t_dlst *stack_b)
 {
-	t_dlst		*temp;
+	t_dlst	*temp;
 
 	if (stack_a != NULL)
 	{
 		temp = stack_a->next;
 		while (temp != stack_a)
 		{
-			if (!(temp->prev->data < temp->data))
+			if (temp->prev->data >= temp->data)
 				return (0);
 			temp = temp->next;
 		}
@@ -84,11 +43,11 @@ int		finish_check(t_dlst *stack_a, t_dlst *stack_b)
 
 t_dlst	*ch_one_ac_stack(char **av)
 {
-	char		**cp_one_ac;
-	int			count;
-	char		**one_ac;
-	long		*arr;
-	t_dlst		*stack_a;
+	char	**cp_one_ac;
+	int		count;
+	char	**one_ac;
+	int		*arr;
+	t_dlst	*stack_a;
 
 	count = 0;
 	stack_a = NULL;
@@ -108,10 +67,10 @@ t_dlst	*ch_one_ac_stack(char **av)
 
 int		ch_checker_collector(int ac, char **av)
 {
-	long		*arr;
-	t_dlst		*stack_a;
-	t_dlst		*stack_b;
-	int			i;
+	int		*arr;
+	t_dlst	*stack_a;
+	t_dlst	*stack_b;
+	int		i;
 
 	stack_b = NULL;
 	stack_a = NULL;
@@ -134,11 +93,15 @@ int		ch_checker_collector(int ac, char **av)
 
 int		main(int ac, char **av)
 {
-    if (ac == 1)
-    {
-        write(1, "Послушай, дружок, чего-то не хватает.\n\tПодкинь немного аргументов.\n\tА флагом -v можешь включить визуализацию, но только в самом push_swap\n\tВсего доброго\n", 160);
+	if (ac == 1)
+	{
+		ft_putstr("\nПослушай, дружок, чего-то не хватает.\n");
+		ft_putstr("\t\tПодкинь немного аргументов.\n");
+		ft_putstr("\t\tА флагом -v можешь включить визуализацию, ");
+		ft_putstr("но только в самом push_swap.\n");
+		ft_putstr("\t\tВсего доброго\n\n");
 		return (0);
-    }
+	}
 	ch_checker_collector(ac, av) ? ft_putstr("OK\n") : ft_putstr("KO\n");
 	return (0);
 }
