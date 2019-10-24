@@ -6,14 +6,14 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 17:35:16 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/22 17:19:01 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/24 20:31:59 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../includes/service.h"
 
-static void	reverse(int com[3][2])
+static void	reverse(int com[4][2])
 {
     int i;
 
@@ -35,7 +35,7 @@ static void	reverse(int com[3][2])
     }
 }
 
-static int put_max_min(t_frame *fr, t_dlst *cur, int com[3][2])
+static int put_max_min(t_frame *fr, t_dlst *cur, int com[4][2])
 {
 	t_dlst	*temp;
 	int 	depth;
@@ -52,15 +52,20 @@ static int put_max_min(t_frame *fr, t_dlst *cur, int com[3][2])
 			temp = temp->next;
 		}
 	}
-	if (depth <= fr->MEDIAN_B)
-		com[1][0] = depth;
+	if (depth == 1)
+		com[3][1] = 1;
 	else
-		com[1][1] = fr->LEN_B - depth;
+	{
+		if (depth <= fr->MEDIAN_B)
+			com[1][0] = depth;
+		else
+			com[1][1] = fr->LEN_B - depth;
+	}
 	return (0);
 }
 
 
-static int put_in_rpos(t_frame *fr, t_dlst *cur, int com[3][2])
+static int put_in_rpos(t_frame *fr, t_dlst *cur, int com[4][2])
 {
 	t_dlst	*t1;
 	t_dlst	*t2;
@@ -81,14 +86,19 @@ static int put_in_rpos(t_frame *fr, t_dlst *cur, int com[3][2])
 			t2 = t2->next;
 		}
 	}
-	if (depth <= fr->MEDIAN_B)
-		com[1][0] = depth;
+	if (depth == 1)
+		com[3][1] = 1;
 	else
-		com[1][1] = fr->LEN_B - depth;
+	{
+		if (depth <= fr->MEDIAN_B)
+			com[1][0] = depth;
+		else
+			com[1][1] = fr->LEN_B - depth;
+	}
 	return (0);
 }
 
-static int calc_b(t_frame *fr, t_dlst *cur, int com[3][2])
+static int calc_b(t_frame *fr, t_dlst *cur, int com[4][2])
 {
 	if (fr->b != NULL)
 	{
@@ -102,10 +112,15 @@ static int calc_b(t_frame *fr, t_dlst *cur, int com[3][2])
 
 void		calc_com1(t_frame *fr)
 {
-	if (fr->depth1 <= fr->MEDIAN_A)
-		fr->com1[0][0] = fr->depth1;
-	if (fr->depth1 > fr->MEDIAN_A)
-		fr->com1[0][1] = fr->LEN_A - fr->depth1;
+	if (fr->depth1 == 1)
+		fr->com1[3][0] = 1;
+	else
+	{
+		if (fr->depth1 <= fr->MEDIAN_A)
+			fr->com1[0][0] = fr->depth1;
+		if (fr->depth1 > fr->MEDIAN_A)
+			fr->com1[0][1] = fr->LEN_A - fr->depth1;
+	}
 	calc_b(fr, fr->fst, fr->com1);
 	reverse(fr->com1);
 }
@@ -133,7 +148,7 @@ int			choice_opt(t_frame *fr)
 	i = 0;
 	j = 0;
 	score = 0;
-	while (i < 3)
+	while (i < 4)
 	{
 		while (j < 2)
 		{

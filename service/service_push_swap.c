@@ -6,7 +6,7 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 18:42:05 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/17 19:21:52 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/24 20:06:47 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	s_split_chunks(t_frame *fr)
 	int i;
 
 	i = 0;
-	n = (fr->LEN_A > 100) ? 11 : 5;
+	n = (fr->LEN_A > 100) ? 13 : 7;
 	div = (fr->MAX - fr->MIN) / n;
 	mod = (fr->MAX - fr->MIN) % n;
 	temp = fr->MIN;

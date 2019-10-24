@@ -6,7 +6,7 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 18:43:01 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/22 16:13:20 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/24 20:07:18 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void		null_mass(t_frame *fr)
 
 	i = 0;
 	j = 0;
-	while (i < 3)
+	while (i < 4)
 	{
 		while (j < 2)
 		{
@@ -66,7 +66,7 @@ t_frame			*s_create_frame(int *arr, int len, int min, int max)
 	fr = (t_frame *)malloc(sizeof(t_frame));
 	if (len > 5)
 	{
-		fr->stages = (int *)malloc(sizeof(int) * ((len <= 100) ? 10 : 22));
+		fr->stages = (int *)malloc(sizeof(int) * ((len <= 100) ? 14 : 26));
 		if (fr->stages == NULL)
 			return (s_del_frame(fr));
 	}

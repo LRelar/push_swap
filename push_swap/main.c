@@ -55,8 +55,9 @@ int main(int argc, char *argv[])
 	if (len == 1 || s_check(arr, len))
 		return (0);
 	t_frame *fr = s_create_frame(arr,len,s_min(arr,len), s_max(arr, len));
-//	s_show_both_list(fr->a, fr->b);
-	//printf("\n");
+
+	s_show_both_list(fr->a, fr->b);
+	printf("\n");
 	free(arr);
 	if (len == 2)
 		sort_2(fr);
@@ -68,7 +69,7 @@ int main(int argc, char *argv[])
 		sort_5(fr);
 	if (len > 5)
 		sort_large(fr);
-	//s_show_both_list(fr->a, fr->b);
+	s_show_both_list(fr->a, fr->b);
 	printf("\n%d", check2(fr->a));
 	s_del_frame(fr);
 	return 0;

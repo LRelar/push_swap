@@ -6,7 +6,7 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 18:42:24 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/21 19:48:54 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/24 20:31:59 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ typedef struct	s_push_swap_frame
     t_dlst		*loc_max;
 	int			depth1;
     int			depth2;
-    int			com1[3][2];
-	int			com2[3][2];
+    int			com1[4][2];
+	int			com2[4][2];
 
 	int			temp;
 	int			top;
@@ -47,6 +47,7 @@ typedef struct	s_push_swap_frame
 	int			bot;
 
 	int			*stages;
+	int			test[7];
 }				t_frame;
 
 void 			sort_2(t_frame *fr);
@@ -60,7 +61,7 @@ void			search_fs(t_frame *fr, int min, int max);
 /********************optimal choice***********************/
 
 void			calc_com1(t_frame *fr);
-void			calc_com2(t_frame *fr);
+void calc_com2(t_frame *fr);
 int				choice_opt(t_frame *fr);
 
 #endif //PUSH_SWAP_PUSH_SWAP_H
