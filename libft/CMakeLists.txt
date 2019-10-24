@@ -1,8 +1,3 @@
-cmake_minimum_required(VERSION 3.13)
-
-project(libft_ide)
-set(CMAKE_C_STANDARD 99)
-
 set(SOURCE_LIB
         ft_putchar.c
         ft_putstr.c

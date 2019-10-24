@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include "includes/push_swap.h"
-#include "includes/service.h"
-#include "includes/input.h"
+#include "../includes/push_swap.h"
+#include "../includes/service.h"
+#include "../includes/input.h"
 
 #include <time.h>
 
