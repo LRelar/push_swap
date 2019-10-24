@@ -10,7 +10,7 @@ int		*ch_parser(int ac, char **av, int i)
 
 	j = -1;
 	arr = (int *)malloc(sizeof(int) * ac);
-	while (++i < ac && av[i])
+	while (++i <= ac && av[i])
 	{
 		if (av[i] && (l_atoi(av[i]) >= INT_MIN && l_atoi(av[i]) <= INT_MAX))
 			arr[++j] = (int)l_atoi(av[i]);
@@ -62,6 +62,7 @@ t_dlst	*ch_one_ac_stack(char **av)
 	}
 	arr = ch_parser(count, one_ac, -1);
 	stack_a = s_create_lists(arr, count);
+
 	return (stack_a);
 }
 
