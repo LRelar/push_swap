@@ -32,12 +32,20 @@ int		finish_check(t_dlst *stack_a, t_dlst *stack_b)
 		while (temp != stack_a)
 		{
 			if (temp->prev->data >= temp->data)
+			{
+				free_and_exit(NULL, stack_a, NULL, 0);
+				if (stack_b)
+					free_and_exit(NULL,NULL, stack_b, 0);
 				return (0);
+			}
 			temp = temp->next;
 		}
 	}
 	if (stack_b)
+	{
+		free_and_exit(NULL, stack_a, stack_b, 0);
 		return (0);
+	}
 	return (1);
 }
 
@@ -62,7 +70,6 @@ t_dlst	*ch_one_ac_stack(char **av)
 	}
 	arr = ch_parser(count, one_ac, -1);
 	stack_a = s_create_lists(arr, count);
-
 	return (stack_a);
 }
 
@@ -88,7 +95,11 @@ int		ch_checker_collector(int ac, char **av)
 	if (stack_a)
 		grab_stdout(&stack_a, &stack_b, &i);
 	if (!finish_check(stack_a, stack_b))
+	{
+		free_and_exit(arr, NULL, NULL, 0);
 		return (0);
+	}
+	free_and_exit(arr, stack_a, stack_b, 0);
 	return (1);
 }
 
@@ -100,7 +111,7 @@ int		main(int ac, char **av)
 		ft_putstr("\t\tПодкинь немного аргументов.\n");
 		ft_putstr("\t\tА флагом -v можешь включить визуализацию, ");
 		ft_putstr("но только в самом push_swap.\n");
-		ft_putstr("\t\tВсего доброго\n\n");
+		ft_putstr("\t\tВсего доброго. c:\n\n");
 		return (0);
 	}
 	ch_checker_collector(ac, av) ? ft_putstr("OK\n") : ft_putstr("KO\n");

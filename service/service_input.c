@@ -8,7 +8,7 @@ long	l_atoi(const char *nptr)
 	result = 0;
 	sign = 1;
 	while (*nptr == '\n' || *nptr == '\t' || *nptr == '\r' || *nptr == '\v'
-		   || *nptr == '\f' || *nptr == ' ')
+											|| *nptr == '\f' || *nptr == ' ')
 		nptr++;
 	if (*nptr == '-')
 		sign = -1;
@@ -60,7 +60,7 @@ int		find_double(int *arr, int ac)
 	while (++i <= ((ac / 2) + 1))
 	{
 		j = i;
-		while (j < ac - 1)
+		while (j <= ac - 1)
 		{
 			j++;
 			if (arr[i] == arr[j])
