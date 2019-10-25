@@ -35,7 +35,7 @@ int		finish_check(t_dlst *stack_a, t_dlst *stack_b)
 			{
 				free_and_exit(NULL, stack_a, NULL, 0);
 				if (stack_b)
-					free_and_exit(NULL,NULL, stack_b, 0);
+					free_and_exit(NULL, NULL, stack_b, 0);
 				return (0);
 			}
 			temp = temp->next;

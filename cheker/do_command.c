@@ -39,7 +39,6 @@ void	grab_stdout(t_dlst **stack_a, t_dlst **stack_b, int *i)
 	{
 		i++;
 		exec_command(buf, stack_a, stack_b);
-	}
-	if (buf)
 		free(buf);
+	}
 }
