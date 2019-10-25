@@ -6,7 +6,7 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:23:22 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/24 21:22:32 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/25 19:58:29 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	do_com(t_dlst **a, t_dlst **b, int com[4][2])
 	s_rep_sa(a,com[3][0],1);
 	pb(a,b,1);
 	s_rep_sb(b,com[3][1],1);
-	s_show_both_list(*a, *b);
+	//s_show_both_list(*a, *b);
 }
 
 void		search_fs(t_frame *fr, int min, int max)
@@ -59,9 +59,11 @@ void		search_fs(t_frame *fr, int min, int max)
 		fr->sec = tail;
 }
 
-void		sort_chunk(t_frame *fr, int st_min, int st_max)
+void		sort_chunk(t_frame *fr, int st_min, int st_max, int *test)
 {
-	static ch = 0;
+
+	static int ch = 0;
+	static int pr_len = 0;
 	while (fr->a != NULL)
 	{
 		s_update_fr(fr);
@@ -75,7 +77,7 @@ void		sort_chunk(t_frame *fr, int st_min, int st_max)
 			if (choice_opt(fr) == 1)
 			{
 				//TODO допилить просчет глубин
-				fr->test[ch] += depth
+				test[ch] += fr->depth1;
 				do_com(&(fr->a), &(fr->b), fr->com1);
 				if (fr->loc_max == NULL || fr->fst->data > fr->loc_max->data)
 					fr->loc_max = fr->fst;
@@ -84,6 +86,7 @@ void		sort_chunk(t_frame *fr, int st_min, int st_max)
 			}
 			else
 			{
+				test[ch] += fr->depth2;
 				do_com(&(fr->a), &(fr->b), fr->com2);
 				if (fr->loc_max == NULL || fr->sec->data > fr->loc_max->data)
 					fr->loc_max = fr->sec;
@@ -92,6 +95,9 @@ void		sort_chunk(t_frame *fr, int st_min, int st_max)
 			}
 		}
 	}
+	test[ch] /= fr->LEN_B - pr_len;
+	pr_len = fr->LEN_B;
+	ch++;
 }
 static	void max_on_top(t_frame *fr)
 {
@@ -124,13 +130,19 @@ void		sort_large(t_frame *fr)
 	i = n - 1;
 	s_split_chunks(fr);
 
+	int test[7]={0,0,0,0,0,0,0};
+
 	while (i >= 1)
 	{
-		sort_chunk(fr, i - 1, i);
+		sort_chunk(fr, i - 1, i, test);
 		i-=2;
 	}
 	s_len_b(fr);
 	max_on_top(fr);
 	s_rep_pa(&(fr->a), &(fr->b), fr->LEN_B, 1);
+	FILE *f = fopen("depth.txt", "a");
+	for (int i =0; i <7 ;i++)
+		fprintf(f,"%d ", test[i]);
+	fclose(f);
 }
 

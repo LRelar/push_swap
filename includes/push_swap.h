@@ -6,7 +6,7 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 18:42:24 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/24 20:31:59 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/25 18:18:28 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void			sort_3(t_frame *fr);
 void			sort_4(t_frame *fr);
 void			sort_5(t_frame *fr);
 void			sort_large(t_frame *fr);
-void			sort_chunk(t_frame *fr, int st_min, int st_max);
+void			sort_chunk(t_frame *fr, int st_min, int st_max, int test[7]);
 void			search_fs(t_frame *fr, int min, int max);
 
 /********************optimal choice***********************/
