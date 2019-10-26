@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 	if (len > 5)
 		sort_large(fr);
 //	s_show_both_list(fr->a, fr->b);
-	printf("\n%d", check2(fr->a));
+//	printf("\n%d", check2(fr->a));
 	s_del_frame(fr);
 	return 0;
 }

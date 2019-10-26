@@ -6,7 +6,7 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 18:42:24 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/25 18:18:28 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/26 18:09:50 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <stdio.h>
 #include "../libft/libft.h"
 #include "dc_lists.h"
-extern int total;
+
 typedef struct	s_push_swap_frame
 {
     int			MIN;
@@ -47,7 +47,6 @@ typedef struct	s_push_swap_frame
 	int			bot;
 
 	int			*stages;
-	int			test[7];
 }				t_frame;
 
 void 			sort_2(t_frame *fr);
@@ -55,13 +54,13 @@ void			sort_3(t_frame *fr);
 void			sort_4(t_frame *fr);
 void			sort_5(t_frame *fr);
 void			sort_large(t_frame *fr);
-void			sort_chunk(t_frame *fr, int st_min, int st_max, int test[7]);
+void			sort_chunk(t_frame *fr, int st_min, int st_max);
 void			search_fs(t_frame *fr, int min, int max);
 
 /********************optimal choice***********************/
 
 void			calc_com1(t_frame *fr);
-void calc_com2(t_frame *fr);
+void			calc_com2(t_frame *fr);
 int				choice_opt(t_frame *fr);
 
 #endif //PUSH_SWAP_PUSH_SWAP_H
