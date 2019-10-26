@@ -17,7 +17,8 @@ set(SOURCE_C
 set(HEADERS_C
         ../includes/service.h
         ../includes/dc_lists.h
-        ../includes/input.h)
+        ../includes/input.h
+        ../includes/cheker.h do_command.c)
 
 add_executable(cheker ${SOURCE_C} ${HEADERS_C})
 target_link_libraries(cheker libft)

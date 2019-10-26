@@ -65,6 +65,7 @@ set(SOURCE_LIB
         ft_free.c
         ft_allocated_size.c
         ft_realloc.c
-        ft_get_next_line.c)
+        ft_get_next_line.c
+        ft_del.c)
 
 add_library(libft STATIC ${SOURCE_LIB} libft.h)
