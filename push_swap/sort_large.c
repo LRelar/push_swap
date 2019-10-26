@@ -6,7 +6,7 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:23:22 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/24 21:22:32 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/26 18:11:57 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	do_com(t_dlst **a, t_dlst **b, int com[4][2])
 	s_rep_sa(a,com[3][0],1);
 	pb(a,b,1);
 	s_rep_sb(b,com[3][1],1);
-	s_show_both_list(*a, *b);
+	//s_show_both_list(*a, *b);
 }
 
 void		search_fs(t_frame *fr, int min, int max)
@@ -61,7 +61,6 @@ void		search_fs(t_frame *fr, int min, int max)
 
 void		sort_chunk(t_frame *fr, int st_min, int st_max)
 {
-	static ch = 0;
 	while (fr->a != NULL)
 	{
 		s_update_fr(fr);
@@ -74,8 +73,6 @@ void		sort_chunk(t_frame *fr, int st_min, int st_max)
 			calc_com2(fr);
 			if (choice_opt(fr) == 1)
 			{
-				//TODO допилить просчет глубин
-				fr->test[ch] += depth
 				do_com(&(fr->a), &(fr->b), fr->com1);
 				if (fr->loc_max == NULL || fr->fst->data > fr->loc_max->data)
 					fr->loc_max = fr->fst;
@@ -114,7 +111,6 @@ static	void max_on_top(t_frame *fr)
 		s_rep_rrb(&(fr->b), fr->LEN_B - depth, 1);
 }
 
-
 void		sort_large(t_frame *fr)
 {
 	int i;
@@ -133,4 +129,3 @@ void		sort_large(t_frame *fr)
 	max_on_top(fr);
 	s_rep_pa(&(fr->a), &(fr->b), fr->LEN_B, 1);
 }
-
