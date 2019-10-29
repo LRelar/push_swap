@@ -1,11 +1,9 @@
-#include <stdio.h>
 #include "../includes/push_swap.h"
 #include "../includes/service.h"
 #include "../includes/input.h"
+#include "../includes/visual.h"
 
-#include <time.h>
-
-int		check2(t_dlst *a);
+int check2(t_dlst *a);
 
 int main(int argc, char *argv[])
 {
@@ -19,8 +17,8 @@ int main(int argc, char *argv[])
 		return (0);
 	t_frame *fr = s_create_frame(arr,len,s_min(arr,len), s_max(arr, len));
 
-//	s_show_both_list(fr->a, fr->b);
-//	printf("\n");
+	visualizer(fr);
+	printf("\n");
 	free(arr);
 	if (len == 2)
 		sort_2(fr);
@@ -32,8 +30,8 @@ int main(int argc, char *argv[])
 		sort_5(fr);
 	if (len > 5)
 		sort_large(fr);
-//	s_show_both_list(fr->a, fr->b);
-//	printf("\n%d", check2(fr->a));
+	visualizer(fr);
+	//printf("\n%d", check2(fr->a));
 	s_del_frame(fr);
 	return 0;
 }
