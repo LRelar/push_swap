@@ -1,0 +1,70 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: sstark <sstark@student.42.fr>              +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/03/06 00:16:21 by mschimme          #+#    #+#              #
+#    Updated: 2019/10/29 19:38:51 by sstark           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+
+NAME	=	push_swap
+CC		=	gcc
+FLAGS	=	-Wall -Wextra -Werror
+LIB		=	libftprintf.a
+DIR_LIB	=	./ft_printf
+
+VPATH	:=	.:\
+			./push_swap_src: \
+			./service:
+SOURCE	+=	input.c
+SOURCE	+=	main.c \
+			optimal_choice.c \
+			sort_large.c \
+			sort_small.c
+SOURCE	+=	service_com_p_ab.c \
+			service_com_r_ab.c \
+			service_com_rr.c \
+			service_com_rr_ab.c \
+			service_com_rrr.c \
+			service_com_s_ab.c \
+			service_com_ss.c \
+			service_frame.c \
+			service_input.c \
+			service_list.c \
+			service_push_swap.c \
+			service_push_swap_2.c
+
+OBJ_DIR		:=	./obj
+OBJECTS		:= $(patsubst %,$(OBJ_DIR)/%,$(SOURCE:.c=.o))
+
+INC_DIR	:=	./includes ./ft_printf/includes ./ft_printf/libft/includes
+IFLAGS	+=	$(foreach d, $(INC_DIR), -I$d)
+
+.PHONY: all clean fclean re
+
+all: $(NAME)
+
+$(NAME): $(LIB) $(OBJECTS)
+	@$(CC) $(FLAGS) -L$(DIR_LIB) -lftprintf $(OBJECTS) -o $(NAME)
+
+$(LIB):
+	@$(MAKE) -C $(DIR_LIB)
+
+$(OBJ_DIR)/%.o:%.c
+	@mkdir -p $(OBJ_DIR)
+	@$(CC) $(CFLAGS) $(IFLAGS)  -o $@ -c $<
+
+clean:
+	@rm -rf $(OBJ_DIR)
+	@$(MAKE) -C $(DIR_LIB) clean
+	
+
+fclean: clean
+	@rm -rf $(NAME)
+	@$(MAKE) -C $(DIR_LIB) fclean
+
+re: fclean all
