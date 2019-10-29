@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sstark <sstark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 21:30:24 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/09/18 17:04:37 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/29 21:34:33 by sstark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,6 @@ void				ft_power_for_two(int power, char rez[2000]);
 void				ft_mult(char a[2000], char b[2000], char arr[4000]);
 int					ft_lstlen(t_list *lst);
 void				ft_mult_atod(char *arr, int n, char *rez, int count);
-void        		del(void *content, size_t size);
+void				del(void *content, size_t size);
 
 #endif

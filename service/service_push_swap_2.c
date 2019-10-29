@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   service_push_swap_2.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sstark <sstark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 16:46:35 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/22 15:12:42 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/29 21:44:43 by sstark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	s_len_a(t_frame *fr)
 {
 	t_dlst *temp;
 
-    fr->LEN_A = 0;
+	fr->LEN_A = 0;
 	if (fr->a != NULL)
 	{
 		fr->LEN_A++;
@@ -58,7 +58,7 @@ int		s_hm_skip_a(t_dlst *head, int val)
 	if (val > temp->data)
 		i++;
 	temp = head->next;
-	while ((temp!= head) && (val > temp->data))
+	while ((temp != head) && (val > temp->data))
 	{
 		i++;
 		temp = temp->next;

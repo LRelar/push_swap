@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   optimal_choice.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sstark <sstark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 17:35:16 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/25 18:18:08 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/29 21:57:32 by sstark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,30 @@
 
 static void	reverse(int com[4][2])
 {
-    int i;
+	int		i;
 
-    i = (com[0][0] == 0) ? 1 : 0;
-    if (com[0][i] != 0)
-    {
-        if (com[0][i] < com[1][i])
-        {
-            com[1][i] -= com[0][i];
-            com[2][i] = com[0][i];
-            com[0][i] = 0;
-        }
-        else
+	i = (com[0][0] == 0) ? 1 : 0;
+	if (com[0][i] != 0)
+	{
+		if (com[0][i] < com[1][i])
+		{
+			com[1][i] -= com[0][i];
+			com[2][i] = com[0][i];
+			com[0][i] = 0;
+		}
+		else
 		{
 			com[0][i] -= com[1][i];
 			com[2][i] = com[1][i];
 			com[1][i] = 0;
 		}
-    }
+	}
 }
 
-static int put_max_min(t_frame *fr, t_dlst *cur, int com[4][2])
+static int	put_max_min(t_frame *fr, t_dlst *cur, int com[4][2])
 {
 	t_dlst	*temp;
-	int 	depth;
+	int		depth;
 
 	depth = 0;
 	temp = fr->b;
@@ -63,9 +63,8 @@ static int put_max_min(t_frame *fr, t_dlst *cur, int com[4][2])
 	}
 	return (0);
 }
-
-
-static int put_in_rpos(t_frame *fr, t_dlst *cur, int com[4][2])
+//TODO function put_in_rpos has 30 lines
+static int	put_in_rpos(t_frame *fr, t_dlst *cur, int com[4][2])
 {
 	t_dlst	*t1;
 	t_dlst	*t2;
@@ -79,7 +78,8 @@ static int put_in_rpos(t_frame *fr, t_dlst *cur, int com[4][2])
 		depth++;
 		t1 = t1->next;
 		t2 = t2->next;
-		while ((t1 != fr->b->prev) && (!(t1->data > cur->data && cur->data > t2->data)))
+		while ((t1 != fr->b->prev) &&
+				(!(t1->data > cur->data && cur->data > t2->data)))
 		{
 			depth++;
 			t1 = t1->next;
@@ -98,7 +98,7 @@ static int put_in_rpos(t_frame *fr, t_dlst *cur, int com[4][2])
 	return (0);
 }
 
-static int calc_b(t_frame *fr, t_dlst *cur, int com[4][2])
+static int	calc_b(t_frame *fr, t_dlst *cur, int com[4][2])
 {
 	if (fr->b != NULL)
 	{
@@ -135,7 +135,7 @@ void		calc_com2(t_frame *fr)
 		fr->com2[0][0] = fr->depth2;
 	if (fr->depth2 > fr->MEDIAN_A)
 		fr->com2[0][0] = fr->LEN_A - fr->depth2 - 1;
-	calc_b(fr,fr->sec, fr->com2);
+	calc_b(fr, fr->sec, fr->com2);
 	reverse(fr->com2);
 }
 

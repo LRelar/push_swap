@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   service_mult_call_1.c                              :+:      :+:    :+:   */
+/*   service_com_s_ab.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sstark <sstark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 18:43:09 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/14 14:16:32 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/29 21:42:00 by sstark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/service.h"
 
-void sa(t_dlst **head_a, int flag)
+void	sa(t_dlst **head_a, int flag)
 {
 	t_dlst *temp;
 
@@ -30,7 +30,7 @@ void sa(t_dlst **head_a, int flag)
 	(flag == 1) ? write(1, "sa\n", 3) : (flag = 0);
 }
 
-void sb(t_dlst **head_b, int flag)
+void	sb(t_dlst **head_b, int flag)
 {
 	t_dlst *temp;
 
@@ -48,7 +48,7 @@ void sb(t_dlst **head_b, int flag)
 	(flag == 1) ? write(1, "sb\n", 3) : (flag = 0);
 }
 
-void s_rep_sa(t_dlst **head_a, int n, int flag)
+void	s_rep_sa(t_dlst **head_a, int n, int flag)
 {
 	int i;
 
@@ -57,7 +57,7 @@ void s_rep_sa(t_dlst **head_a, int n, int flag)
 		sa(head_a, 1);
 }
 
-void s_rep_sb(t_dlst **head_b, int n, int flag)
+void	s_rep_sb(t_dlst **head_b, int n, int flag)
 {
 	int i;
 

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   service_com_ss.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sstark <sstark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 17:33:05 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/14 14:29:40 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/29 21:42:42 by sstark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/service.h"
 
-void ss(t_dlst **head_a, t_dlst **head_b, int flag)
+void	ss(t_dlst **head_a, t_dlst **head_b, int flag)
 {
 	t_dlst *temp;
 
@@ -41,7 +41,7 @@ void ss(t_dlst **head_a, t_dlst **head_b, int flag)
 	(flag == 1) ? write(1, "ss\n", 3) : (flag = 0);
 }
 
-void s_rep_ss(t_dlst **head_a, t_dlst **head_b, int n, int flag)
+void	s_rep_ss(t_dlst **head_a, t_dlst **head_b, int n, int flag)
 {
 	int i;
 

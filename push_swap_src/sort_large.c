@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_large.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sstark <sstark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:23:22 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/26 18:11:57 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/29 21:53:36 by sstark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,19 @@
 
 static void	do_com(t_dlst **a, t_dlst **b, int com[4][2])
 {
-	s_rep_ra(a,com[0][0],1);
-    s_rep_rra(a,com[0][1],1);
-    s_rep_rb(b,com[1][0],1);
-	s_rep_rrb(b,com[1][1],1);
-	s_rep_rr(a,b,com[2][0],1);
-	s_rep_rrr(a,b,com[2][1],1);
-	s_rep_sa(a,com[3][0],1);
-	pb(a,b,1);
-	s_rep_sb(b,com[3][1],1);
+	s_rep_ra(a, com[0][0], 1);
+	s_rep_rra(a, com[0][1], 1);
+	s_rep_rb(b, com[1][0], 1);
+	s_rep_rrb(b, com[1][1], 1);
+	s_rep_rr(a, b, com[2][0], 1);
+	s_rep_rrr(a, b, com[2][1], 1);
+	s_rep_sa(a, om[3][0], 1);
+	pb(a, b, 1);
+	s_rep_sb(b, com[3][1], 1);
 	//s_show_both_list(*a, *b);
 }
 
+//TODO function search_fs has 28 lines
 void		search_fs(t_frame *fr, int min, int max)
 {
 	t_dlst *head;
@@ -43,13 +44,13 @@ void		search_fs(t_frame *fr, int min, int max)
 			(tail->data <= fr->stages[max]))
 			fr->sec = tail;
 		if ((fr->fst != NULL) && (fr->sec != NULL))
-			break;
+			break ;
 		if ((fr->fst == NULL) && (++fr->depth1))
 			head = head->next;
 		if ((fr->sec == NULL) && (++fr->depth2))
 			tail = tail->prev;
 		if (head == tail->next)
-			break;
+			break ;
 	}
 	if ((fr->fst == NULL) && (head->data >= fr->stages[min]) &&
 		(head->data <= fr->stages[max]))
@@ -59,6 +60,7 @@ void		search_fs(t_frame *fr, int min, int max)
 		fr->sec = tail;
 }
 
+//TODO function sort_chunk has 28 lines
 void		sort_chunk(t_frame *fr, int st_min, int st_max)
 {
 	while (fr->a != NULL)
@@ -66,7 +68,7 @@ void		sort_chunk(t_frame *fr, int st_min, int st_max)
 		s_update_fr(fr);
 		search_fs(fr, st_min, st_max);
 		if (fr->fst == NULL && fr->sec == NULL)
-			break;
+			break ;
 		else
 		{
 			calc_com1(fr);
@@ -90,7 +92,8 @@ void		sort_chunk(t_frame *fr, int st_min, int st_max)
 		}
 	}
 }
-static	void max_on_top(t_frame *fr)
+
+static void		max_on_top(t_frame *fr)
 {
 	int		depth;
 	t_dlst	*temp;
@@ -119,11 +122,10 @@ void		sort_large(t_frame *fr)
 	n = (fr->LEN_A <= 100) ? 14 : 26;
 	i = n - 1;
 	s_split_chunks(fr);
-
 	while (i >= 1)
 	{
 		sort_chunk(fr, i - 1, i);
-		i-=2;
+		i -= 2;
 	}
 	s_len_b(fr);
 	max_on_top(fr);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   service_push_swap.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sstark <sstark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 18:42:05 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/24 20:06:47 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/29 21:45:38 by sstark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	s_split_chunks(t_frame *fr)
 	{
 		fr->stages[i++] = temp;
 		temp = temp + div - 1;
-		fr->stages[i++] = (n == 0) ?  fr->MAX : temp;
+		fr->stages[i++] = (n == 0) ? fr->MAX : temp;
 		temp++;
 	}
 }
@@ -78,5 +78,5 @@ int		s_check(int *a, int len)
 			return (0);
 		i++;
 	}
-	return  (1);
+	return (1);
 }
