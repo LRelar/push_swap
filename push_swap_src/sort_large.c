@@ -6,7 +6,7 @@
 /*   By: sstark <sstark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:23:22 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/29 21:53:36 by sstark           ###   ########.fr       */
+/*   Updated: 2019/10/30 13:13:26 by sstark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	do_com(t_dlst **a, t_dlst **b, int com[4][2])
 	s_rep_rrb(b, com[1][1], 1);
 	s_rep_rr(a, b, com[2][0], 1);
 	s_rep_rrr(a, b, com[2][1], 1);
-	s_rep_sa(a, om[3][0], 1);
+	s_rep_sa(a, com[3][0], 1);
 	pb(a, b, 1);
 	s_rep_sb(b, com[3][1], 1);
 	//s_show_both_list(*a, *b);
