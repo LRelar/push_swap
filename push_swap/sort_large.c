@@ -6,7 +6,7 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:23:22 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/29 20:54:13 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/30 20:41:56 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void		sort_chunk(t_frame *fr, int st_min, int st_max)
 	{
 		s_update_fr(fr);
 		search_fs(fr, st_min, st_max);
+		visualizer(fr);
 		if (fr->fst == NULL && fr->sec == NULL)
 			break;
 		else
@@ -74,19 +75,19 @@ void		sort_chunk(t_frame *fr, int st_min, int st_max)
 			calc_com2(fr);
 			if (choice_opt(fr) == 1)
 			{
-				do_com(fr, fr->com1);
 				if (fr->loc_max == NULL || fr->fst->data > fr->loc_max->data)
 					fr->loc_max = fr->fst;
 				if (fr->loc_min == NULL || fr->fst->data < fr->loc_min->data)
 					fr->loc_min = fr->fst;
+				do_com(fr, fr->com1);
 			}
 			else
 			{
-				do_com(fr, fr->com2);
 				if (fr->loc_max == NULL || fr->sec->data > fr->loc_max->data)
 					fr->loc_max = fr->sec;
 				if (fr->loc_min == NULL || fr->sec->data < fr->loc_min->data)
 					fr->loc_min = fr->sec;
+				do_com(fr, fr->com2);
 			}
 		}
 	}
@@ -114,17 +115,16 @@ static	void max_on_top(t_frame *fr)
 
 void		sort_large(t_frame *fr)
 {
-	int i;
 	int n;
 
 	n = (fr->LEN_A <= 100) ? 14 : 26;
-	i = n - 1;
+	fr->i = n - 1;
 	s_split_chunks(fr);
 
-	while (i >= 1)
+	while (fr->i >= 1)
 	{
-		sort_chunk(fr, i - 1, i);
-		i-=2;
+		sort_chunk(fr, fr->i - 1, fr->i);
+		fr->i-=2;
 	}
 	s_len_b(fr);
 	max_on_top(fr);

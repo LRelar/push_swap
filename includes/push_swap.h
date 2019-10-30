@@ -47,6 +47,8 @@ typedef struct	s_push_swap_frame
 	int			bot;
 
 	int			*stages;
+	int 		i;
+
 	int 		visual;
 }				t_frame;
 

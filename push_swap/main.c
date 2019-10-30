@@ -3,8 +3,6 @@
 #include "../includes/input.h"
 #include "../includes/visual.h"
 
-int check2(t_dlst *a);
-
 int main(int argc, char *argv[])
 {
 	int *arr;
@@ -16,9 +14,8 @@ int main(int argc, char *argv[])
 	if (len == 1 || s_check(arr, len))
 		return (0);
 	t_frame *fr = s_create_frame(arr,len,s_min(arr,len), s_max(arr, len));
-
+	printf("%c[?25l", 27);
 	visualizer(fr);
-	printf("\n");
 	free(arr);
 	if (len == 2)
 		sort_2(fr);
@@ -31,19 +28,7 @@ int main(int argc, char *argv[])
 	if (len > 5)
 		sort_large(fr);
 	visualizer(fr);
-	//printf("\n%d", check2(fr->a));
+	printf("%c[?25h", 27);
 	s_del_frame(fr);
 	return 0;
-}
-int check2(t_dlst *a)
-{
-	t_dlst *t = a;
-
-	while (t->next != a)
-	{
-		if (t->data > t->next->data)
-			return (0);
-		t = t->next;
-	}
-	return (1);
 }
