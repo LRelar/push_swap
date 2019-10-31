@@ -6,25 +6,26 @@
 /*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:23:22 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/26 18:11:57 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/30 20:41:56 by ekedge-w         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../includes/service.h"
+#include "../includes/visual.h"
 
-static void	do_com(t_dlst **a, t_dlst **b, int com[4][2])
+static void	do_com(t_frame *fr, int com[4][2])
 {
-	s_rep_ra(a,com[0][0],1);
-    s_rep_rra(a,com[0][1],1);
-    s_rep_rb(b,com[1][0],1);
-	s_rep_rrb(b,com[1][1],1);
-	s_rep_rr(a,b,com[2][0],1);
-	s_rep_rrr(a,b,com[2][1],1);
-	s_rep_sa(a,com[3][0],1);
-	pb(a,b,1);
-	s_rep_sb(b,com[3][1],1);
-	//s_show_both_list(*a, *b);
+	s_rep_ra(&(fr->a),com[0][0],1);
+    s_rep_rra(&(fr->a),com[0][1],1);
+    s_rep_rb(&(fr->b),com[1][0],1);
+	s_rep_rrb(&(fr->b),com[1][1],1);
+	s_rep_rr(&(fr->a),&(fr->b),com[2][0],1);
+	s_rep_rrr(&(fr->a),&(fr->b),com[2][1],1);
+	s_rep_sa(&(fr->a),com[3][0],1);
+	pb(&(fr->a),&(fr->b),1);
+	s_rep_sb(&(fr->b),com[3][1],1);
+	visualizer(fr);
 }
 
 void		search_fs(t_frame *fr, int min, int max)
@@ -65,6 +66,7 @@ void		sort_chunk(t_frame *fr, int st_min, int st_max)
 	{
 		s_update_fr(fr);
 		search_fs(fr, st_min, st_max);
+		visualizer(fr);
 		if (fr->fst == NULL && fr->sec == NULL)
 			break;
 		else
@@ -73,19 +75,19 @@ void		sort_chunk(t_frame *fr, int st_min, int st_max)
 			calc_com2(fr);
 			if (choice_opt(fr) == 1)
 			{
-				do_com(&(fr->a), &(fr->b), fr->com1);
 				if (fr->loc_max == NULL || fr->fst->data > fr->loc_max->data)
 					fr->loc_max = fr->fst;
 				if (fr->loc_min == NULL || fr->fst->data < fr->loc_min->data)
 					fr->loc_min = fr->fst;
+				do_com(fr, fr->com1);
 			}
 			else
 			{
-				do_com(&(fr->a), &(fr->b), fr->com2);
 				if (fr->loc_max == NULL || fr->sec->data > fr->loc_max->data)
 					fr->loc_max = fr->sec;
 				if (fr->loc_min == NULL || fr->sec->data < fr->loc_min->data)
 					fr->loc_min = fr->sec;
+				do_com(fr, fr->com2);
 			}
 		}
 	}
@@ -113,17 +115,16 @@ static	void max_on_top(t_frame *fr)
 
 void		sort_large(t_frame *fr)
 {
-	int i;
 	int n;
 
 	n = (fr->LEN_A <= 100) ? 14 : 26;
-	i = n - 1;
+	fr->i = n - 1;
 	s_split_chunks(fr);
 
-	while (i >= 1)
+	while (fr->i >= 1)
 	{
-		sort_chunk(fr, i - 1, i);
-		i-=2;
+		sort_chunk(fr, fr->i - 1, fr->i);
+		fr->i-=2;
 	}
 	s_len_b(fr);
 	max_on_top(fr);

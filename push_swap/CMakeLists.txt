@@ -15,11 +15,11 @@ set(SOURCE_PS
         main.c
         sort_small.c
         sort_large.c
-        optimal_choice.c)
+        optimal_choice.c ../visual.c)
 set(HEADERS_PS
         ../includes/service.h
         ../includes/dc_lists.h
-        ../includes/input.h)
+        ../includes/input.h ../includes/visual.h)
 
 add_executable(push_swap ${SOURCE_PS} ${HEADERS_PS})
 target_link_libraries(push_swap libft)
