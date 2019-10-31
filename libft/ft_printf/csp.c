@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
-
 void		s_precision(t_param *lst)
 {
 	if (lst->precision != -1)

@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
-
 void	g_edit(t_param *lst, t_list **ml)
 {
 	char *str;

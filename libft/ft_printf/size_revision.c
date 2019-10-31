@@ -12,6 +12,7 @@
 
 #include "../includes/libft.h"
 
+
 static void			ft_swap(short int *a, short int *b)
 {
 	int tmp;
