@@ -83,6 +83,8 @@ t_frame			*s_create_frame(int *arr, int len, int min, int max)
 	fr->sec = NULL;
 	fr->loc_min = NULL;
 	fr->loc_max = NULL;
+	fr->visual = 0;
+	fr->i = 0;
 	return (fr);
 }
 

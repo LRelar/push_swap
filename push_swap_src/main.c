@@ -1,11 +1,21 @@
-#include <stdio.h>
 #include "../includes/push_swap.h"
 #include "../includes/service.h"
 #include "../includes/input.h"
+#include "../includes/visual.h"
 
-#include <time.h>
-
-int		check2(t_dlst *a);
+static void sort(t_frame *fr, int len)
+{
+	if (len == 2)
+		sort_2(fr);
+	if (len == 3)
+		sort_3(fr);
+	if (len == 4)
+		sort_4(fr);
+	if (len == 5)
+		sort_5(fr);
+	if (len > 5)
+		sort_large(fr);
+}
 
 int main(int argc, char *argv[])
 {
@@ -18,34 +28,15 @@ int main(int argc, char *argv[])
 	if (len == 1 || s_check(arr, len))
 		return (0);
 	t_frame *fr = s_create_frame(arr,len,s_min(arr,len), s_max(arr, len));
-
-//	s_show_both_list(fr->a, fr->b);
-//	printf("\n");
+	if (ft_strequ(argv[1], "-v"))
+			fr->visual = 1;
+	printf("%c[?25l", 27);
+	visualizer(fr);
 	free(arr);
-	if (len == 2)
-		sort_2(fr);
-	if (len == 3)
-		sort_3(fr);
-	if (len == 4)
-		sort_4(fr);
-	if (len == 5)
-		sort_5(fr);
-	if (len > 5)
-		sort_large(fr);
-//	s_show_both_list(fr->a, fr->b);
-//	printf("\n%d", check2(fr->a));
+	sort(fr, len);
+	visualizer(fr);
+	printf("%c[?25h", 27);
+	printf("%s",argv[0]);
 	s_del_frame(fr);
 	return 0;
-}
-int check2(t_dlst *a)
-{
-	t_dlst *t = a;
-
-	while (t->next != a)
-	{
-		if (t->data > t->next->data)
-			return (0);
-		t = t->next;
-	}
-	return (1);
 }
