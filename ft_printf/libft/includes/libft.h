@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sstark <sstark@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/09/21 21:30:24 by ekedge-w          #+#    #+#             */
+/*   Updated: 2019/10/29 21:34:33 by sstark           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <string.h>
@@ -75,6 +87,7 @@ int					ft_isdigit(int c);
 int					ft_isalnum(int c);
 int					ft_isascii(int c);
 int					ft_isprint(int c);
+char				*ft_itoa_base(long long int n, int base);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 
@@ -94,6 +107,11 @@ size_t				ft_allocated_size(void *ptr);
 void				*ft_realloc(void *ptr, size_t new_size);
 
 int					ft_get_next_line(const int fd, char **line);
+void				ft_utoa(unsigned long long int n, char rez[21]);
+void				ft_power_for_two(int power, char rez[2000]);
+void				ft_mult(char a[2000], char b[2000], char arr[4000]);
+int					ft_lstlen(t_list *lst);
+void				ft_mult_atod(char *arr, int n, char *rez, int count);
 void				del(void *content, size_t size);
 
 #endif

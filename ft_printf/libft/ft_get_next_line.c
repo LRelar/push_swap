@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_next_line.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sstark <sstark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 10:26:25 by ekedge-w          #+#    #+#             */
-/*   Updated: 2018/12/18 11:52:31 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/29 21:34:08 by sstark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static int			ft_lstmk(int fl, t_list **lst, int val, t_list **fd_lst)
 */
 
 static t_list		*ft_fdr(t_list **fd_lst, int fd, t_list *last, \
-								t_list *pr)
+							t_list *pr)
 {
 	if (fd == -1)
 		return (NULL);
@@ -152,7 +152,7 @@ static int			ft_hopper(t_list **ar, t_list **fdl, char **lin, size_t fl)
 		if (!(ar[2] = (t_list *)ft_memalloc(ar[0]->C_S + ar[1]->C_S)))
 			return (ft_lstmk(2, fdl, 0, fdl));
 		ft_memcpy(ft_memcpy((void *)ar[2], (CV *)ar[0]->CNT, ar[0]->C_S) + \
-				ar[0]->C_S, (CV *)ar[1]->CNT, ar[1]->C_S);
+									ar[0]->C_S, (CV *)ar[1]->CNT, ar[1]->C_S);
 		free(ar[0]->CNT);
 		ar[0]->CNT = (void *)ar[2];
 		ar[0]->C_S += ar[1]->C_S;
@@ -195,7 +195,7 @@ int					ft_get_next_line(const int fd, char **line)
 	int				ss[2];
 
 	if (!((pl[0] = ft_fdr(&fdl, fd, fdl, fdl)) && !(BUFF_SIZE < 1) && \
-			((ss[0] = ft_rs(line, pl[0], &fdl)) != -1)))
+						((ss[0] = ft_rs(line, pl[0], &fdl)) != -1)))
 		return (-1);
 	if (ss[0] == 0)
 		return (1);

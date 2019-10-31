@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   service_com_rrr.c                                  :+:      :+:    :+:   */
+/*   ft_lstlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sstark <sstark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/11 17:36:47 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/29 21:41:33 by sstark           ###   ########.fr       */
+/*   Created: 2019/09/18 16:07:38 by sstark            #+#    #+#             */
+/*   Updated: 2019/09/18 16:10:27 by sstark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/service.h"
+#include "libft.h"
 
-void	rrr(t_dlst **head_a, t_dlst **head_b, int flag)
-{
-	*head_a = (*head_a)->prev;
-	*head_b = (*head_b)->prev;
-	(flag == 1) ? write(1, "rrr\n", 4) : (flag = 0);
-}
-
-void	s_rep_rrr(t_dlst **head_a, t_dlst **head_b, int n, int flag)
+int		ft_lstlen(t_list *lst)
 {
 	int i;
 
-	i = -1;
-	while (++i < n)
-		rrr(head_a, head_b, 1);
+	i = 0;
+	while (lst)
+	{
+		i++;
+		lst = lst->next;
+	}
+	return (i);
 }

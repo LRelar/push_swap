@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sstark <sstark@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 18:42:24 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/26 18:09:50 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/29 19:46:23 by sstark           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <limits.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include "../libft/libft.h"
+#include "ft_printf.h"
 #include "dc_lists.h"
 
 typedef struct	s_push_swap_frame
