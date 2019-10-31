@@ -57,11 +57,13 @@ void 	b_exist(t_frame *fr, t_dlst **temp2)
 	}
 }
 
-void	visualizer(t_frame *fr)
+int visualizer(t_frame *fr)
 {
 	t_dlst *temp1;
 	t_dlst *temp2;
 
+	if (!fr->visual)
+		return (0);
 	temp1 = fr->a;
 	temp2 = fr->b;
 	printf("%c[2J%c[H", 27, 27);
@@ -80,6 +82,6 @@ void	visualizer(t_frame *fr)
 	printf("____________________________\n");
 	if (!fr->fst && !fr->sec && fr->b)
 		printf("Moving to the next range\n");
-	sleep(1);
+	return(usleep(250000));
 }
 
