@@ -1,5 +1,6 @@
 #include "includes/input.h"
 
+
 int	*parser(int ac, char **av, int i, int *len)
 {
 	int		*arr;
@@ -20,7 +21,7 @@ int	*parser(int ac, char **av, int i, int *len)
 	return (arr);
 }
 
-int	*one_ac_stack(char **av, int *len)
+int	*one_ac_stack(char **av, int *len, int visual)
 {
 	char	**cp_one_ac;
 	int		count;
@@ -28,7 +29,8 @@ int	*one_ac_stack(char **av, int *len)
 	int		*arr;
 
 	count = 0;
-	one_ac = ft_strsplit(av[1], ' ');
+	if (!(one_ac = ft_strsplit(av[1 + visual], ' ')))
+		return (NULL);
 	cp_one_ac = one_ac;
 	while (*cp_one_ac++)
 		count++;
@@ -44,15 +46,17 @@ int	*one_ac_stack(char **av, int *len)
 int	*checker_collector(int ac, char **av, int *len)
 {
 	int		*arr;
+	int		visual;
 
+	visual = ft_strequ(av[1], "-v");
 	arr = NULL;
-	if (ac == 2)
-		arr = one_ac_stack(av, len);
-	if (ac > 2)
+	if (ac == 2 + visual)
+		arr = one_ac_stack(av, len, visual);
+	if (ac > 2 + visual)
 	{
-		if (!ch_digit_cheker(av, 0))
+		if (!ch_digit_cheker(av, 0 + visual))
 			free_and_exit(NULL, NULL, NULL, 1);
-		arr = parser(ac, av, 0, len);
+		arr = parser(ac - visual - 1, av, 0 + visual, len);
 	}
 	return (arr);
 }

@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include "../includes/service.h"
 
 static void	reverse(int com[4][2])
 {

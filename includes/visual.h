@@ -6,6 +6,6 @@
 
 void	both_exist(t_frame *fr, t_dlst **temp1, t_dlst **temp2);
 void 	a_exist(t_frame *fr, t_dlst **temp1);
-int visualizer(t_frame *fr);
+int		visualizer(t_frame *fr);
 
 #endif //TEST_VISUAL_H

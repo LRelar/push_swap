@@ -1,9 +1,7 @@
-//
-// Created by Skeleton Stark on 24/10/2019.
-//
-
 #ifndef CHEKER_H
 #define CHEKER_H
+
+#include "input.h"
 
 void	exec_command(char *buf, t_dlst **stack_a, t_dlst **stack_b);
 void	grab_stdout(t_dlst **stack_a, t_dlst **stack_b, int *i);

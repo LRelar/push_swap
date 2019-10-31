@@ -7,7 +7,8 @@ DIR_LIB	=	./ft_printf
 VPATH	:=	.:\
 			./push_swap_src: \
 			./service:
-SOURCE	+=	input.c
+SOURCE	+=	input.c \
+			visual.c
 SOURCE	+=	main.c \
 			optimal_choice.c \
 			sort_large.c \

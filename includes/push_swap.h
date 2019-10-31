@@ -17,7 +17,7 @@
 #include <limits.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include "ft_printf.h"
+#include "../libft/includes/libft.h"
 #include "dc_lists.h"
 
 typedef struct	s_push_swap_frame

@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="test"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\libft\;CMake Files\push_swap_src\;CMake Files\checker_src\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="libft">
+				<Option output="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/libft/liblibft.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/libft"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 libft"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="libft/fast">
+				<Option output="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/libft/liblibft.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/libft"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 libft/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="push_swap">
+				<Option output="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/push_swap_src/push_swap" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/push_swap_src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/push_swap_src/Makefile&quot;  VERBOSE=1 push_swap"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/push_swap_src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/push_swap_src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/push_swap_src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="push_swap/fast">
+				<Option output="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/push_swap_src/push_swap" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/push_swap_src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/push_swap_src/Makefile&quot;  VERBOSE=1 push_swap/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/push_swap_src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/push_swap_src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/push_swap_src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="cheker">
+				<Option output="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/checker_src/cheker" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/checker_src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/checker_src/Makefile&quot;  VERBOSE=1 cheker"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/checker_src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/checker_src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/checker_src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="cheker/fast">
+				<Option output="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/checker_src/cheker" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/checker_src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/checker_src/Makefile&quot;  VERBOSE=1 cheker/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/checker_src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/checker_src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/checker_src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/checker_src/cheker.c">
+			<Option target="cheker"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/checker_src/do_command.c">
+			<Option target="cheker"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/includes/cheker.h">
+			<Option target="cheker"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/includes/dc_lists.h">
+			<Option target="push_swap"/>
+			<Option target="cheker"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/includes/input.h">
+			<Option target="push_swap"/>
+			<Option target="cheker"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/includes/service.h">
+			<Option target="push_swap"/>
+			<Option target="cheker"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/includes/visual.h">
+			<Option target="push_swap"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/input.c">
+			<Option target="push_swap"/>
+			<Option target="cheker"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/includes/ft_printf.h">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/includes/libft.h">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/includes/stdlibft.h">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_allocated_size.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_atoi.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_bzero.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_del.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_free.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_get_next_line.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_isalnum.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_isalpha.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_isascii.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_isdigit.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_isprint.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_itoa.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_itoa_base.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_lstadd.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_lstdel.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_lstdelone.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_lstiter.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_lstlen.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_lstmap.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_lstnew.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_malloc.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_memalloc.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_memccpy.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_memchr.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_memcmp.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_memcpy.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_memdel.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_memmove.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_memset.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_mult.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_mult_atod.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_power.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_power_for_two.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_putchar.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_putchar_fd.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_putendl.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_putendl_fd.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_putnbr.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_putnbr_fd.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_putstr.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_putstr_fd.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_qsort_i.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_realloc.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_sqrt.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_strcat.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_strchr.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_strclr.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_strcmp.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_strcpy.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_strdel.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_strdup.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_strequ.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_striter.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_striteri.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_strjoin.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_strlcat.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_strlen.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_strmap.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_strmapi.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_strncat.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_strncmp.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_strncpy.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_strndup.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_strnequ.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_strnew.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_strnstr.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_strrchr.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_strsplit.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_strstr.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_strsub.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_strtrim.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_tolower.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_toupper.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/src/ft_utoa.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/push_swap_src/main.c">
+			<Option target="push_swap"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/push_swap_src/optimal_choice.c">
+			<Option target="push_swap"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/push_swap_src/sort_large.c">
+			<Option target="push_swap"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/push_swap_src/sort_small.c">
+			<Option target="push_swap"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/service/service_com_p_ab.c">
+			<Option target="push_swap"/>
+			<Option target="cheker"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/service/service_com_r_ab.c">
+			<Option target="push_swap"/>
+			<Option target="cheker"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/service/service_com_rr.c">
+			<Option target="push_swap"/>
+			<Option target="cheker"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/service/service_com_rr_ab.c">
+			<Option target="push_swap"/>
+			<Option target="cheker"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/service/service_com_rrr.c">
+			<Option target="push_swap"/>
+			<Option target="cheker"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/service/service_com_s_ab.c">
+			<Option target="push_swap"/>
+			<Option target="cheker"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/service/service_com_ss.c">
+			<Option target="push_swap"/>
+			<Option target="cheker"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/service/service_frame.c">
+			<Option target="push_swap"/>
+			<Option target="cheker"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/service/service_input.c">
+			<Option target="push_swap"/>
+			<Option target="cheker"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/service/service_list.c">
+			<Option target="push_swap"/>
+			<Option target="cheker"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/service/service_push_swap.c">
+			<Option target="push_swap"/>
+			<Option target="cheker"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/service/service_push_swap_2.c">
+			<Option target="push_swap"/>
+			<Option target="cheker"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/visual.c">
+			<Option target="push_swap"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/libft/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\libft\"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/push_swap_src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\push_swap_src\"/>
+		</Unit>
+		<Unit filename="/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/checker_src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\checker_src\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
