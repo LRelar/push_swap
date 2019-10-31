@@ -1,0 +1,11 @@
+/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/libft/CMakeFiles/rebuild_cache.dir
+/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/libft/CMakeFiles/edit_cache.dir
+/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/libft/CMakeFiles/libft.dir
+/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/push_swap_src/CMakeFiles/rebuild_cache.dir
+/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/push_swap_src/CMakeFiles/edit_cache.dir
+/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/push_swap_src/CMakeFiles/push_swap.dir
+/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/checker_src/CMakeFiles/rebuild_cache.dir
+/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/checker_src/CMakeFiles/edit_cache.dir
+/Users/sstark/Desktop/NEWWWWW!!!!!!!!/push_swap/cmake-build-debug/checker_src/CMakeFiles/cheker.dir

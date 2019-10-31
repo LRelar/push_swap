@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   service_com_rr.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sstark <sstark@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mschimme <mschimme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 17:35:20 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/29 21:41:08 by sstark           ###   ########.fr       */
+/*   Updated: 2019/10/31 19:40:52 by mschimme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ void	s_rep_rr(t_dlst **head_a, t_dlst **head_b, int n, int flag)
 
 	i = -1;
 	while (++i < n)
-		rr(head_a, head_b, 1);
+		rr(head_a, head_b, flag);
 }

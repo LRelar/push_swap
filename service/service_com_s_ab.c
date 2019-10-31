@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   service_com_s_ab.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sstark <sstark@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mschimme <mschimme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 18:43:09 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/29 21:42:00 by sstark           ###   ########.fr       */
+/*   Updated: 2019/10/31 19:41:56 by mschimme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	s_rep_sa(t_dlst **head_a, int n, int flag)
 
 	i = -1;
 	while (++i < n)
-		sa(head_a, 1);
+		sa(head_a, flag);
 }
 
 void	s_rep_sb(t_dlst **head_b, int n, int flag)
@@ -63,5 +63,5 @@ void	s_rep_sb(t_dlst **head_b, int n, int flag)
 
 	i = -1;
 	while (++i < n)
-		sb(head_b, 1);
+		sb(head_b, flag);
 }

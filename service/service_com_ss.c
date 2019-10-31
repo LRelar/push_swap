@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   service_com_ss.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sstark <sstark@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mschimme <mschimme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 17:33:05 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/29 21:42:42 by sstark           ###   ########.fr       */
+/*   Updated: 2019/10/31 19:42:15 by mschimme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,5 @@ void	s_rep_ss(t_dlst **head_a, t_dlst **head_b, int n, int flag)
 
 	i = -1;
 	while (++i < n)
-		ss(head_a, head_b, 1);
+		ss(head_a, head_b, flag);
 }

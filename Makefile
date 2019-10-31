@@ -2,12 +2,16 @@ CHECKER	=	./make_check
 PUSH	=	./make_push
 
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re make_check make_push
 
 all: build
 
-build:
+build: $(CHECKER) $(PUSH)
+
+$(CHECKER):
 	@$(MAKE) -f $(CHECKER)
+
+$(PUSH):
 	@$(MAKE) -f $(PUSH)
 
 clean:

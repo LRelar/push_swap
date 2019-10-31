@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   service_in_cr_frame.c                              :+:      :+:    :+:   */
+/*   service_frame.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mschimme <mschimme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 18:43:01 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/25 18:18:08 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/31 19:43:00 by mschimme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ static void		null_all_int(t_frame *fr)
 
 void			s_update_fr(t_frame *fr)
 {
-	t_dlst *temp;
-
 	null_all_int(fr);
 	fr->fst = NULL;
 	fr->sec = NULL;

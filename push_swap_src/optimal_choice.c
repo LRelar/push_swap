@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   optimal_choice.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sstark <sstark@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mschimme <mschimme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 17:35:16 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/29 21:57:32 by sstark           ###   ########.fr       */
+/*   Updated: 2019/10/31 19:54:13 by mschimme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include "../includes/service.h"
 
 static void	reverse(int com[4][2])
 {
@@ -35,7 +34,7 @@ static void	reverse(int com[4][2])
 	}
 }
 
-static int	put_max_min(t_frame *fr, t_dlst *cur, int com[4][2])
+static int	put_max_min(t_frame *fr, int com[4][2])
 {
 	t_dlst	*temp;
 	int		depth;
@@ -103,7 +102,7 @@ static int	calc_b(t_frame *fr, t_dlst *cur, int com[4][2])
 	if (fr->b != NULL)
 	{
 		if ((cur->data < fr->loc_min->data) || (cur->data > fr->loc_max->data))
-			return (put_max_min(fr, cur, com));
+			return (put_max_min(fr, com));
 		if (cur->data > fr->loc_min->data && cur->data < fr->loc_max->data)
 			return (put_in_rpos(fr, cur, com));
 	}

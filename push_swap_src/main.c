@@ -36,7 +36,6 @@ int main(int argc, char *argv[])
 	sort(fr, len);
 	visualizer(fr);
 	printf("%c[?25h", 27);
-	printf("%s",argv[0]);
 	s_del_frame(fr);
 	return 0;
 }

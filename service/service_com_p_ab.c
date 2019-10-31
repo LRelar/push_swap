@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   service_com_p.c                                    :+:      :+:    :+:   */
+/*   service_com_p_ab.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ekedge-w <ekedge-w@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mschimme <mschimme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 17:22:08 by ekedge-w          #+#    #+#             */
-/*   Updated: 2019/10/14 17:33:15 by ekedge-w         ###   ########.fr       */
+/*   Updated: 2019/10/31 19:39:39 by mschimme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void		s_rep_pa(t_dlst **head_a, t_dlst **head_b, int n, int flag)
 
 	i = -1;
 	while (++i < n)
-		pa(head_a, head_b, 1);
+		pa(head_a, head_b, flag);
 }
 
 void		s_rep_pb(t_dlst **head_a, t_dlst **head_b, int n, int flag)
@@ -89,5 +89,5 @@ void		s_rep_pb(t_dlst **head_a, t_dlst **head_b, int n, int flag)
 
 	i = -1;
 	while (++i < n)
-		pb(head_a, head_b, 1);
+		pb(head_a, head_b, flag);
 }

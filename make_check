@@ -1,11 +1,11 @@
 NAME	=	checker
 CC		=	gcc
 FLAGS	=	-Wall -Wextra -Werror
-LIB		=	libftprintf.a
-DIR_LIB	=	./ft_printf
+LIB		=	libft.a
+DIR_LIB	=	./libft
 
-VPATH	:=	.:\
-			./checker_src:\
+VPATH	:=	.: \
+			./checker_src: \
 			./service:
 SOURCE	+=	input.c
 SOURCE	+=	cheker.c \
@@ -26,22 +26,24 @@ SOURCE	+=	service_com_p_ab.c \
 OBJ_DIR		:=	./obj
 OBJECTS		:= $(patsubst %,$(OBJ_DIR)/%,$(SOURCE:.c=.o))
 
-INC_DIR	:=	./includes ./ft_printf/includes ./ft_printf/libft/includes
+INC_DIR	:=	./includes $(DIR_LIB)/includes
 IFLAGS	+=	$(foreach d, $(INC_DIR), -I$d)
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re MAKEDIR
 
 all: $(NAME)
 
-$(NAME): $(LIB) $(OBJECTS)
-	@$(CC) $(FLAGS) -L$(DIR_LIB) -lftprintf $(OBJECTS) -o $(NAME)
+$(NAME): $(LIB) MAKEDIR $(OBJECTS)
+	@$(CC) $(FLAGS) -L$(DIR_LIB) -lft $(OBJECTS) -o $(NAME)
 
 $(LIB):
 	@$(MAKE) -C $(DIR_LIB)
 
-$(OBJ_DIR)/%.o:%.c
+MAKEDIR:
 	@mkdir -p $(OBJ_DIR)
-	@$(CC) $(CFLAGS) $(IFLAGS)  -o $@ -c $<
+
+$(OBJ_DIR)/%.o:%.c
+	@$(CC) $(FLAGS) $(IFLAGS)  -o $@ -c $<
 
 clean:
 	@rm -rf $(OBJ_DIR)
